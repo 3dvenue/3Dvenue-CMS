@@ -5,12 +5,15 @@ I wanted to achieve perfect PageSpeed Insights scores, so I built my own CMS.
 PageSpeed Insightsで「ALL 100点」を狙いたくて、このCMSを開発しました。
 
 
+
 ## Lightweight Structure
 
 - Public side: approximately 174KB
 - Entire system: under 1MB
 
 Including the admin panel, SQLite database, SEO tools, and color mapping system.
+
+
 
 
 # About the Developer
@@ -41,6 +44,8 @@ Including the admin panel, SQLite database, SEO tools, and color mapping system.
 2026年5月9日  
 Japan / Tokyo
 
+
+
   
 ## Features 
 
@@ -51,12 +56,15 @@ Rather than being just another website creation tool, 3DVenue aims to provide an
 
 単なるウェブサイト制作ツールではなく、デジタルの力で夢を届けるための、思想に基づいた「体験型スペース」を提供します。
 
+
+
 ### Optimized for a 100/100 PageSpeed Insights Score
 ### PageSpeed Insights ALL 100点への最適化
 
 - **Focused on simple HTML and CSS**
 
   Rather than relying on excessive libraries, the system is designed around simple HTML structures and CSS to keep development lightweight and easy to control.
+
 
   - **自分が使いやすいHTMLとCSSへの集中**
   
@@ -69,6 +77,8 @@ Rather than being just another website creation tool, 3DVenue aims to provide an
   The goal is to create an environment optimized for fast rendering and high PageSpeed Insights scores, including the possibility of achieving 100/100 scores.
 
   *Some image adjustment features are still under development and will be improved in future updates.*
+
+
 
   - **画像管理の手間を省くWebP自動変換**
   
@@ -91,6 +101,7 @@ Rather than being just another website creation tool, 3DVenue aims to provide an
     PageSpeed Insightsでチェックしながら、リアルタイムに調整をすることができます。
 
 
+
 ### Flexible Deployment Powered by SQLite
 ### SQLiteの採用による、場所を選ばない自由な管理
 
@@ -101,6 +112,8 @@ Rather than being just another website creation tool, 3DVenue aims to provide an
   Since SQLite does not require a dedicated database server, the system can run easily in many hosting environments.
 
   Simply place the files in your preferred directory, and the system is ready to run immediately.
+
+
 
   - **DB設定のわずらわしさからの解放**
   
@@ -120,6 +133,8 @@ Rather than being just another website creation tool, 3DVenue aims to provide an
 
   This may help reduce deployment and delivery work for professional developers.
 
+
+
   - **ディレクトリ移動だけで完結する「公開」と「移設」**
   
     たとえば `/close/` ディレクトリ内でページを完成させ、FTPでディレクトリ名を `/open/` に変えた瞬間にそのURLへ切り替わります。
@@ -129,6 +144,8 @@ Rather than being just another website creation tool, 3DVenue aims to provide an
     ※移転前にページを完成させておけば管理画面の転送は不要です。
     
     ※プロフェッショナルの納品の手間が軽減されるのではないでしょうか？
+
+
 
     
 ### Built-in Color Design Tool
@@ -140,21 +157,30 @@ Rather than being just another website creation tool, 3DVenue aims to provide an
 
   To make color selection easier, I created a custom system based on four-color palettes that allows users to test up to 24×3 pattern combinations from a single palette while trying to avoid visually broken combinations as much as possible.
 
+
+
   - **配色で頭を悩ませていませんでしたか？**
   
     少なくても僕はこれが本当にしんどかったので、独自ロジックで、４色パレットを使って、出来るだけ破綻しない組み合わせを、１つのパレットだけで２４×３通りの組み合わせを試せる仕組みを作ってみました。
+
 
 - **100 preset color palettes included**
 
   All colors can be freely customized and replaced.
 
+
+
   - **配色パレットを100種類用意**
   
     色は自由に差し替えが可能です。
 
+
+
 - **Favorite filter feature**
 
   By marking color patterns with a ♥ icon, you can instantly filter and revisit your favorite combinations.
+
+
 
   - **お気に入り機能**
   
@@ -163,6 +189,8 @@ Rather than being just another website creation tool, 3DVenue aims to provide an
 - **Spend less time adjusting colors and more time building pages**
 
   Since color selection often leads to repeated revisions between clients and designers, I tried to create a system that allows visual simulation directly within the website image itself.
+
+
 
   - **時間短縮でページ作成に集中**
   
@@ -174,6 +202,7 @@ While developing it, I kept adding new ideas and improvements, and before I real
 *この仕組みに結構時間がかかったので、投稿までに時間がかかってしまいました。この際使いやすさは二の次で・・・*
 
 
+
 ## Screenshots
 
 ### PageSpeed Insights  
@@ -181,13 +210,18 @@ While developing it, I kept adding new ideas and improvements, and before I real
 <img src="img/psi.webp" width="900">
 
 
+
 ### Admin Panel  
   
 <img src="img/top.webp" width="900">  
+
+
   
 ### Color Mapping Tool  
   
 <img src="img/color.webp" width="900">  
+
+
   
 ### SEO Settings  
   
@@ -208,6 +242,8 @@ While developing it, I kept adding new ideas and improvements, and before I real
 - **Step 5: ColorMapping** https://vimeo.com/1190139423?fl=ip&fe=ec
     
 - **Step 6: Navigation** https://vimeo.com/1190139520?fl=ip&fe=ec
+
+
 
 ##  Installation / Usage
 
@@ -248,6 +284,9 @@ Please change these values before uploading to a public server.
 
 _The entire system is approximately 1MB in size._  
 _ファイル全体はおよそ1MB程度です。_
+
+
+
     
 ## License
   
