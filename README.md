@@ -54,7 +54,7 @@ Japan / Tokyo
 
 Rather than being just another website creation tool, 3DVenue aims to provide an “experiential space” built around the idea of delivering dreams through the power of digital technology.
 
-単なるウェブサイト制作ツールではなく、デジタルの力で夢を届けるための、思想に基づいた「体験型スペース」を提供します。
+単なるウェブサイト制作ツールではなく、デジタルの力で夢を届けるという思想に基づいた「体験型スペース」を提供します。
 
 
 
