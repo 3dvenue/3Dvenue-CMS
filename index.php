@@ -67,7 +67,7 @@ $js = $row["js"];
 $public = $row["public"];
 $sdate = $row["sdate"];
 $image = $row["image"];
-$ld = $row["ld"];
+$jsonld = $row["jsonld"];
 $other = $row["other"];
 $noindex = $row["noindex"] ?? '0';
 
@@ -105,6 +105,9 @@ $meta_image = file_exists($meta_image) ? $meta_image : '';
 <meta name="twitter:card" content="summary_large_image">
 <?php } ?>
 <link rel="icon" href="/favicon.ico">
+<!-- LD_START -->
+<?=$jsonld?>
+<!-- LD_END -->
 <style type="text/css">
 <?=$style?>
 <?=$color?>
