@@ -1,0 +1,198 @@
+body,html{
+	padding:0;
+	margin:0;
+	width:100%;
+	height:100%;
+}
+
+
+body *{
+	box-sizing: border-box;
+	font-family:'Meiryo',sans-serif;
+}
+
+#menu{
+	display:none;
+}
+
+/* header
+---------------------------------------------*/
+header{
+	padding:10px 40px;
+	border-radius: 0 0 40px 0;
+	position:relative;
+}
+
+header .inner{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+header #logo{
+	text-align: center;
+	height:60px;
+}
+
+header #logo img{
+	height:60px;
+	width:60px;
+}
+
+header #headertext{
+	text-align: center;
+}
+
+#hamburger{
+	position:fixed;
+	top:0;
+	right:0;
+	width:40px;
+	height:40px;
+	background-image:url(/common/img/menub.webp);
+	background-size:80%;
+	background-repeat:no-repeat;
+	background-position:center;
+	border:1px solid;
+	display:none;
+}
+
+@media(max-width:880px){
+	#hamburger{
+		display:block;
+	}
+}
+
+/* nav
+---------------------------------------------*/
+nav{
+	border-top:1px solid #ccc;
+}
+
+nav .inner{
+	display: flex;
+	justify-content: right;
+}
+
+@media(min-width:881px){
+	nav ul{
+		display:flex;
+		flex-wrap:wrap;
+		list-style: none;
+		padding:0;
+		margin:0;
+	}
+}
+
+nav ul li{
+	height:100%;
+}
+
+nav ul li a{
+	display:flex;
+	align-items: center;
+	width:100%;
+	height:100%;
+	padding:0 20px;
+	justify-content: left;
+        text-decoration:none;
+        font-weight:700;
+}
+
+nav ul.nav0{
+	display: flex;
+	z-index:1000;
+	height:100%;
+}
+
+nav ul.nav0 > li{
+	position: relative;
+	border-left:1px solid #FFF2;
+}
+
+nav ul.nav0 > li > a{
+	height:60px;
+}
+
+nav ul.nav1{
+	display: block;
+	position: absolute;
+	top:100%;
+	left:0;
+	width:100%;
+}
+
+nav ul.nav1 li{
+	display: block;
+	width:100%;
+}
+
+nav ul.nav1 > li > a{
+	width:100%;
+	height:100%;
+	justify-content:center;
+	height:0;
+	overflow:hidden;
+}
+
+nav ul.nav2{
+	display: none;
+}
+
+@media(max-width:880px){
+	nav ul.nav0{
+ 	display:none;
+	}
+}
+
+
+/* main
+---------------------------------------------*/
+main section .inner{
+   width:100%;
+   max-width:1040px;
+   padding:0 20px;
+   margin:0 auto;
+}
+
+main section{
+    padding:50px 0;
+}
+
+main section .inner h2{
+    text-align:center;
+}
+
+main section img{
+	width:100%;
+	height:auto;
+}
+
+main #eyecatch{
+    padding:120px 0;
+}
+
+main #eyecatch .inner h1,
+main #eyecatch .inner h2,
+main #eyecatch .inner div{
+    width:max-content;
+    padding:5px 40px;
+}
+
+
+
+
+/* footer
+---------------------------------------------*/
+footer{
+	padding:20px 0;
+}
+
+footer > div{
+   width:100%;
+   margin:0 auto;
+}
+
+footer > div#copyright{
+    text-align:center;
+}
