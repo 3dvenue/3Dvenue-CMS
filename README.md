@@ -200,7 +200,7 @@ Rather than being just another website creation tool, 3DVenue aims to provide an
 While developing it, I kept adding new ideas and improvements, and before I realized it, the release had been delayed.*
 
 *この仕組みに結構時間がかかったので、投稿までに時間がかかってしまいました。使いやすさはバージョンアップか、利用してくださる皆さんのお力を借りれたらと*
----
+
 
 ## Screenshots
 
