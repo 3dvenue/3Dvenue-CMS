@@ -5,6 +5,14 @@ I wanted to achieve perfect PageSpeed Insights scores, so I built my own CMS.
 PageSpeed Insightsで「ALL 100点」を狙いたくて、このCMSを開発しました。
 
 
+## Lightweight Structure
+
+- Public side: approximately 174KB
+- Entire system: under 1MB
+
+Including the admin panel, SQLite database, SEO tools, and color mapping system.
+
+
 # About the Developer
 ## 開発者について
 
