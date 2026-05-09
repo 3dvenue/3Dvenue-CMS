@@ -1,0 +1,366 @@
+/* 3Dvenue-CMS Copyright (c) 2026 yoshihiro Murai Licensed under MIT (https://opensource.org/licenses/MIT)*/
+
+#main h2{
+	position:relative;
+}
+
+#main h2 #new{
+	position:absolute;
+	top:20px;
+	right:0;
+}
+
+
+#images ul{
+	padding:0;
+	margin:0;
+	list-style: none;
+	display: grid;
+    gap: clamp(1px, 5vw, 5px);
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));	
+}
+
+#images ul li{
+	display: block;
+    width: 100%;
+    font-size: 16px;
+    padding: 5px 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    text-align: left;
+}
+
+#images ul li figure{
+	padding:0;
+	margin:0;
+	width:100%;
+	max-width:200px;
+	line-height:1.0;
+	cursor: pointer;
+	aspect-ratio: 3/2;
+	outline:1px solid #ccc;	
+}
+
+#images ul li figure:hover{
+	outline:2px solid #000;
+}
+
+#images ul li figure figcaption{
+	padding:0 10px;
+	text-align: center;
+	white-space: nowrap;     /* 改行させない */
+    overflow: hidden;        /* はみ出た分を隠す */
+    text-overflow: ellipsis; /* はみ出た分を「...」にする */
+}
+
+#images ul li figure img{
+	width: 100%;
+    height: 100%;
+    object-fit: contain; /* 画像全体が収まるようにリサイズ */
+    object-position: center; /* 中央に配置 */
+}
+
+
+/* imageupload
+---------------------------------------*/
+#imagecrop,
+#imageupload{
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	height:100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	background:#000C;
+	transform: scale(0.0);
+	opacity:0;
+	pointer-events: none;
+	transition-duration: .5s;
+}
+
+#imagecrop{
+	display: block;
+	padding:40px 0 0;
+}
+
+#imagecrop .close,
+#imageupload .close{
+	position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.0;
+    background: #000;
+    color: #FFF;
+    font-weight: 500;
+    font-size: 20px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    z-index:1;
+}
+
+#imagecrop.active,
+#imageupload.active{
+	transform: scale(1.0);
+	opacity:1;
+	pointer-events: auto;
+}
+
+#imageupload #view{
+	width:300px;
+	height:300px;
+	background-size:contain;
+	background-repeat:no-repeat;
+	background-position: center;
+}
+
+#imageupload #form{
+	padding:20px 40px;
+	background:#FFF;
+	border-radius: 10px;
+}
+
+#inputbox button,
+#imagecrop input,
+#imageupload #form input{
+	padding:5px 10px;
+	border-radius: 5px;
+	border:1px solid #666;
+}
+
+#imagecrop input{
+	width:250px;
+	text-align: right;
+}
+
+#imagecrop .wrap{
+	position: fixed;
+	top:40px;
+	left:0;
+	width:100%;
+	max-width:1280px;
+	height:calc(100% - 160px);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#imagecrop #cropview{
+	height:80%;
+}
+
+#imagecrop #cropview img{
+	height:100%;
+	width:auto;
+}
+
+#imagecrop #cropview #cropper{
+	position:fixed;
+	top:20%;
+	left:35%;
+	width:30%;
+	aspect-ratio: 1/1;
+	outline:2000px solid #0007;
+	background-repeat:no-repeat;
+	z-index:10;
+	min-width:240px;
+	overflow: hidden;
+}
+
+#imagecrop #cropview #cropper img{
+	position: absolute;
+	top:0;
+	left:0px;
+}
+
+#imageupload #form p,
+#imageupload #form label{
+	display: block;
+	margin-bottom:20px;
+}
+
+#imageupload #form #btn{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#imageupload #form #delete{
+	background:none;
+	padding: 0 0px;
+}
+
+#imageupload #form label div{
+	text-align: center;
+	background:#FFF;
+	color:#333;
+	border:1px solid #333;
+	cursor: pointer;
+}
+
+#imageupload #form #file{
+	display: none;
+}
+
+#cropbox{
+	position:absolute;
+	bottom:60px;
+	left:0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap:20px;
+	width:100%;
+	z-index:10;
+	height:60px;
+	background:#000;
+}
+
+#cropview{
+	background:#000;
+	overflow: hidden;
+}
+
+#cropbox span{
+	display: block;
+	background:#FFF;
+	width:60px;
+	text-align: center;
+	cursor: pointer;
+	user-select: none;
+}
+
+#cropbox span:hover{
+	background:#000;
+	color:#EEF;
+}
+
+
+#cropbox span.active{
+	background:#FDAB6B;
+	color:#FFF;
+}
+
+#inputbox{
+	position:fixed;
+	gap:20px;
+	bottom:0;
+	left:0;
+	width:100%;
+	height:60px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background:#F0F0F0;
+	z-index:10;
+}
+
+#inputbox button{
+	background:#FFF;
+	color:#333;
+}
+
+#cropbox label{
+	font-size:14px;
+	color:#FFF;
+}
+
+input#croprange{
+	padding:0;
+	margin:0;
+	width:150px;
+}
+
+#imageposition{
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	outline: 2px solid red;
+	outline-offset: 2px;
+}
+
+.ui-resizable-ne,
+.ui-resizable-nw,
+.ui-resizable-se,
+.ui-resizable-sw,
+.ui-resizable-n,
+.ui-resizable-s,
+.ui-resizable-e,
+.ui-resizable-w{
+	width:15px;
+	height:15px;
+	position:absolute;
+}
+
+#cropper:hover .ui-resizable-ne,
+#cropper:hover .ui-resizable-nw,
+#cropper:hover .ui-resizable-se,
+#cropper:hover .ui-resizable-sw{
+	z-index:100;
+	border:1px solid #666;
+	background:#FFFc;
+}
+
+.ui-resizable-ne,
+.ui-resizable-nw{
+	top:-5px;
+}
+
+.ui-resizable-se,
+.ui-resizable-sw{
+	bottom:-5px;
+}
+
+.ui-resizable-se{right:-5px}
+.ui-resizable-sw{left:-5px}
+.ui-resizable-ne{right:-5px}
+.ui-resizable-nw{left:-5px}
+
+.ui-resizable-n,
+.ui-resizable-s{
+	left:0;
+	width:100%;
+	height:10px;
+}
+
+.ui-resizable-e,
+.ui-resizable-w{
+	top:0;
+	width:10PX;
+	height:100%;
+}
+
+.ui-resizable-n{top:-5px}
+.ui-resizable-s{bottom:-5px}
+.ui-resizable-e{right:-5px}
+.ui-resizable-w{left:-5px}
+
+.ui-resizable-ne:hover,
+.ui-resizable-sw:hover{
+	cursor: nesw-resize;
+}
+
+.ui-resizable-nw:hover,
+.ui-resizable-se:hover{
+	cursor: nwse-resize;
+}
+
+.ui-resizable-n:hover,
+.ui-resizable-s:hover{
+	cursor: ns-resize;
+}
+
+.ui-resizable-e:hover,
+.ui-resizable-w:hover{
+	cursor: ew-resize;
+}

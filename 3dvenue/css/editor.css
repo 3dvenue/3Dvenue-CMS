@@ -1,0 +1,738 @@
+/* 3Dvenue-CMS Copyright (c) 2026 yoshihiro Murai Licensed under MIT (https://opensource.org/licenses/MIT)*/
+
+body{
+	margin-top:30px;
+}
+
+#body{
+	transition-duration: .5s;
+	transform: scale(1.0);
+	transform-origin: top center;
+	box-shadow: 3px 3px 10px #0006;
+}
+
+.btn{
+	background:#D3E3FC;
+	display:inline-block;
+	font-size:12px !important;
+	padding:7px 10px;
+	line-height: 1.0;
+	border-radius: 20px;
+	cursor: pointer;
+}
+
+.close{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width:30px;
+	height:30px;
+	line-height: 1.0;
+	cursor: pointer;
+}
+
+*:focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(74,144,226,0.3);
+}
+
+main h1.active::after,
+main h2.active::after,
+main h3.active::after,
+main h4.active::after,
+main div.active::after{
+	position:absolute;
+	bottom:100%;
+	left:0;
+	background:#333;
+	color:#FFF;
+	display: inline-block;
+	padding:3px 10px;
+	border-radius:0 5px 0 0;
+	content:"Class: " attr(class);
+	font-size:14px;
+	font-weight:700;
+}
+
+
+main figure a,
+main figure img{
+	pointer-events: none !Important;
+}
+
+/* mask
+---------------------------------------------*/
+header,nav,footer{
+	position:relative;
+}
+
+header a,
+nav a,
+footer a{
+	pointer-events: none;
+}
+
+/* baseMenu
+----------------------------------------*/
+.baseMenu{
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	height:100vh;
+	background:#EDF2FA;
+	padding:50px 0;
+	transform: scale(0.0);
+	pointer-events: none;
+	z-index: 1200;
+}
+
+.baseMenu.active{
+	transform: scale(1.0);
+	pointer-events: auto;
+}
+
+.baseMenu .inner{
+	position: relative;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	gap:40px;
+	height:100%;
+}
+
+.baseMenu .inner .close{
+	position: absolute;
+	top:0;
+	right:40px;
+	display: flex;
+	width:30px;
+	height:30px;
+	background: #216EE9;
+	color:#FFF;
+}
+
+.baseMenu .inner textarea,
+.baseMenu .inner input{
+	width:100%;
+	padding:5px 10px;
+	border-radius: 5px;
+}
+
+.baseMenu .inner #seoBox{
+	width:100%;
+	max-width:680px;
+}
+
+.baseMenu .inner #seoBox details.snsimage{
+	position: relative;
+}
+
+.baseMenu .inner #seoBox details.snsimage p{
+	margin:5px 0;
+	font-size:12px;
+}
+
+.baseMenu .inner #seoBox details.snsimage .submit{
+	position: absolute;
+	bottom:0;
+	right:20px;
+	width:100%;
+}
+
+.baseMenu .inner #seoBox #snsimage{
+	display: none;
+}
+
+.baseMenu .inner #seoBox #snsview{
+	width:400px;
+	height:200px;
+	border:1px solid #ccc;
+}
+
+.baseMenu .inner #seoBox #snsview{
+	background:#000c;
+    background-size: cover;
+	background-repeat:no-repeat;
+	background-position: center;
+}
+
+.baseMenu .inner #seoBox #snsview label{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width:100%;
+	height:100%;
+	font-size:12px;
+	cursor: pointer;
+	color:#FFF9;
+}
+
+.baseMenu .inner #seoBox #snsview label:hover{
+	background:#0003;
+}
+
+.baseMenu .inner details{
+	background:#FFF;
+    padding:10px 20px;
+    border: 1px solid #D3E3FC;
+}
+
+.baseMenu .inner label span{
+	font-size:16px;
+	font-weight: 500;
+	display: block;
+}
+
+.baseMenu .inner label aside{
+	font-size: 14px;
+	font-weight: normal;
+}
+
+.baseMenu .inner .submit{
+	margin:5px 0 20px;
+	text-align: right;
+}
+
+.baseMenu .inner #image{
+	display:none;
+}
+
+/* editor
+----------------------------------------*/
+#editor{
+	position: fixed;
+	top:0;
+	left:0;
+	height: 30px;
+	background:#EDF2FA;
+	width:100%;
+	border-bottom:1px solid #D3E3FC;
+	z-index:1000;
+}
+
+body.topeditor #editor{
+	top:-100%;
+}
+
+#editor *{
+	font-family: 'Segoe UI';
+	font-size:14px;
+	font-weight:500;
+	color:#515152;
+}
+
+#editor .inner{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#editor .base{
+	background:#EDF2FA;
+	border-bottom:1px solid #D3E3FC;
+	display: none;
+}
+
+#editor #pagechange{
+	display: flex;
+	gap:20px;
+}
+
+body.base #editor .base{
+	display: block;
+}
+
+#editor .base .inner{
+	justify-content: right;
+	height:30px;
+}
+
+#editor #tools{
+	display: flex;
+	align-items: center;
+}
+
+#editor .base .inner div,
+#editor #tools div{
+	height:30px;
+	padding:0 15px;
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+}
+
+#editor #tools div.active{
+	color:#1E6EEE;
+}
+
+#editor .inner span{
+	width:30px;
+	height:30px;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	border-radius:15px;
+	cursor: pointer;
+	margin:0 0 0 auto;
+}
+
+#editor .base .inner div:hover,
+#editor #tools div:hover,
+#editor .inner span:hover{
+	background:#E1E6ED;
+}
+
+/* section
+---------------------------------------------*/
+
+main section{
+	padding:40px 0;
+}
+
+header:hover,
+nav:hover,
+footer:hover{
+	/*outline: 2px solid #000;*/
+	cursor: pointer;
+}
+
+main section.active{
+	outline: 2px solid #1257C766;
+}
+
+main section:hover:not(:has(*:hover)) {
+    outline: 2px solid #1257C7;
+    cursor: pointer;
+}
+
+main section.active:has(.active) {
+    outline: none; /* 親の枠線を「引き算」して譲る */
+}
+
+main section .inner > *:hover {
+    outline: 2px solid #0003;
+    cursor: pointer;
+}
+
+main section .inner *:hover > a,
+main section .inner *:hover > span{
+	outline:1px solid #333;
+	outline-offset: 1px;
+	border-radius: 5px;
+	user-select: none;
+}
+
+main section .inner * > a:hover,
+main section .inner * > span:hover{
+	outline:none;
+	background:#0002;
+	user-select: none;
+}
+
+main section .inner * a.active,
+main section .inner * span.active{
+	background:none !important;
+	user-select: none !important;
+	border:none;
+	outline:1px solid red !Important;
+	border-radius: 5px;
+}
+
+
+
+/* header
+----------------------------------------*/
+#header{
+	position:fixed;
+	top:-100%;
+	left:0;
+	width:100%;
+	height:80px;
+	background:#666;
+	padding:20px 0;
+}
+
+
+#header .inner{
+	display: flex;
+	justify-content: space-between;
+}
+
+#header.active{
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	height:80px;
+	background:#666;
+	padding:20px 0;
+}
+
+
+/* CSS JS
+----------------------------------------*/
+.bottompopup{
+	position:fixed;
+	bottom:-120%;
+	left:0;
+	width:100%;
+	height:50vh;
+	padding:0;
+	background:#EDF2FA;
+	border: 1px solid #D3E3FC;
+	text-align:right;
+}
+
+.bottompopup.active{
+	bottom:0;
+	z-index: 1000;
+	max-height:calc(100vh - 200px);
+}
+
+.bottompopup.active span.hadle{
+    position: absolute;
+    top: -5px;
+    left:0;
+    display: block;
+    height: 10px;
+    width: 100%;
+    cursor: ns-resize;
+    user-select: none;
+}
+
+.bottompopup.active .hadle:active {
+    cursor: grabbing;
+	background:#E9EdF6;
+    border-color: #ddd #bbb #ddd #ccc;
+    border-width: 1px 3px 3px 1px;
+}
+
+.bottompopup h3{
+	font-size:14px;
+	font-weight: 500;
+	height:25px;
+	padding:0px 10px 0;
+	cursor: pointer;
+	border-bottom:none;
+	font-weight: 500;
+	box-sizing: border-box;
+	margin:0;
+	border:1px solid;
+	border-color:#fff #ccc #ccc #eee;
+}
+
+.bottompopup .close{
+    position: static;
+	background:none;
+	border:none;
+	font-weight: 900;
+}
+
+.bottompopup h3 p{
+	color:#515152;
+}
+
+
+.bottompopup h3{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.bottompopup textarea{
+	width:100%;
+	height:calc(100% - 25px);
+	padding:10px 20px;
+	border: 1px solid #D3E3FC;
+	line-height:1.2;
+	resize: none;
+	font-size:14px;
+	font-family: Consolas;
+	background:#303841;
+	color:#EEF;
+	tab-size: 4;
+}
+
+.bottompopup .btn{
+	cursor: pointer;
+	font-size:12px;
+	background:#1E6EEE;
+	color:#FFF;
+	position:absolute;
+	bottom:10px;
+	right:25px;
+	padding:10px 20px;
+	border-radius: 5px;
+}
+
+/* cropmune
+----------------------------------------*/
+#imagecrop{
+	display:none;
+}
+
+/* topeditor
+----------------------------------------*/
+body.topeditor{
+	/*width:calc(100% - 200px);*/
+	margin-top:100px;
+}
+
+body.base{
+	padding-top:60px;
+}
+
+
+#topeditor{
+	padding:0;
+	position:fixed;
+	top:-100%;
+	left:0;
+	width:100%;
+	min-height:100px;
+	background:#FFF;
+	border-bottom: 1px solid #D3E3FC;
+	z-index:2000;
+}
+
+#topeditor *{
+	color: #515152;
+}
+
+#topeditor #editmenu{
+	background:#EDF2FA;
+	border-bottom: 1px solid #D3E3FC;
+	height:30px;
+}
+
+#topeditor #editmenu .inner{
+	height:100%;
+}
+
+#topeditor .label,
+#topeditor label{
+	font-size:12px;
+	font-weight: 500;
+}
+
+body.topeditor #topeditor{
+	top:0;
+}
+
+#topeditor > .inner{
+	display: flex;
+	justify-content:left;
+	align-items: center;
+	height:70px;
+	padding-left:40px;
+}
+
+#topeditor > .inner .section{
+	display: flex;
+	align-items: center;
+	gap:20px;
+	height: 100%;
+}
+
+#topeditor #editmenu .inner{
+	display: flex;
+	justify-content: space-between;	
+}
+
+#topeditor .inner > div{
+	display: none;
+	gap:20px;
+}
+
+#topeditor .inner > div.active{
+	display: flex;
+	align-items: center;
+	height:100%;
+}
+
+#topeditor #bgcolor #c2row,
+#topeditor #bgcolor #angleRow{
+	display: none;
+}
+
+#topeditor #bgcolor #c2row.active,
+#topeditor #bgcolor #angleRow.active{
+	display:block;
+}
+
+#topeditor radio,
+#topeditor select,
+#topeditor input{
+	border: 1px solid #D3E3FC;
+	margin-left:5px;
+}
+
+#topeditor h4{
+	font-size:14px;
+	font-weight: 500;
+}
+
+#topeditor #spacing input{
+	width:50px;
+	text-align: center;
+}
+
+#topeditor .inner > div#naming,
+#topeditor .inner > div#selectmenu{
+	display: flex;
+	gap:0;
+	position:relative;
+}
+
+#topeditor #section .section button,.html button{
+	padding:10px 20px;
+	border:none;
+}
+
+#selectmenu #underbar{
+	position:absolute;
+	left:0;
+	bottom:0;
+	height:5px;
+	background:#0F57CB;
+	width:100px;
+	border-radius:5px 5px 0 0;
+	transition-duration: .3s;
+}
+
+#topeditor .inner > div#naming #tag,
+#topeditor .inner > div#naming input{
+	height:25.3px;
+	width:120px;
+	margin-right:10px;
+	text-align: center;
+}
+
+#topeditor .inner > div#naming #tag{
+	width:60px;
+	font-weight: 500;
+	color:#1E6EEE;
+}
+
+#background{
+	height:100%;
+}
+
+#topeditor #bgPreview{
+	height:90%;
+	aspect-ratio: 21/9;
+	background-size: cover;
+	margin-right:10px;
+	border:1px solid #D3E3FC;
+}
+
+
+#selectmenu span{
+	flex:auto;
+	display: inline-block;
+	padding:0 10px;
+	font-size: 14px;
+	font-weight: 500;
+	cursor: pointer;
+}
+
+#selectmenu span:hover{
+	background:#0001;
+}
+
+#imageselect{
+	cursor: pointer;
+}
+
+#movesection{
+	position:absolute;
+	bottom:10px;
+	right:10px;
+	font-size:12px;
+	font-weight:700;
+	background: #EDF2FA;
+	padding:5px 10px;
+	border-radius:4px;
+	border: 1px solid #D3E3FC;
+}
+
+/* selectPage
+----------------------------------------*/
+#bodysize,
+#selectPage{
+	border:1px solid #D3E3FC;
+	border-radius: 5px;
+	padding:0px 10px;
+	margin-left:10px;
+}
+
+#changenamebox{
+	display: flex;
+	align-items: center;
+	gap:5px;
+}
+
+#changepagename{
+	border:1px solid #D3E3FC;
+	border-radius: 5px;
+	height:28px;
+	width:120px;
+	padding:0 10px;
+}
+
+#changename{
+	border:none;
+	border-radius: 5px;
+	height:26px;
+}
+
+/* mainsave
+----------------------------------------*/
+#mainsave{
+	position:fixed;
+	bottom:40px;
+	right:40px;
+	padding:10px 20px;
+	transition-duration: .5s;
+	transform: scale(0.0);
+	opacity:0;
+	cursor: pointer;
+	background: #216EE9;
+	color:#FFF;
+}
+
+#mainsave:active{
+	transform: scale(1.2);
+	background:#D3E3FC;
+}
+
+#mainsave.click{
+	opacity:1.0;
+	transform: scale(1.0);
+}
+
+
+
+/* footer
+----------------------------------------*/
+#footer{
+	position:fixed;
+	bottom:-80px;
+	left:0;
+	width:100%;
+	height:80px;
+	background:#666;
+	padding:20px 0;
+}
+
+
+#footer .inner{
+	display: flex;
+	justify-content: space-between;
+}
+
+#footer.active{
+	bottom:0;
+}
+

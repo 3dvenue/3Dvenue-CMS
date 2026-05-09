@@ -1,0 +1,98 @@
+/* 3Dvenue-CMS Copyright (c) 2026 yoshihiro Murai Licensed under MIT (https://opensource.org/licenses/MIT)*/
+
+
+/* textEditor
+----------------------------------------*/
+#texteditor{
+	position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #EDF2FA;
+	border-bottom: 1px solid #D3E3FC;
+    z-index:1500;
+	padding:10px 0;
+	pointer-events: none;
+	transform: scale(0.0);
+}
+
+#texteditor .close{
+	position:absolute;
+	top:5px;
+	right:10px;
+}
+
+#texteditor .inner{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap:20px;
+	padding:0;
+}
+
+#texteditor .inner label{
+	font-size:14px;
+}
+
+#texteditor.link,
+#texteditor.active,
+#texteditor.text{
+	pointer-events: auto;
+	transform: scale(1.0);
+}
+
+#texteditor.active .inner .selectText,
+#texteditor.active .inner .LinkEditor,
+#texteditor.text .inner .section,
+#texteditor.link .inner .section{
+	display:none;
+}
+
+#texteditor .inner input,
+#texteditor .inner select{
+	border: 1px solid #D3E3FC;
+	padding:3px 5px;
+}
+
+#texteditor #clearLink,
+#texteditor #clearSpan,
+#texteditor #linkSet{
+	border-radius: 0;
+	border: 1px solid #D3E3FC;
+}
+
+#texteditor .inner #f-color{
+	padding:0;
+	width:30px;
+}
+
+#texteditor .inner #f-weight,
+#texteditor .inner #f-size{
+	width:50px;
+	margin:0 10px;
+}
+
+#texteditor .inner #f-family{
+	width:90px;
+	margin:0 10px;
+}
+
+#texteditor.link .inner .LinkEditor,
+#texteditor.text .inner .selectText{
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	gap:20px;
+}
+
+
+#texteditor #LinkStart,
+#texteditor #editStart{
+	padding:10px 20px;
+	background:#236EE4;
+	color:#FFF;
+	border:none;	
+	font-size:16px;
+	font-weight: 700;
+	cursor: pointer;
+}

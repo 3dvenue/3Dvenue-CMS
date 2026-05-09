@@ -1,0 +1,323 @@
+/* 3Dvenue-CMS Copyright (c) 2026 yoshihiro Murai Licensed under MIT (https://opensource.org/licenses/MIT)*/
+
+    #body{
+        transform: scale(0.8);
+        transform-origin: top center;
+        background:#FFF;
+        box-shadow: 3px 3px 10px #0003;
+    }
+
+    #main{
+        min-height:none;
+        padding:0;
+    }
+
+    footer,
+    header{
+        border:1px solid #CCC;
+        background:#f0f0f0;
+        padding:20px 0;
+    }
+
+   footer .inner{
+    text-align: center;
+   }
+
+    main{
+        min-height:calc(100vh - 300px);
+        position:relative;
+    }
+
+/*    main #navieditor{
+        position: absolute;
+        bottom:50px;
+        right:50px;
+    }
+*/
+    nav{
+        background:#ccc;
+        user-select: none;
+    }
+
+    nav .inner{
+        position: relative;
+    }
+
+    nav .inner #new{
+        position: absolute;
+        right:0;
+        top:0;
+        display: none;
+    }
+
+    nav ul{
+        list-style: none;
+        padding:0;
+        margin:0;
+    }
+
+    nav ul li{
+        padding:0;
+        margin:0;
+        position:relative;
+        cursor: pointer;
+    }
+
+    nav ul li:hover{
+        background: #FFF3;
+    }
+
+    nav ul li a{
+        display:block;
+        text-decoration: none;
+        color:#333;
+        padding:0 20px;
+        pointer-events: none;
+        line-height: 1.0;
+        font-size: 14px;
+    }
+
+    nav ul li a:hover{
+        background:#FFF9;
+    }
+
+    nav ul.nav0{
+        display: flex;
+        justify-content:left;
+        border-left:1px solid #FFF9;
+    }
+
+    nav ul.nav0 > li{
+        border-right:1px solid #FFF9;
+        flex:1;
+        max-width:calc(100% / 8 );
+    }
+
+    nav ul.nav0 > li > a{
+        display: flex;
+        align-items: center;
+        height:50px;
+    }
+
+    nav ul.nav1{
+        position:absolute;
+        top:100%;
+        left:0;
+        background:#ccc;
+        width:100%;
+        z-index: 1000;
+    }
+
+    nav ul.nav1 > li > a{
+        display: flex;
+        align-items: center;
+        height:0;
+        overflow: hidden;
+    }
+
+    nav ul.nav0 li.active ul.nav1 > li > a,
+    nav ul.nav0 li:hover ul.nav1 > li > a{
+        height:40px;
+    }
+
+    nav ul.nav1 > li:after{
+        height:40px;
+    }
+
+    nav ul.nav1 > li:hover{
+        border-bottom:2px solid #FFF;
+    }
+
+    nav ul.nav2{
+        display:none;
+    }
+
+    nav ul.nav0 > li.active{
+        /*pointer-events: none;*/
+    }
+
+    nav ul li.active{
+        background:#FFF5;
+    }
+
+    nav ul.nav1 li.active{
+        background:#FFFc;
+    }
+
+    nav ul.nav0 li.hidden,
+    nav ul.nav1 li.hidden{
+        background:#999;
+    }
+
+    nav ul.nav0 li.hidden ul,
+    nav ul.nav0 li.hidden ul li,
+    nav ul.nav0 li.hidden ul li a{
+        pointer-events: none;
+    }
+
+    nav ul.nav0 > li.active ul.nav1 > li{
+        pointer-events: auto;
+    }
+
+    /*.ui-sortable-placeholder,*/
+    .ui-state-highlight{
+        background:#0003;
+    }
+
+    /*ul.nav1 .ui-sortable-placeholder,*/
+    ul.nav1 .ui-state-highlight{
+        height: 40px;
+    }
+
+    ul#plus li{
+        background:#333;
+        color:#FFF;
+        text-align: center;
+        padding:10px 0;
+    }
+
+
+/*    #navieditor
+---------------------------------------------*/
+    #navieditor{
+        position:fixed;
+        bottom:80px;
+        right:40px;
+        padding:0px;
+        background:#F0f0f0;
+        border:2px solid #CCC;
+        width:max-content;
+        height:max-content;
+        border-radius: 5px;
+        transform: scale(0.0);
+        box-shadow:3px 3px 10px #0002;
+    }
+
+    #navieditor.active{
+        transform: scale(1.0);
+    }
+
+    #navieditor table{
+        background:#FFF;
+        border-collapse: collapse;
+    }
+
+    #navieditor table th,
+    #navieditor table td{
+        border:1px solid #ccc;
+    }
+
+    #navieditor table th{
+        padding:3px 5px;
+        text-align: left;
+        font-size:14px;
+        font-weight: normal;
+    }
+
+    #navieditor input,
+    #navieditor select,
+    #navieditor button{
+        border:1px solid #D3E3FC;
+        height:100%;
+        width:100%;
+        padding:5px 10px;
+    }
+
+
+    #navieditor table tr.url,
+    #navieditor table.p0 tr.slug{
+        display:none;
+    }
+
+    #navieditor table tr.slug,
+    #navieditor table.p0 tr.url{
+        display: table-row;
+    }
+
+    .handle {
+        text-align: right;
+        background:#234C6A;
+        height:25px;
+        cursor: move;
+        width: 100%;
+        display: flex;
+        justify-content:left;
+        align-items:center;
+        color: #EEF;
+        font-size: 14px;
+        padding:0 1em;
+        font-weight: 700;
+    }
+
+
+    #bottomMenu{
+        position:fixed;
+        bottom:0;
+        right:0;
+        width:280px;
+        background:linear-gradient(#A5A5A5 0,#A5A5A5 2px,#FFF 2px,#FFF 4px,#D1D1D1 4px, #D1D1D1 20%,#F0F0F0 70%,#F0F0F0 100%);
+        margin:0 auto -10px;
+        border-radius:5px 0 0 0;
+        height:50px;
+        padding:2px 10px;
+        border-left: 1px solid #666;
+    }
+
+    #savebtn{
+        display: flex;
+        gap:20px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #savebtn button{
+        padding:1px 30px;
+        border-radius:0 0 5px 5px;
+        background:linear-gradient(#F0F0F0 0%,#F0F0F0 40%,#E0E0E0 50%,#D1D1D1 100%);
+        border:1px solid #3333;
+        border-top:2px solid #FFF;
+        text-shadow: 1px 1px 0 #FFF;
+        cursor: pointer;
+    }
+
+    #savebtn button:hover{
+        background:linear-gradient(#D1D1D1 0%,#D1D1D1 40%,#C1C1C1 50%,#A1A1A1 100%);
+        color:#FFF;
+        text-shadow: -1px -1px 0 #0006;
+    }
+
+    #newtrash{
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        gap:20px;
+        width:100%;
+        padding:1px 5px;
+    }
+
+    #newnav,
+    #trash{
+        width:30px;
+        height:30px;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        font-size:20px;
+        font-weight: bold;
+        color:#666;
+    }
+
+    #newnav:hover,
+    #trash:hover{
+        background:#e0e0e0;
+    }
+
+    #newnav{
+        border:1px solid #ccc;
+    }
+
+    #trash img{
+        height:80%;
+        width:auto;
+    }

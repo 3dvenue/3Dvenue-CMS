@@ -1,0 +1,128 @@
+/* 3Dvenue-CMS Copyright (c) 2026 yoshihiro Murai Licensed under MIT (https://opensource.org/licenses/MIT)*/
+
+body,html{
+	padding:0;
+	margin:0;
+	width:100%;
+	height:100%;
+}
+
+body{
+	padding-top:60px;
+	transition-duration: .5s;
+}
+
+body *{
+	box-sizing: border-box;
+}
+
+:root{
+
+	/*ナビ背景*/
+	--nav-bg-color:background:#0003;
+	/*ナビボトムカラー*/
+	--nav-border-color:1px solid #3333;
+	/*ナビ0文字色*/
+	--nav0-color:color:#333;
+
+}
+
+
+/* header
+---------------------------------------------*/
+header{
+	position:fixed;
+	top:0;
+	left:0;
+	padding:20px;
+	background:#FFF;
+	border-radius: 0 0 40px 0;
+	width:240px;
+}
+
+header .inner{
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+header #logo{
+	text-align: center;
+}
+
+
+header #headertext{
+	text-align: center;
+}
+
+/* nav
+---------------------------------------------*/
+nav{
+	position:fixed;
+	top:0;
+	right:0;
+	height:50px;
+	background:#FFF;
+	width:calc(100% - 239px);
+	height:60px;
+}
+
+nav .inner{
+	display: flex;
+	justify-content: right;
+	height:100%;
+}
+
+nav ul{
+	list-style: none;
+	padding:0;
+	margin:0;
+}
+
+nav ul li{
+	height:100%;
+}
+
+nav ul li a{
+	display:flex;
+	align-items: center;
+	width:100%;
+	height:100%;
+	padding:0 20px;
+	justify-content: left;
+}
+
+nav ul.nav0{
+	display: flex;
+	z-index:1000;
+	height:100%;
+}
+
+nav ul.nav0 > li{
+	position: relative;
+	border-left:1px solid #FFF2;
+}
+
+nav ul.nav0 > li > a{
+	color:var(--nav0-color);
+}
+
+nav ul.nav1{
+	background: #1847A1;
+	display: block;
+	position: absolute;
+	top:100%;
+	left:0;
+	width:100%;
+	/*display: none;*/
+}
+
+nav ul.nav1 li{
+	display: block;
+	width:100%;
+}
+
+nav ul.nav2{
+	display: none;
+}
+
