@@ -1,0 +1,359 @@
+/* 3Dvenue-CMS Copyright (c) 2026 yoshihiro Murai Licensed under MIT (https://opensource.org/licenses/MIT)*/
+
+
+main section figure.active{
+	outline: 3px solid #D3E3FC;
+}
+
+/* images
+----------------------------------------*/
+#images{
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	height:100vh;
+	display: flex;
+	justify-content: center;
+	background:#FFF;
+	padding-top:50px;
+	transform: scale(0.0);
+	opacity:0;
+	pointer-events: none;
+	z-index:2100;
+}
+
+#images .closeimage{
+	position: absolute;
+	top:0;
+	right:0;
+	background: #1E6EEE;
+	color:#FFF;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    line-height: 1.0;
+    cursor: pointer;
+}
+
+
+#images h2{
+	display: flex;
+	justify-content: space-between;
+}
+
+
+#images #new{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width:40px;
+	height:40px;
+	background: #333;
+	color:#FFF;
+	cursor: pointer;
+}
+
+#images.figure,
+#images.active{
+	transform: scale(1.0);
+	opacity:1.0;
+	pointer-events: auto;
+}
+
+
+#images section{
+	width:calc(100% - 80px);
+}
+
+#images ul{
+	border:1px solid #CCC;
+	border-radius: 10px;
+	padding:20px;
+	width:100%;
+	max-width:980px;
+	max-height:calc(100% - 100px);
+	overflow: auto;
+	margin:0;
+	list-style: none;
+	display: grid;
+    gap: clamp(1px, 5vw, 5px);
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));	
+}
+
+#images ul li{
+	display: block;
+    width: 100%;
+    font-size: 16px;
+    padding: 5px 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    text-align: left;
+}
+
+#images ul li figure{
+	padding:0;
+	margin:0;
+	width:100%;
+	max-width:200px;
+	line-height:1.0;
+	cursor: pointer;
+	aspect-ratio: 3/2;
+	outline:1px solid #ccc;	
+}
+
+#images ul li figure:hover{
+	outline:2px solid #000;
+}
+
+#images ul li figure figcaption{
+	padding:0 10px;
+	text-align: center;
+	white-space: nowrap;     /* 改行させない */
+    overflow: hidden;        /* はみ出た分を隠す */
+    text-overflow: ellipsis; /* はみ出た分を「...」にする */
+}
+
+#images ul li figure img{
+	width: 100%;
+    height: 100%;
+    object-fit: contain; /* 画像全体が収まるようにリサイズ */
+    object-position: center; /* 中央に配置 */
+}
+
+
+/* imageeditor
+---------------------------------------------*/
+#imageeditor{
+	position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #EDF2FA;
+    z-index:1500;
+	pointer-events: none;
+	transform: scale(0.0);
+}
+
+#imageeditor .close{
+	position:absolute;
+	top:5px;
+	right:10px;
+}
+
+#imageeditor .inner{
+	display:block;
+	padding:0;
+}
+
+#imageeditor .inner > div{
+	height:100px;
+	display: flex;
+	justify-content:left;
+	align-items: center;
+	gap:20px;
+	padding:0 20px;
+	border-bottom: 1px solid #D3E3FC;
+}
+
+#imageeditor .inner #imgPreview{
+	height: 90%;
+    aspect-ratio: 21 / 9;
+    background-size: cover;
+    margin-right: 10px;
+    border: 1px solid #D3E3FC;
+}
+
+/* figureeditor
+---------------------------------------------*/
+#figureeditor{
+	position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #EDF2FA;
+    z-index:1500;
+	pointer-events: none;
+	transform: scale(0.0);
+}
+
+#figureeditor.active{
+	pointer-events: auto;
+	transform: scale(1.0);
+}
+
+#figureeditor .close{
+	position:absolute;
+	top:5px;
+	right:10px;
+}
+
+#figureeditor .inner{
+	display:block;
+	padding:0;
+}
+
+#figureeditor .inner > div{
+	height:40px;
+	display: flex;
+	justify-content:left;
+	align-items: center;
+	gap:20px;
+	padding:0 20px;
+	border-bottom: 1px solid #D3E3FC;
+}
+
+#figureeditor .inner .section{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap:20px;
+	/*width:100%;*/
+	font-size:14px;
+
+}
+
+
+#figureeditor .tagname{
+    font-weight: 500;
+    color: #1E6EEE;
+}
+
+#figureeditor .inner button,
+#figureeditor .inner input,
+#figureeditor .inner select{
+	border: 1px solid #D3E3FC;
+    padding: 5px 10px;
+    margin:0 5px 0 10px;
+}
+
+#figureeditor .inner button{
+	padding:5px 20px;
+    background: #D3E3FC;
+    font-size:12px;
+}
+
+#figureeditor #aspectbox{
+	display: flex;
+	align-items: center;
+	gap:40px;
+	width:calc(100% - 200px);
+}
+
+#figureeditor #aspectbox span{
+	background:#FFF;
+	border: 1px solid #D3E3FC;
+	display: block;
+	height:30px;
+	padding:5px 10px 0;
+	line-height: 1.0;
+	cursor: pointer;
+}
+
+#figureeditor #aspectbox span:hover{
+	outline:1px solid #666;
+	outline-offset: 0;
+}
+
+#figureeditor #aspectbox span:active{
+	outline:1px dotted #3339;
+	outline-offset: -2px;
+}
+
+
+/* imageupload
+---------------------------------------*/
+#imageupload{
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	height:100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	background:#000C;
+	transform: scale(0.0);
+	opacity:0;
+	pointer-events: none;
+	transition-duration: .5s;
+	z-index:2501;
+}
+
+#imageupload.active{
+	transform: scale(1.0);
+	opacity:1;
+	pointer-events: auto;
+}
+
+#imageupload .close{
+	position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.0;
+    background: #000;
+    color: #FFF;
+    font-weight: 500;
+    font-size: 20px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+
+#imageupload #view{
+	width:300px;
+	height:300px;
+	background-size:contain;
+	background-repeat:no-repeat;
+	background-position: center;
+}
+
+#imageupload #form{
+	padding:20px 40px;
+	background:#FFF;
+	border-radius: 10px;
+}
+
+#imageupload #form input{
+	padding:5px 10px;
+	border-radius: 5px;
+	border:1px solid #666;
+}
+
+#imageupload #form p,
+#imageupload #form label{
+	display: block;
+	margin-bottom:20px;
+}
+
+#imageupload #form #btn{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#imageupload #form #delete{
+	background:none;
+	padding: 0 0px;
+}
+
+#imageupload #form label div{
+	text-align: center;
+	background:#FFF;
+	color:#333;
+	border:1px solid #333;
+	cursor: pointer;
+}
+
+#imageupload #form #file{
+	display: none;
+}

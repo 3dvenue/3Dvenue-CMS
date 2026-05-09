@@ -1,0 +1,234 @@
+/* 3Dvenue-CMS Copyright (c) 2026 yoshihiro Murai Licensed under MIT (https://opensource.org/licenses/MIT)*/
+
+
+/* parts
+---------------------------------------------*/
+#parts{
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	background:#000c;
+	width:100%;
+	height:100vh;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	padding-top: 20px;
+	transform: scale(0.0);
+	pointer-events: none;
+	opacity:0;
+	z-index:2500;
+}
+
+
+#parts #pageview{
+	position:fixed;
+	bottom:50px;
+	left:calc(50vw - 300px);
+	width:600px;
+	height:calc(100vh - 100px);
+	background:#FFF;
+	pointer-events: none;
+	transform: scale(0.0);
+	transition-duration: .5s;
+	opacity:0;
+}
+
+#parts #pageview.active{
+	transform: scale(1.0);
+	pointer-events: auto;
+	opacity:1;
+}
+
+#parts #pageview #pageaddbutton{
+	position: relative;
+	height:30px;
+	width:100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap:20px;
+	background:#303841;
+}
+
+#parts #pageview #pageaddbutton button{
+	color:#EEF;
+	background:#303841;
+	cursor: pointer;
+	border:1px solid #eef9;
+	font-size:12px;
+	line-height:1.0;
+	height:26px;
+	padding:0 20px;
+	border-radius:6px;
+}
+
+#parts #pageview #pageaddbutton button:hover{
+	background:#46525C;
+}
+
+#parts #pageview #pageaddbutton input{
+	height:26px;
+	border-radius:6px;
+	line-height: 6px;
+	padding:0 10px;
+	background:#72787E;
+}
+
+#parts #pageview #pageaddbutton input::placeholder{
+	color:#eeF;
+}
+
+input:focus {
+  outline: none;
+  border: nono;
+  background: #ffffff !important;
+}
+
+#parts #pageview .closeviw{
+	position:absolute;
+	top:0;
+	right:0;
+	width:30px;
+	height:30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background:#303841;
+	color:#eeF;
+	cursor: pointer;
+	border-radius: 5px 5px 0 0;
+}
+
+#parts #pageview .closeviw:hover{
+	background:#46525C;
+	color:#FFF;
+}
+
+#parts #pageview .view{
+	width:100%;
+	height:calc(100% - 30px);
+	overflow-y: auto;
+	border:3px solid #303841;
+}
+
+#parts #pageview img{
+	width:100%;
+	height:auto;
+}
+
+#parts .select{
+	width:calc(100% - 40px);
+}
+
+#parts.active{
+	transform: scale(1.0);
+	pointer-events: auto;
+	opacity:1;
+}
+
+#parts .select{
+	display: none;
+}
+
+#parts.pageparts #pageparts,
+#parts.addsection #sectionparts{
+	display: block;
+}
+
+#parts .sectionClose{
+	position:absolute;
+	top:0;
+	right:0;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    line-height: 1.0;
+    cursor: pointer;
+    color:#FFF;
+    /*background:#1E6EEE;*/
+    font-weight: 700;
+}
+
+#parts h2{
+	color:#FFF;
+}
+
+#parts #addsection{
+	text-align: center;
+}
+
+#parts #addsection label{
+	color:#FFF;
+	display: inline-block;
+	padding-bottom:20px;
+	margin:0 10px;
+	accent-color: #1E6EEE;
+}
+
+#parts section{
+	margin:0 auto;
+	max-width:1040px;
+	padding:40px;
+	display: flex;
+	justify-content: center;
+	gap:20px;
+	flex-wrap: wrap;
+	height:calc(100vh - 200px);
+	overflow-y:auto;
+	border:2px solid;
+	border-color:#72787E;
+	background:#303841;
+	border-radius:10px;
+}
+
+#parts section .parts{
+	width: clamp(150px, 25vw, 300px);
+	cursor: pointer;
+}
+
+#parts section .parts img{
+    width: 100%;
+	border:1px solid #CCC;
+}
+
+#parts section .parts .name{
+	color:#FFF;
+}
+
+
+#parts #addPage section{
+	width:100%;
+	display: grid;
+	gap: clamp(10px,5vw,20px);
+	/* auto-fill に変えるだけで、1つの時の巨大化が防げる*/
+	/*grid-template-columns: repeat(auto-fit,minmax(60px,1fr));*/
+	grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+
+}
+
+#parts #addPage section .name{
+	color:#EEF;
+	font-size:13px;
+}
+
+#parts #addPage section .pages .image{
+	/*max-width: 200px; */
+	/*width: 100%;*/
+	aspect-ratio: 1/1;
+	cursor: pointer;
+}
+
+#parts #addPage section .pages img:hover{
+	outline:3px solid #eeF;
+}
+
+#parts #addPage section .pages  img{
+	width:100%;
+	height:100%;
+	object-fit:cover;
+	object-position: top;
+}

@@ -1,0 +1,127 @@
+/* 3Dvenue-CMS Copyright (c) 2026 yoshihiro Murai Licensed under MIT (https://opensource.org/licenses/MIT)*/
+
+main .inner h2{
+	display: flex;
+	justify-content: space-between;
+	position: relative;
+}
+
+/* table
+---------------------------------------------*/
+table{
+	width:100%;
+	border-collapse: collapse;
+}
+
+table th{
+	background:#666;
+	color:#FFF;
+}
+
+table th,
+table td{
+	padding:0 5px;
+	border:1px solid #ccc;
+	font-size: 14px;
+}
+
+
+table tr:hover{
+	background:#F0F0F0;
+	cursor: pointer;
+}
+
+
+/* editor
+---------------------------------------------*/
+#editor{
+	position: fixed;
+	top:0;
+	left:0;
+	width:100%;
+	height:100vh;
+	background:#000C;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding:40px 20px;
+	transform: scale(0.0);
+	opacity:0;
+	pointer-events: none;
+	transition-duration: .5s;
+}
+
+#editor.active{
+	transform: scale(1.0);
+	opacity:1.0;
+	pointer-events: auto;
+}
+
+#editor #form{
+	position:relative;
+	background:#FFF;
+	padding:20px;
+	width:100%;
+	max-width:720px;
+	max-height:calc(100vh - 80px);
+	overflow-x: auto;
+}
+
+#editor #up{
+	margin-bottom:10px;
+	display:flex;
+	justify-content: space-between;
+}
+
+#editor #up #left{
+	width:250px;
+}
+
+#editor #up #right{
+	width:calc(100% - 260px);
+}
+
+#editor #up #right input{
+	width:calc(100% - 80px);
+}
+
+#editor input[type="text"]{
+	padding:3px 10px;
+	border-radius: 5px;
+	border:1px solid #ccc;
+	box-sizing: border-box;
+}
+
+#editor #description{
+	width:calc(100% - 120px);
+}
+
+#editor #form form > label span,
+#editor #form form > label{
+	display: block;
+}
+
+#editor #form form > label{
+	margin-bottom:10px;
+}
+
+#editor #form textarea{
+	width:100%;
+	height:8em;
+	max-width:680px;
+	padding:3px 10px;
+	border-radius: 5px;
+	border:1px solid #ccc;
+}
+
+#editor #submit{
+	display: flex;
+	justify-content: right;
+	gap:20px;
+}
+
+#editor #submit label{
+	display: flex;
+	align-items: center;
+	gap:5px;
+}

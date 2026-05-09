@@ -1,0 +1,603 @@
+/* 3Dvenue-CMS Copyright (c) 2026 yoshihiro Murai Licensed under MIT (https://opensource.org/licenses/MIT)*/
+
+/*変更箇所を知らせるアニメーション*/
+.flash {
+  animation: flashAnim 0.5s ease-out;
+}
+
+@keyframes flashAnim {
+  0%   { outline: 2px dotted #FFFF; outline-offset: -5px}
+  100% { outline: 2px dotted #FFF0; outline-offset: -1px}
+}
+
+#naveditor{
+	padding:20px 20px 50px;
+}
+
+#naveditor .inner{
+	max-width:100%;
+	gap:20px;
+}
+
+#naveditor .inner h3{
+	height:40px;
+}
+
+#navBox{
+	width:100%;
+	height:calc(100vh - 150px);
+	background:#FFF;
+	display: flex;
+	gap:1px;
+	position:relative;
+	padding-top:31px;
+}
+
+#navilists{
+	width:calc(100% - 300px);
+	border:1px solid #D3E3FC;
+	display: flex;
+	flex-wrap:wrap;
+}
+
+#nav0{
+	position:absolute;
+	top:0;
+	left:0;
+	display: flex;
+	justify-content: left;
+	width:100%;
+	padding:0;
+	height:30px;
+	border: 1px solid #D3E3FC;
+}
+
+#nav1,
+#nav2{
+	width:50%;
+	padding:0;
+	height:100%;
+}
+
+#nav1{
+	border-right: 1px solid #D3E3FC;
+}
+
+
+#nav0{background:#EDF2FA;}
+#nav1{background:#FFFFFF;}
+
+#nav1,
+#nav2{
+	display: none;
+}
+
+#nav1.active,
+#nav2.active{
+	display:block;
+}
+
+#nav0 #navi0Box{
+	list-style: none;
+	padding:0;
+	margin:0;
+	display: flex;
+    justify-content: left;
+}
+
+#nav1 #navi1Box,
+#nav2 #navi2Box{
+	list-style: none;
+	padding:0;
+	margin:0;
+	display:block;
+	height:calc(100% - 30px);
+	overflow-y: auto;
+}
+
+#navi0Box li,
+#nav0 > div{
+	align-self: stretch;
+	cursor: pointer;
+	padding:0 20px;
+
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+#navi1Box li,
+#navi2Box li{
+	width:100%;	
+	align-self: stretch;
+	cursor: pointer;
+	padding:0 20px;
+
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+    display: none;
+}
+
+#navi1Box li.view,
+#navi2Box li.view{
+    display: block;
+}
+
+#navi2Box li:hover,
+#navi1Box li:hover,
+#navi0Box li:hover,
+#nav0 > div:hover{
+	background:#F0F0F0;
+}
+
+#navi2Box li:active,
+#navi1Box li:active,
+#navi0Box li:active,
+#nav0 > div:active{
+	background: #ccc;
+}
+
+#navi2Box li span.name,
+#navi1Box li span.name,
+#navi0Box li span.name,
+#nav0 > div span.name{
+	font-size:14px;
+	font-weight: 500;
+	font-family: 'Segoe UI';
+    color: #515152;
+}
+
+#navi1Box li,
+#navi2Box li{
+	border-bottom: 1px solid #D3E3FC;
+}
+
+#navi1Box li:nth-child(odd){
+	/*background:#F8F9FD;	*/
+}
+
+#navi2Box li span.slug,
+#navi1Box li span.slug,
+#navi0Box li span.slug,
+#nav0 > div span.slug{
+	display: block;
+	font-size:14px;
+	text-align: center;
+	line-height: 1.0;
+	display: none;
+}
+
+#navi1Box li.active,
+#navi1Box li.active span,
+#navi2Box li.active,
+#navi2Box li.active span{
+	background:#256EDF;
+	color:#FFF;
+}
+
+#nav0 button#nav0add,
+#nav1 button,
+#nav2 button{
+/*	height:100%;
+	width:auto;
+	height:30px;
+	margin-left:10px;
+	background:none;
+	font-size:18px;
+	border:none;
+	cursor: pointer;
+	display: flex;
+	align-items: center;*/
+}
+
+#nav1 button span,
+#nav2 button span{
+	font-size:14px;
+}
+
+.navtitile{
+	height:30px;
+	text-align: center;
+	font-weight: 500;
+	/*border-bottom: 1px solid #D3E3FC;*/
+	background:#EDF2FA;
+    color: #515152;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:0 20px;
+    cursor: pointer;
+}
+
+.navtitile button{
+	height:100%;
+	width:auto;
+	height:30px;
+	background:none;
+	font-size:18px;
+	border:none;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	color:#FFF;
+	display: none;
+}
+
+/*.navtitile.active{
+	color:#236EE4;
+}
+*/
+
+#nav0 .navtitile{
+	padding-top:3px;
+	border: 1px solid #D3E3FC;
+	position: absolute;
+	bottom:100%;
+	left:0;
+	border-radius: 7px 7px 0 0;
+	font-size:12px;
+	display: flex;
+	gap:20px
+}
+
+#nav0 .navtitile.active { background: #0078D4; color: #fff; }
+#nav1 .navtitile.active { background: #5AA9E6; color: #fff; }
+#nav2 .navtitile.active { background: #A7D3F2; color: #fff; }
+
+.navtitile.active button{
+	display: flex;
+}
+
+#navi1button,
+#navi2button{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	/*border-bottom: 1px solid #D3E3FC;*/
+}
+
+#navi1button #nav1-text-based span,
+#navi2button #nav2-text-based span{
+	padding:0 10px;
+	background:#000;
+	color:#FFF;
+	font-weight: 700;
+	font-size:12px;
+}
+
+#nav0 button#nav0add.hidden{
+	display:none;
+}
+
+#nav0 button:hover{
+	background:#FFF3;
+}
+
+
+#nav0 li.active,
+#nav0 div.home.active{
+	background:#236EE4;
+}
+
+#nav0 div.home.active span.name,
+#navi0Box li.content.active span.name{
+	color:#FFF;
+}
+
+#navBox.nav1 #nav0 li.active,
+#navBox.nav1 #nav0 div.home.active{
+	background:#ccc;
+}
+
+#navBox.nav2 #nav0 li.active,
+#navBox.nav2 #nav0 div.home.active,
+#navBox.nav2 #nav1 li.active,
+#navBox.nav2 #nav1 li.active span{
+	background:#ccc;
+}
+
+
+/* navdock
+------------------------------------------*/
+#navdock{
+	padding:0px;
+	margin:0;
+	width:300px;
+	height:100%;
+	/*min-height:500px;*/
+	position: relative;
+	border: 1px solid #D3E3FC;
+}
+
+#navgations{
+	display: none;
+}
+
+#navdock #checkbox{
+	/*display: flex;*/
+	display: none;
+	justify-content: right;
+	align-items: center;
+	padding-top:5px;
+	padding:0;
+	gap:0;
+	border-bottom: 1px solid #D3E3FC;
+}
+
+
+#navdock #checkbox .move{
+	display: flex;
+	align-items: center;
+}
+
+#navdock.home #checkbox .move,
+#navdock.home #checkbox #delbtn{
+	display: none;
+}
+
+#navdock.nav0 #checkbox #ud{
+	display: none;
+}
+
+#navdock.nav1 #checkbox #lr,
+#navdock.nav2 #checkbox #lr{
+	display: none;
+}
+
+#navdock.active #checkbox{
+	display: flex;
+}
+
+#navdock #checkbox span{
+	display: flex;
+	justify-content:center;
+	align-items: center;
+	cursor: pointer;
+	width:30px;
+	height: 30px;
+}
+
+
+#navdock #checkbox[data-nav="home"] span#delbtn{
+	display: none;
+}
+
+#navdock #checkbox span:hover{
+	background: #F0F0F0;
+}
+
+#navdock #checkbox span img{
+	width:20px;
+	height:20px;
+}
+
+/* navicheck
+------------------------------------------*/
+#navicheck{
+
+	background:#000;
+	color:#FFF;
+}
+
+
+/* navidata
+------------------------------------------*/
+#navidata{
+	/*display: none;*/
+}
+
+#navidata table{
+	display: none;
+	width:100%;
+	border-collapse: collapse;
+}
+
+#navdock.active #navidata table{
+	display: table;
+}
+
+#navidata table td,
+#navidata table th{
+	font-size:14px;
+	font-weight:500;
+	border: 1px solid #D3E3FC;
+	text-align: left;
+    color: #515152;
+}
+
+#navidata table th{
+	padding-left:0.5em;
+}
+
+#navidata tr:nth-child(odd){
+	background:#F8F9FD;
+}
+
+#navidata input,
+#navidata select{
+	border:none;
+	border-radius:0;
+	padding:2px 10px;
+	line-height:1.0;
+	width:100%;
+	background:none;
+}
+
+#navidata button#makenavi{
+	width:100%;
+	background:#D3E3FC;	
+	border:none;
+	border:1px solid #D3E3FC;
+	cursor: pointer;
+}
+
+#navidata button#makenavi:hover{
+	background:#236EE4;
+	color:#FFF;
+}
+
+#navdock.active #navidata{
+	display: block;
+}
+
+#navidata tr.link{
+	display:none;
+}
+
+#navidata tr.link[data-hidden="0"]{
+	display:table-row;
+}
+
+#navdock #submenu{
+	position: absolute;
+	bottom:0;
+	left:0;
+	width:100%;
+}
+
+#navdock #submenu #submenus{
+	height:calc(50% - 60px);
+	overflow-y: auto;
+}
+
+#navdock #submenu .btnbox{
+	height:30px;
+	text-align: right;
+}
+
+#navdock #submenu .btn{
+	cursor: pointer;
+}
+
+/* submenu
+------------------------------------------*/
+#submenu{
+	display:block;
+}
+
+/*#navdock.active #submenu{
+	display: block;
+}
+*/
+#submenu,
+#submenus,
+#submenu .btnbox{
+	border-top: 1px solid #D3E3FC;
+}
+
+#submenus .menulist{
+	font-size:14px;
+	padding:0 20px;
+	cursor: pointer;
+	border-bottom: 1px solid #D3E3FC;
+}
+
+#subtitle{
+	padding:4px 20px 0;
+	font-size:14px;
+	font-weight:500;
+	height:30px;
+}
+
+#submenus .menulist:nth-child(odd){
+	background:#F8F9FD;	
+}
+
+#subtitle,
+#submenu .btnbox{
+	background:#F8F9FD;	
+}
+
+
+#submenu .btnbox .btn{
+	border-radius: 0;
+	height:100%;
+	padding:9px 20px;
+}
+
+#savebtn{
+	position: fixed;
+	bottom:0;
+	left:0;
+	height:70px;
+	width:100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap:20px;
+}
+
+#savebtn div{
+	display: flex;
+	gap:20px;
+}
+
+#savebtn button{
+	border:none;
+	cursor: pointer;
+	color:#515152;
+}
+
+#savebtn button:hover{
+	background:#216EE9;
+	color:#FFF;
+}
+
+
+/* navitext
+------------------------------*/
+#navitext{
+	position: fixed;
+	top:0;
+	left:0;
+	width:100%;
+	height:100vh;
+	padding:20px;
+	background:#333;
+	transform: scale(0.0);
+	pointer-events: none;
+	transition-duration: .5s;
+}
+
+#navitext.active{
+	transform: scale(1.0);
+	pointer-events: auto;
+}
+
+#navitext h3,
+#navitext p{
+	color:#FFF;
+}
+
+#navitext #naviText{
+	height:calc(100vh - 200px);
+}
+
+#naviChangeBtn{
+	height:100px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+body #navitext #naviChangeBtn #changeNavi.btn{
+	font-size:18px;
+	padding:10px 20px;
+	border-radius: 0;
+	cursor: pointer;
+}
+
+
+#closeNaviText{
+	position: absolute;
+    top: 0;
+    right: 40px;
+    display: flex;
+    width: 30px;
+    height: 30px;
+    background: #216EE9;
+    color: #FFF;
+    justify-content: center;
+    cursor: pointer;
+}

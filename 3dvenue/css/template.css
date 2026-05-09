@@ -1,0 +1,254 @@
+/* 3Dvenue-CMS Copyright (c) 2026 yoshihiro Murai Licensed under MIT (https://opensource.org/licenses/MIT)*/
+
+body,html{
+	padding:0;
+	margin:0;
+	height: 100%;
+}
+
+html{
+	padding-top:50px;
+}
+
+body{
+	transition: all 0.5s ease;
+}
+
+#home{
+	position: fixed;
+	top:0;
+	left:0;
+}
+
+#overlay{
+    pointer-events: auto;
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	backdrop-filter: blur(3px);
+	background:#1847A133;
+	transform: scale(1.0);
+	transition-duration: .5s;
+	opacity:1;
+}
+
+#overlay button{
+	border:none;
+	padding:20px 40px;
+	border-radius: 10px;
+	font-size: 18px;
+	font-weight: 500;
+	box-shadow: 3px 3px 10px #0006;
+	cursor: pointer;
+}
+
+#overlay.close{
+	backdrop-filter:none;
+	transform: scale(0.0);
+	pointer-events: none;
+	opacity:0;
+}
+
+#popup{
+	display:none;
+}
+
+
+.scale span{
+	display: inline-block;
+	padding:3px 5px;
+	border:1px solid #ccc;
+	width:40px;
+	line-height: 1.0;
+}
+
+/* templatebox
+---------------------------------------------*/
+/*#templatebox{
+	position: fixed;
+	top:0;
+	left:0;
+	height:50px;
+	background:#000;
+	width:100%;
+}
+
+#templatebox .inner{
+	height:100%;
+	display: flex;
+	align-items: center;
+	gap:10px;
+}
+
+#templatebox span,
+#templatebox p,
+#templatebox div{
+	font-size:14px;
+	font-weight: 500;
+	color:#FFF;
+}
+
+#templatebox select{
+	width:150px;
+	padding:5px 10px;
+	border-radius: 5px;
+}*/
+
+/* main
+---------------------------------------------*/
+
+main{
+	padding:0;
+}
+
+main iframe{
+	width:100%;
+	height:100vh;
+	border:none;
+}
+
+/* templateEditor
+---------------------------------------------*/
+html#popuphtml,body#popupbody{
+	padding:0;
+	margin:0;
+	width:100%;
+	height:100%;
+}
+
+body#popupbody *{
+	box-sizing: border-box;
+}
+
+#templateEditor{
+	width:100%;
+	height:100%;
+	padding:0;
+	margin:0;
+}
+
+#select{
+	height:50px;
+	width:100%;
+	background:#000;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#select select{
+	width:150px;
+	padding:5px 10px;
+	border-radius: 5px;
+}
+
+#css{
+	width:100%;
+	height:calc(100vh - 100px);
+	padding:10px;
+	margin:0;
+	resize: none;
+	overflow: auto;
+	border:none;
+}
+
+#button{
+	position: fixed;
+	bottom:0;
+	left:0;
+	height:50px;
+	width:100%;
+	background:#000;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+#button button{
+	padding:0px 20px;
+	border:none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+/* savebox
+---------------------------------------------*/
+
+#savebox{
+    pointer-events: auto;
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	backdrop-filter: blur(3px);
+	background:#1847A133;
+	transform: scale(0.0);
+	transition-duration: .5s;
+	opacity:0;
+}
+
+#savebox.active{
+	transform: scale(1.0);
+	opacity:1;
+}
+
+#savebox .close{
+    position: absolute;
+    top: 0;
+    right: 40px;
+    display: flex;
+    width: 30px;
+    height: 30px;
+    background: #216EE9;
+    color: #FFF;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+#savebox #saveform{
+	background:#FFF;
+	padding:20px;
+	text-align: center;
+	border-radius: 10px;
+	box-shadow: 3px 3px 10px #0006;
+}
+
+#savebox #saveform label{
+	margin:0 5px;
+}
+
+#savebox #saveform input{
+	padding:10px 20px;
+	border:1px solid #ccc;
+	border-radius: 5px;
+}
+
+#savebox div{
+	margin-top:20px;
+}
+
+#savebox button.btn{
+	padding:5px 20px;
+	border-radius: 5px;
+	cursor: pointer;
+	margin:0 0 0 auto;
+	border:1px solid #ccc;
+	font-size: 14px;
+	margin-right:20px;
+}
+
+#btnbox{
+	margin-top:20px;
+}
+
+#btnbox button:hover{
+	background:#216EE9;
+	color:#FFF;
+}

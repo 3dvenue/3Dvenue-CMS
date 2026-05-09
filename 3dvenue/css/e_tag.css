@@ -1,0 +1,112 @@
+/* 3Dvenue-CMS Copyright (c) 2026 yoshihiro Murai Licensed under MIT (https://opensource.org/licenses/MIT)*/
+
+
+/* tagtEditor
+----------------------------------------*/
+#tageditor{
+	position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #EDF2FA;
+    z-index:1500;
+	pointer-events: none;
+	transform: scale(0.0);
+}
+
+#tageditor .close{
+	position:absolute;
+	top:5px;
+	right:10px;
+}
+
+#tageditor .inner{
+	display:block;
+	padding:0;
+}
+
+#tageditor .inner > div{
+	height:40px;
+	display: flex;
+	justify-content:left;
+	align-items: center;
+	gap:20px;
+	padding:0 20px;
+	border-bottom: 1px solid #D3E3FC;
+}
+
+#tageditor .inner .gradient,
+#tageditor .inner .section{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap:20px;
+}
+
+#tageditor .inner div{
+	display: flex;
+	align-items: center;
+	gap:5px;
+}
+
+#tageditor .inner label,
+#tageditor .inner .label{
+	display: flex;
+	align-items: center;
+	font-size:14px;
+	margin-left:5px;
+}
+
+#tageditor .inner .section > div{
+	border-left: 1px solid #D3E3FC;
+	padding-left:10px;
+}
+
+#tageditor .inner button,
+#tageditor .inner input,
+#tageditor .inner select{
+	border: 1px solid #D3E3FC;
+    padding: 5px 10px;
+    margin:0 5px 0 10px;
+}
+
+#tageditor .inner select{
+    padding:3px 0;
+}
+
+#tageditor .inner input[type="color"]{
+    padding: 0;
+    width:30px;
+}
+
+/*#tageditor .inner .alpha,*/
+#tageditor .inner input[type="number"]{
+    width:40px;
+    text-align: center;
+    padding:3px 0;
+}
+
+#tageditor .inner button{
+	padding:5px 20px;
+    background: #D3E3FC;
+    font-size:12px;
+}
+
+#tageditor.active{
+	pointer-events: auto;
+	transform: scale(1.0);
+}
+
+#tageditor.text{
+	pointer-events: none;
+	transform: scale(0.0);
+}
+
+#tageditor #tagname{
+    font-weight: 500;
+    color: #1E6EEE;
+}
+
+#tageditor .inner div.hidden{
+	display:none;
+}
