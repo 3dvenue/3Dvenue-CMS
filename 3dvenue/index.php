@@ -64,7 +64,7 @@ if (file_exists($file)) {
     </div>
 
     <div class="content">
-        <a href="menu.php"><figure>
+        <a href="navi.php"><figure>
             <img src="./lib/navigation.svg">
         </figure></a>
         <div class="text">
