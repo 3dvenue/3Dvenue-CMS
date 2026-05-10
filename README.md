@@ -206,25 +206,25 @@ While developing it, I kept adding new ideas and improvements, and before I real
 
 ### PageSpeed Insights  
   
-<img src="img/psi2.webp" width="900">
+<img src="img/psi2.webp" width="800">
 
 
 
 ### Admin Panel  
   
-<img src="img/top.webp" width="900">  
+<img src="img/top.webp" width="800">  
 
 
   
 ### Color Mapping Tool  
   
-<img src="img/color.webp" width="900">  
+<img src="img/color.webp" width="800">  
 
 
   
 ### SEO Settings  
   
-<img src="img/seo.webp" width="900">  
+<img src="img/seo.webp" width="800">  
   
 
 
