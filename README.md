@@ -206,7 +206,7 @@ While developing it, I kept adding new ideas and improvements, and before I real
 
 ### PageSpeed Insights  
   
-<img src="img/psi.webp" width="900">
+<img src="img/psi.webp?t=1" width="900">
 
 
 
