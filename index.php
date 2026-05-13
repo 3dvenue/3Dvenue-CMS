@@ -78,10 +78,10 @@ $nav = str_replace('p="'.$pid.'"','p="'.$pid.'" class="active"', $nav);
 
 $meta_image = 'common/img/snsimage'.$pid.'.webp';
 $meta_image = file_exists($meta_image) ? $meta_image : '';
-
+$lng = trim(file_get_contents('./common/inc/lang.txt'));
 ?>
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="<?=$lng?>">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">

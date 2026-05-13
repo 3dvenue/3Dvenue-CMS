@@ -5,7 +5,6 @@ if (basename(__FILE__) === basename($_SERVER['SCRIPT_FILENAME'])) exit;
     <div class="inner">
 
         <div id="tools">
-            <div id="home"><a href="index.php">🔙</a></div>
             <div id="scriptBtn">Script</div>
             <div id="styleBtn">Styles</div>
         </div>
@@ -17,9 +16,9 @@ if (basename(__FILE__) === basename($_SERVER['SCRIPT_FILENAME'])) exit;
             <?php } ?>
             </select>
 
-            <div id="changenamebox"><input type="text" id="changepagename" value=""><button id="changename" class="btn">変更</button></div>
+            <div id="changenamebox"><input type="text" id="changepagename" value=""><button id="changename" class="btn"><?=$lang['update'][$lng]?></button></div>
 
-            <span id="newpage"><img src="./lib/newpage.svg" alt="newpage" title="新規ページ"></span>
+            <span id="newpage"><img src="./lib/newpage.svg" alt="newpage" title="<?=$lang['newpage'][$lng]?>"></span>
             <span id="view"><img src="./lib/desktop.svg" alt="newpage" title="view"></span>
             <select id="bodysize">
                 <option value="1.0">100%</option>
@@ -35,7 +34,7 @@ if (basename(__FILE__) === basename($_SERVER['SCRIPT_FILENAME'])) exit;
             </select>
         </div>
 
-        <span id="setting"><img src="./lib/settings.svg" alt="setting" title="設定"></span>
+        <span id="setting"><img src="./lib/settings.svg" alt="setting" title="<?=$lang['setup'][$lng]?>"></span>
     </div>
 
     <div class="base">

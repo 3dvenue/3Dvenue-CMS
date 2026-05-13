@@ -25,7 +25,7 @@ $stmt = $conn->query($sql);
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     $pages[] = $row;
 }
-
+include_once('./lang.php');
 ?>
 <!DOCTYPE html>
 <html lang="jp">
@@ -41,15 +41,9 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 </head>
 <body>
-<div id="header">
-<?php include_once('./inc/header.php')?>
-</div>
-<div id="nav">
-<?php include_once('./inc/nav.php')?>
-</div><!-- nav -->
 <div id="main">
-
-    <h2>ナビゲーションの編集</h2>
+    <div class="inner">
+    <h2><?=$lang['navi_edit'][$lng]?></h2>
 
 <div id="body">
     <header>
@@ -64,12 +58,10 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         </div>
     </nav>
     <main>
-
-    <h2>ナビゲーションの編集</h2>
-    <p style="line-height:1.8;">ナビゲーションの追加は[＋]ボタン、削除はキーボードの[Del]キー。<br>
-        保存ボタンを押せば作業内容が記録されます。<br />
-        作業内容を公開中のページに追加するには公開ボタンを押してください。
-    </p>
+        <div class="inner">
+            <h2><?=$lang['navi_edit'][$lng]?></h2>
+            <p style="line-height:2.0;"><?=$lang['navi_howto'][$lng]?></p>
+        </div>
     </main>
     <footer>
         <div class="inner">
@@ -78,6 +70,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     </footer>
 </div><!-- #body-->
 
+    </div>
 </div>
 <div id="footer">
 <?php include_once('./inc/footer.php')?>
@@ -88,16 +81,16 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 <h3></h3>
 <div class="handle">Navigtion Editor</div>
 <table>
-    <tr><th>表示名</th><td><input type="text" name="name" id="name" value=""/></td></tr>
-    <tr><th>Link先</th><td><select name="pid" id="pid">
+    <tr><th>Name</th><td><input type="text" name="name" id="name" value=""/></td></tr>
+    <tr><th>Link</th><td><select name="pid" id="pid">
         <?php foreach ($pages as $row) { ?>
             <option value="<?=$row['pid']?>"><?=$row['name']?></option>
         <?php } ?>
-        <option value="0">外部リンク</option>
+        <option value="0">URL</option>
     </select></td></tr>
     <tr class="url"><th>url</th><td><input type="text" name="link" id="link" value="" placeholder="https://cms.3dvenue.jp" /></td></tr>
     <tr class="slug"><th>slug</th><td><input type="text" name="slug" id="slug" value=""/></td></tr>
-    <tr><th>表示先</th><td><select name="target" id="target"><option value="_self">同じ場所で</option><option value="_blank">_blank</option><option value="sub">新しいタブ内に表示</option></select></td></tr>
+    <tr><th>TARGET</th><td><select name="target" id="target"><option value="_self">_self</option><option value="_blank">_blank</option><option value="sub">New Tab</option></select></td></tr>
     <tr>
         <td colspan="2" style="text-align: right;padding-right:5px">
             <div id="newtrash">
@@ -112,7 +105,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
 
 <div id="bottomMenu">
-    <div id="savebtn"><button id="admin">保存</button><button id="public">公開</button></div>
+    <div id="savebtn"><button id="admin"><?=$lang['save'][$lng]?></button><button id="public"><?=$lang['publish'][$lng]?></button></div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -177,7 +170,7 @@ makeMap();
         // 削除処理
         if(e.key === 'Delete'){
             $('ul.'+nav+' li.active').addClass('hidden');
-            if(confirm('OKで完全削除します。キャンセルで残します。')){
+            if(confirm('<?=$lang['navi_confirm'][$lng]?>')){
                 let licount = $('ul.'+nav+' li.active').parent().children('li').length;
                 if(licount <= 1){
                     $('ul.'+nav+' li.active').parent('ul').remove();                    
@@ -205,7 +198,7 @@ makeMap();
     $('#trash').on('click',function(){
         let nav = $('#navieditor').attr('data-nav');
         $('ul.'+nav+' li.active').addClass('hidden');
-        if(confirm('OKで完全削除します。キャンセルで残します。')){
+        if(confirm('<?=$lang['navi_confirm'][$lng]?>')){
             let licount = $('ul.'+nav+' li.active').parent().children('li').length;
             if(licount <= 1){
                 $('ul.'+nav+' li.active').parent('ul').remove();                    
@@ -261,10 +254,10 @@ makeMap();
     });
 
   $('ul.nav0').sortable({
-    axis: 'x',            // 左右方向のみ
-    cursor: 'move',       // つかんでいる時のマウスカーソル
-    opacity: 0.7,         // ドラッグ中の透明度
-    placeholder: 'ui-state-highlight', // 入れ替え先の隙間に表示される枠
+    axis: 'x',
+    cursor: 'move',
+    opacity: 0.7,
+    placeholder: 'ui-state-highlight',
     
     // ドラッグが終わった瞬間に実行される処理
     update: function(event, ui) {
@@ -273,10 +266,10 @@ makeMap();
   });
 
   $('ul.nav1').sortable({
-    axis: 'y',            // 左右方向のみ
-    cursor: 'move',       // つかんでいる時のマウスカーソル
-    opacity: 0.7,         // ドラッグ中の透明度
-    placeholder: 'ui-state-highlight', // 入れ替え先の隙間に表示される枠
+    axis: 'y',
+    cursor: 'move',
+    opacity: 0.7,
+    placeholder: 'ui-state-highlight',
     update: function(event, ui) {
       console.log('並べ替え完了！このままHTMLとして保存できます');
     }
@@ -326,7 +319,6 @@ makeMap();
         map:map,
         submit:submit
       })
-      // console.log(navigation.html());
     })
 
 

@@ -85,12 +85,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </style>
 </head>
 <body>
-<div id="header">
-<?php include_once('./inc/header.php')?>
-</div>
-<div id="nav">
-<?php include_once('./inc/nav.php')?>
-</div><!-- nav -->
 <div id="main">
     <div class="inner">
         <h2>ページ情報の修正 <div class="btn" id="new">＋</div></h2>

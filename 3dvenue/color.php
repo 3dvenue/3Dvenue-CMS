@@ -33,7 +33,6 @@ if(!empty($_POST['css'])){
         file_put_contents('./common/css/color.css', $css);
         file_put_contents('../common/css/color.css', $css);
     }
-
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -65,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             color2 = :color2, 
             color3 = :color3, 
             color4 = :color4 
-            WHERE colorid = :colorid"; // これがないと全行更新されてしまうので注意！            
+            WHERE colorid = :colorid";         
             $stmt = $conn->prepare($sql);
             $stmt->execute([
                 ':color1' => $color1,
@@ -84,6 +83,7 @@ $sql = "SELECT * FROM colors ORDER BY heart DESC";
 $stmt = $conn->query($sql);
 $colors = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+include_once('./lang.php');
 ?>
 <!DOCTYPE html>
 <html lang="jp">
@@ -93,20 +93,13 @@ $colors = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta name="robots" content="noindex,nofollow">
     <link rel="icon" href="/favicon.ico">
     <title>3DVenue: Open Source CMS (MIT Licensed)</title>
-    <!-- <meta property="og:image" content="https://あなたのドメイン/common/images/image_363be5.jpg"> -->
     <link rel="stylesheet" type="text/css" href="./css/style.css">
     <link rel="stylesheet" type="text/css" href="./css/colors.css?t=<?=time()?>">
 </head>
 <body>
-<div id="header">
-<?php include_once('./inc/header.php')?>
-</div>
-<div id="nav">
-<?php include_once('./inc/nav.php')?>
-</div><!-- nav -->
 <div id="main">
 <div class="inner">
-    <h2>配色一覧<div id="new">＋</div></h2>
+    <h2><?=$lang['color_edit'][$lng]?><div id="new">＋</div></h2>
     <div id="heaercheck"><input type="checkbox" id="checkedheart" value="1"><label for="checkedheart"><span>❤</span></label></div>
     <div id="flex">
          <section id="colors">
@@ -149,34 +142,34 @@ $colors = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <div class="card" style="width:100%;">
                                 <figure>
                                 </figure>
-                                <p style="margin-top:0.5em;font-size:0.9em;">マウス操作だけで配色</p>
+                                <p style="margin-top:0.5em;font-size:0.9em;">Mouse-only color mapping</p>
                             </div>
                             <div class="card" style="width:100%;">
                                 <figure>
                                 </figure>
-                                <p style="margin-top:0.5em;font-size:0.9em;">何度でもやりなおせる</p>
+                                <p style="margin-top:0.5em;font-size:0.9em;">Redo as many times as you like</p>
                             </div>
                             <div class="card" style="width:100%;">
                                 <figure>
                                 </figure>
-                                <p style="margin-top:0.5em;font-size:0.9em;">AIより自分の勘を信じて！</p>
+                                <p style="margin-top:0.5em;font-size:0.9em;">Trust your own sense, not AI</p>
                             </div>
                         </div>
                     </div>
                 </section>
                 <section>
                     <div class="inner">
-                    <h1>色と構造でつくる、壊れないデザイン</h1>
-                    <h2>テーマカラーを変えても崩れないレイアウト設計</h2>
-                    <h3>見出し・本文・ボタンの関係を最適化した配色ルール</h3>
-                    <div class="text radius"><p>色が変わっても、<a href="#">デザインはそのまま美しく</a>ページ全体のバランスが崩れないように設計。誰が使っても扱いやすいデザインを目指しました。</p></div>
+                        <h1>Design with Color & Structure</h1>
+                        <h2>Layouts That Don’t Break</h2>
+                        <h3>Smart Color Rules</h3>
+                        <div class="text radius"><p>Even when colors change, the <a href="#">design stays beautifully balanced</a>. Designed to keep the entire page visually consistent and easy for anyone to use.</p></div>
                     </div>
                 </section>
 
                 <section>
                     <div class="inner">
-                    <div class="center"><a href="#" class="button1">普通のボタン</a></div>
-                    <div class="center"><a href="#" class="button2">目立たせたいボタン</a></div>
+                    <div class="center"><a href="#" class="button1">Standard Button</a></div>
+                    <div class="center"><a href="#" class="button2">Primary Button</a></div>
                     </div>
                 </section>
             </main>
@@ -187,7 +180,7 @@ $colors = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </div><!-- flex -->
 
     <div id="mapping">
-        <button id="startmapping" class="btn">カラーマッピングを開始</button>
+        <button id="startmapping" class="btn"><?=$lang['color_mapping_start'][$lng]?></button>
         <div id="mapping_panel">
             <div class="close">✕</div>
             <div id="setcolor">
@@ -226,7 +219,7 @@ $colors = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <label><input type="color" id="fontcolor" class="fontcolor" value="#333333"><span>Font</span>
                 <input type="text" class="fontcolor" value="#333333">
             </label>
-            <div id="saveBtn"><button class="btn" id="toAdmin" title="管理画面用に保存">決定</button><button class="btn" id="toSite" title="公開サイトに反映させる">公開</button>
+            <div id="saveBtn"><button class="btn" id="toAdmin" title="Save for Admin Panel"><?=$lang['save'][$lng]?></button><button class="btn" id="toSite" title="Apply to Live Site"><?=$lang['publish'][$lng]?></button>
         </div>
     </div><!-- mapping -->
 
@@ -239,28 +232,28 @@ $colors = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <div id="form">
             <form method="post">
                 <input type="hidden" id="colorid" name="colorid" value="">
-                <label for="color1">カラー１：
+                <label for="color1">Color1：
                 <input type="color" class="color1" value="#FFFFFF">
                 <input type="text" id="color1" name="color1" value="#FFFFFF"> 
                 </label>
 
-                <label for="color2">カラー２：
+                <label for="color2">Color2：
                 <input type="color" class="color2" value="#FFFFFF">
                 <input type="text" type="" id="color2" name="color2" value="#FFFFFF"> 
                 </label>
 
-                <label for="color3">カラー３：
+                <label for="color3">Color3：
                 <input type="color" class="color3" value="#FFFFFF">
                 <input type="text" id="color3" name="color3" value="#FFFFFF"> 
                 </label>
 
-                <label for="color4">カラー４：
+                <label for="color4">Color4：
                 <input type="color" class="color4" value="#FFFFFF">
                 <input type="text"  id="color4" name="color4" value="#FFFFFF"> 
                 </label>
                 <div id="palettebtn">
-                    <button type="submit" id="update" class="btn" name="submit" value="update">配色パレットを更新</button>
-                    <button type="submit" id="add" class="btn" name="submit" value="add">配色パレットを追加</button>
+                    <button type="submit" id="update" class="btn" name="submit" value="update">Update Color Palette</button>
+                    <button type="submit" id="add" class="btn" name="submit" value="add">Add Color Palette</button>
                 </div>
             </form>
             </div>

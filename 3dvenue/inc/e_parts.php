@@ -6,7 +6,7 @@ if (basename(__FILE__) === basename($_SERVER['SCRIPT_FILENAME'])) exit;
 	<div class="sectionClose">✕</div>
 
 	<div id="sectionparts" class="select">
-		<h2>追加するSECTION</h2>
+		<h2>Add Section</h2>
 		<div id="addsection">
 			<label><input type="radio" name="addsection" class="addsection" value="before" checked>:Before</label>
 			<label><input type="radio" name="addsection" class="addsection" value="after">:After</label>
@@ -24,10 +24,10 @@ if (basename(__FILE__) === basename($_SERVER['SCRIPT_FILENAME'])) exit;
 	</div>
 
 	<div id="contensparts" class="select">
-		<h2>追加するParts</h2>
+		<h2>Add Parts</h2>
 		<div id="addParts">
-			<label><input type="radio" name="addparts" class="addparts" value="before" checked>：前に追加</label>
-			<label><input type="radio" name="addparts" class="addparts" value="after">：後ろに追加</label>
+			<label><input type="radio" name="addparts" class="addparts" value="before" checked>:Before</label>
+			<label><input type="radio" name="addparts" class="addparts" value="after">:After</label>
 			<section>
 			<?php foreach ($sections as $section): ?>
 				<?php if ($section['type'] == '2'): ?>
@@ -42,7 +42,7 @@ if (basename(__FILE__) === basename($_SERVER['SCRIPT_FILENAME'])) exit;
 	</div>
 
 	<div id="pageparts" class="select">
-		<h2>追加ページサンプル</h2>
+		<h2>Add Page Sample</h2>
 		<div id="addPage">
 			<section>
 			<?php foreach ($sections as $section): ?>
