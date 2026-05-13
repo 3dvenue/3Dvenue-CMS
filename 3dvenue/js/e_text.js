@@ -27,10 +27,9 @@ $('#f-color').on('input',function(){
     $('section span.active').css({'color':color});
 })
 
-$('#f-size').on('change',function(){
+$('#f-size').on('input',function(){
     let fsize = $(this).val();
-    console.log(fsize);
-    $('section span.active').css({'font-size':fsize+'em'});
+    $('section span.active').css({'font-size':fsize+'px'});
 })
 
 $('#f-weight').on('change',function(){

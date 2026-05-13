@@ -15,9 +15,9 @@ body{
 	background:#D3E3FC;
 	display:inline-block;
 	font-size:12px !important;
-	padding:7px 10px;
+	padding:5px 20px;
 	line-height: 1.0;
-	border-radius: 20px;
+	border-radius: 3px;
 	cursor: pointer;
 }
 
@@ -35,25 +35,6 @@ body{
   outline: none;
   box-shadow: 0 0 0 2px rgba(74,144,226,0.3);
 }
-
-main h1.active::after,
-main h2.active::after,
-main h3.active::after,
-main h4.active::after,
-main div.active::after{
-	position:absolute;
-	bottom:100%;
-	left:0;
-	background:#333;
-	color:#FFF;
-	display: inline-block;
-	padding:3px 10px;
-	border-radius:0 5px 0 0;
-	content:"Class: " attr(class);
-	font-size:14px;
-	font-weight:700;
-}
-
 
 main figure a,
 main figure img{
@@ -226,6 +207,7 @@ body.topeditor #editor{
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	padding: 0 20px;
 }
 
 #editor .base{

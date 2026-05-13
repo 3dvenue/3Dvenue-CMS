@@ -10,8 +10,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
      }
      exit();
-
 }
+
+$directory = '../common/img/';
+
+include_once('./lang.php');
 ?>
 <!DOCTYPE html>
 <html lang="jp">
@@ -25,21 +28,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" type="text/css" href="./css/images.css?t=<?=time()?>">
 </head>
 <body id="imagepage">
-<div id="header">
-<?php include_once('./inc/header.php')?>
-</div>
-<div id="nav">
-<?php include_once('./inc/nav.php')?>
-</div><!-- nav -->
 <div id="main">
 <div class="inner">
-    <h2>画像一覧<div id="new">＋</div></h2>
+    <h2><?=$lang['image_edit'][$lng]?><div id="new">＋</div></h2>
+    <p><?=$directory?></p>
      <section id="images">
         <?php
-            $directory = '../common/img/';
             $files = glob($directory . "*.webp");
         ?>
-    <h3><?=$directory?></h3>
     <ul>
     <?php
         foreach ($files as $file) {

@@ -69,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 $sql = "SELECT * FROM contents ORDER BY cname";
 $stmt = $conn->query($sql);
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
+include_once('./lang.php');
 ?>
 <!DOCTYPE html>
 <html lang="jp">
@@ -83,15 +83,9 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <link rel="stylesheet" type="text/css" href="./css/parts.css?t=<?=time()?>">
 </head>
 <body>
-<div id="header">
-<?php include_once('./inc/header.php')?>
-</div>
-<div id="nav">
-<?php include_once('./inc/nav.php')?>
-</div><!-- nav -->
 <div id="main">
 <div class="inner">
-<h2><span>ページ情報の修正</span>
+<h2><span><?=$lang['parts_edit'][$lng]?></span>
 
 <select id="selectparts">
     <option data-cid="0" value="sections">Section Parts</option>
@@ -101,7 +95,7 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <option data-cid="4" value="footers">Footer Parts</option>
 </select>
 
-<div><button id="sampleaccet" class="btn">サンプルアセット</button></div>
+<div><button id="sampleaccet" class="btn">Assets</button></div>
 
 <div class="btn" id="new">＋</div>
 </h2>
@@ -221,9 +215,9 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </div><!-- input -->
 
             <div id="submit">
-                <button type="submit" id="edit" class="btn" name="submit" value="edit">保存</button>
-                <button type="submit" id="add" class="btn" name="submit" value="add">追加</button>
-                <button type="submit" id="dell" class="btn" name="submit" value="del">削除</button>
+                <button type="submit" id="edit" class="btn" name="submit" value="edit"><?=$lang['save'][$lng]?></button>
+                <button type="submit" id="add" class="btn" name="submit" value="add"><?=$lang['add'][$lng]?></button>
+                <button type="submit" id="dell" class="btn" name="submit" value="del"><?=$lang['del'][$lng]?></button>
             </div><!-- submit -->
         </div>
         </form>
@@ -241,14 +235,14 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <div><label><span>Name：</span><input type="text" id="pname" name="cname" required></label></div>
         </div><!-- input -->
         <div id="psubmit">
-            <div><button type="submit" id="padd" class="btn" name="submit" value="add">追加</button></div>
+            <div><button type="submit" id="padd" class="btn" name="submit" value="add"><?=$lang['add'][$lng]?></button></div>
             <div>
-                <button type="submit" id="pedit" class="btn" name="submit" value="edit">保存</button>
-                <button type="submit" id="pdell" class="btn" name="submit" value="del">削除</button>
+                <button type="submit" id="pedit" class="btn" name="submit" value="edit"><?=$lang['save'][$lng]?></button>
+                <button type="submit" id="pdell" class="btn" name="submit" value="del"><?=$lang['del'][$lng]?></button>
             </div>
             <div>
                 <input type="range" id="psize" max="400" min="100" step="1" value="100">
-                <button type="button" id="reset">リセット</button> <button type="button" id="maxwidth">全画面表示</button>
+                <button type="button" id="reset"><?=$lang['reset'][$lng]?></button> <button type="button" id="maxwidth"><?=$lang['fullsize'][$lng]?></button>
             </div>
                 <textarea name="dom" id="pdom"></textarea>
                 <div id="pagePreview"></div>
@@ -296,17 +290,17 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </div><!-- pageform -->
 
 <div id="move">
-    <div id="up"><span class="mbtn"><img src="./lib/up.svg"></span><span>↑キー</span></div>
-    <div id="down"><span class="mbtn"><img src="./lib/down.svg"></span><span>↓キー</span></div>
-    <div id="trash"><span class="mbtn"><img src="./lib/trash.svg"></span><span>Delete<br />Backspace</span></div>
-    <div id="clear"><span class="mbtn">解除<span></span></span>Enter</div>
+    <div id="up"><span class="mbtn">▲</span></div>
+    <div id="down"><span class="mbtn">▼</span></div>
+    <div id="clear"><span class="mbtn">Esc</span></div>
+    <div id="trash"><span class="mbtn">Del</span></div>
 </div>
 </div><!-- pageeditor-->
 
 
 <div id="sampleurl">
     <div class="close">×</div>
-    <h2>サンプル用SVGアセット</h2>
+    <h2>Sample SVG Assets</h2>
     <div class="inner">
     <?php
     $dir = '../common/svg/'; 
@@ -323,7 +317,7 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
      <?php
         }
     } else {
-        echo "SVGファイルは見つかりませんでした。";
+        echo "SVG file not found.";
     }
     ?>
     </div>
@@ -512,16 +506,8 @@ let footerdom = `<div id="copyright">&copy;3Dvenue</div>`;
     $('#pageesections div.parts').on('click', function(){
         const cid = $(this).attr('data-cid');
         const data = allParts.find(p => p.cid == cid);
-            // $('#pcid').val(cid);
-            // $('select[name="type"]').val(data.type);
-            // $('#cname').val(data.cname);
-            // $('#memo').val(data.memo);
             $('#siteimage #body main').append(data.dom);
             pdomset();
-            // $('#dom').val(data.dom);
-            // $('#view main').html(data.dom);
-            // $('#editor').removeClass().addClass("active edit");
-            // サムネールを作る
             makePageThum();
     });
 
@@ -530,7 +516,6 @@ let footerdom = `<div id="copyright">&copy;3Dvenue</div>`;
         $('#pdom').val($('#siteimage #body main').html());
     }
 
-    //表示サイズ変更
     $('#psize').on('input',function(){
        let size = $(this).val();
        let scale = size / 100;
@@ -553,13 +538,11 @@ let footerdom = `<div id="copyright">&copy;3Dvenue</div>`;
         $('#body').removeClass('maxwidth');
     })
 
-    // section選択
     $(document).on('click','#body section',function(){
         $('#body section').removeClass('active');
         $(this).addClass('active');
     })
 
-    // move操作
     $('#up').on('click', function() {
         var $active = $('main section.active');
         $active.insertBefore($active.prev('section'));
@@ -590,13 +573,12 @@ let footerdom = `<div id="copyright">&copy;3Dvenue</div>`;
             case 40: $('#down').trigger('click'); break;  // ↓キー
             case 46: 
             case 8:  $('#trash').trigger('click'); break; // Delete / Backspace
-            case 13: $('#clear').trigger('click'); break; // Enter
+            case 27: $('#clear').trigger('click'); break; // Esc
         }
     });
 
     function makePageThum(){
         const target = document.getElementById('body');
-        console.log('呼ばれてるかチェック');
         
         const realW = target.scrollWidth;
         const realH = target.scrollHeight;
@@ -654,24 +636,21 @@ let footerdom = `<div id="copyright">&copy;3Dvenue</div>`;
         $('#sampleurl').addClass('active');
     });
 
-    // サンプルアセットからURLをコピー
     $('#sampleurl .inner .svg').on('click',function(){
         let copyurl = $(this).attr('data-url');
         if (copyurl) {
             navigator.clipboard.writeText(copyurl).then(() => {
-                alert(copyurl + 'をコピーしました');
+                alert(copyurl + ' copied');
             });
            
         }
     });
 
-    // Tabキーでタブを入れる
     $('#dom').on('keydown', function(e) {
-        const el = e.target; // jQueryのイベントオブジェクトから要素を引く
+        const el = e.target;
 
         if (e.key === 'Tab') {
             e.preventDefault();
-            // 選択範囲を "\t" で置き換える（バニラだけど最強に速い）
             el.setRangeText("\t", el.selectionStart, el.selectionEnd, 'end');
         } 
         else if (e.key === 'Enter') {
@@ -680,7 +659,6 @@ let footerdom = `<div id="copyright">&copy;3Dvenue</div>`;
 
             if (indent) {
                 e.preventDefault();
-                // 改行＋インデントを流し込む
                 el.setRangeText('\n' + indent[0], el.selectionStart, el.selectionStart, 'end');
             }
         }

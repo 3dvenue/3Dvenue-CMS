@@ -11,6 +11,7 @@ html {
 body{
 	height:100%;
 	background:#F4F5F6;
+	min-width:880px;
 }
 
 body * {
@@ -19,16 +20,14 @@ body * {
     color:#333;
 }
 
-:lang(en) {
-    word-break: break-word;
-    overflow-wrap: break-word;
+h1,h2,h3,h4{
+	letter-spacing: .1em;
 }
 
-h1 { font-size: 2.0rem; text-align: center;}
-h2 { font-size: 1.5rem; text-align: center;}
-h3 { font-size: 1.2rem; }
+p {
+	font-size: 14px;
+}
 
-p { font-size: 14px; text-align: center;} 
 
 *{
 	padding:0;
@@ -38,7 +37,7 @@ p { font-size: 14px; text-align: center;}
 
 .inner{
 	width:100%;
-	max-width:880px;
+	max-width:1400px;
 	padding:0 40px;
 	margin:0 auto;
 }
@@ -69,75 +68,12 @@ p { font-size: 14px; text-align: center;}
 	cursor: pointer;
 }
 
-
-/* #header
--------------------------------------------*/
-#header{
-	line-height: 1.0;
-	padding:10px 0;
-	border-bottom:1px solid #666;
-	height:80px;
-}
-
-#header .inner{
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
-
-#header #logo{
-	margin:0;
-}
-
-#header #logo img{
-	height:60px;
-	width:auto;
-}
-
-#header h1{
-	line-height: 1.0;
-	padding:0;
-	margin:0;
-	font-size:1.5rem;
-	color:#1B3C53;
-}
-
-/* nav
--------------------------------------------*/
-
-#nav{
-	background: #1B3C53;
-}
-
-#nav ul{
-	display: flex;
-	list-style: none;
-	justify-content:space-between;
-}
-
-
-#nav ul li{
-	flex:auto;
-}
-
-#nav ul li a{
-	display:flex;
-	height:40px;
-	justify-content: center;
-	align-items: center;
-	text-decoration: none;
-	color:#EEF;
-	font-weight: 500;
-	font-size:12px;
-}
-
-
 /* main
 -------------------------------------------*/
 
 #main {
-	min-height:calc(100vh - 180px);
-	padding:50px 0;
+	min-height:calc(100vh - 70px);
+	padding:0 0 10px;
 }
 
 #main .inner{
@@ -159,18 +95,21 @@ p { font-size: 14px; text-align: center;}
 }
 
 #main h1{
-	color:#081219;
+	font-size:24px;
+	font-weight:700;
+	color:#1A2434;
 }
 
 #main h2{
 	position: relative;
-	color:#081219;
-	padding:20px 0;
+	color:#1A2434;
+	padding:15px 0 10px;
+	font-size:18px;
 }
 
 #main h3,
 #main h4{
-	color:#666;
+	color:#1A2434;
 }
 
 
@@ -183,14 +122,12 @@ p { font-size: 14px; text-align: center;}
 -------------------------------------------*/
 
 #footer{
-	height:60px;
-	padding:20px;
-	text-align: center;
-	background:#1B3C53;
 	font-size:14px;
-	color:#666;
+	width:100%;
 }
 
-#footer *{
-	color:#EEF;
+#footer .inner{
+	height:50px;
+	display: flex;
+	align-items: center;
 }

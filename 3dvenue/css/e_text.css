@@ -61,21 +61,13 @@
 	border: 1px solid #D3E3FC;
 }
 
-#texteditor .inner #f-color{
-	padding:0;
-	width:30px;
+
+#texteditor .section label{
+	display: flex;
+	align-items: center;
+	gap:5px;
 }
 
-#texteditor .inner #f-weight,
-#texteditor .inner #f-size{
-	width:50px;
-	margin:0 10px;
-}
-
-#texteditor .inner #f-family{
-	width:90px;
-	margin:0 10px;
-}
 
 #texteditor.link .inner .LinkEditor,
 #texteditor.text .inner .selectText{

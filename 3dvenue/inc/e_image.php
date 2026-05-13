@@ -6,10 +6,10 @@ if (basename(__FILE__) === basename($_SERVER['SCRIPT_FILENAME'])) exit;
     <div class="close btn">✕</div>
     <div class="inner">
         <div class="section">
-            <div>背景画像</div>
-            <div id="imgelect" class="btn">背景画像を選択</div>
+            <div>Background Image</div>
+            <div id="imgelect" class="btn">File Select</div>
             <div id="imgPreview" class="preview"></div>
-            <div id="imgDelete" class="btn">削除</div>
+            <div id="imgDelete" class="btn"><?=$lang['del'][$lng]?></div>
         </div>
     </div><!--inner-->
 </div><!--imageeditor-->
@@ -19,7 +19,7 @@ if (basename(__FILE__) === basename($_SERVER['SCRIPT_FILENAME'])) exit;
 <div id="images">
     <div class="closeimage">✕</div>
      <section class="images">
-        <h2>画像を選択 <div id="new">＋</div></h2>
+        <h2>Select Image <div id="new">＋</div></h2>
             <?php
                 $directory = '../common/img/';
                 $files = glob($directory . "*.webp");

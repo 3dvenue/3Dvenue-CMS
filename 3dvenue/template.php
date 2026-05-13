@@ -101,6 +101,9 @@ $header = file_get_contents('../common/inc/header.txt');
 $color = file_get_contents('./common/css/color.css');
 $footer = file_get_contents('../common/inc/footer.txt');
 $nav = file_get_contents('../common/inc/nav.txt');
+
+include_once('./lang.php');
+
 ?>
 <!DOCTYPE html>
 <html lang="jp">
@@ -145,7 +148,7 @@ $nav = file_get_contents('../common/inc/nav.txt');
     bottom:0;
     left: 0;
     width: 100%;
-    height: 200px;
+    height: 100px;
     padding: 0;
     background: #EDF2FA;
     border: 1px solid #D3E3FC;
@@ -172,7 +175,7 @@ $nav = file_get_contents('../common/inc/nav.txt');
 
 #cssEditor textarea#css{
     width: 100%;
-    height: calc(100% - 50px);
+    height: calc(100% - 60px);
     padding: 10px 20px;
     border: 1px solid #D3E3FC;
     line-height: 1.2;
@@ -200,7 +203,7 @@ $nav = file_get_contents('../common/inc/nav.txt');
     justify-content: center;
     align-items: center;
     gap:20px;
-    height:30px;
+    height:35px;
     margin-top:-8px;
     line-height: 1.0;
 }
@@ -211,8 +214,8 @@ $nav = file_get_contents('../common/inc/nav.txt');
     border-radius: 3px;
     border:1px solid #D3E3FC;
     cursor: pointer;
-    color:#0F57CB;
-    background:#FFF;
+    color:#FFF;
+    background:#10AAA1;
 }
 
 #savebtn input{
@@ -236,14 +239,9 @@ $nav = file_get_contents('../common/inc/nav.txt');
 </style>
 </head>
 <body>
-<div id="header">
-<?php include_once('./inc/header.php')?>
-</div>
-<div id="nav">
-<?php include_once('./inc/nav.php')?>
-</div><!-- nav -->
 <div id="main">
-<h2>テンプレートの編集</h2>
+<div class="inner">
+<h2><?=$lang['template_edit'][$lng]?></h2>
 
 <div id="changeTemplate">
     <select id="selecter">
@@ -253,21 +251,7 @@ $nav = file_get_contents('../common/inc/nav.txt');
     </select>
 
 <input type="range" id="scale" min="30" max="100" step="1" value="80">
-<div class="scale"><span>80</span>%</div>
-
-<!--     <select id="bodysize">
-        <option value="1.0">100%</option>
-        <option value="0.9">90%</option>
-        <option value="0.8" selected>80%</option>
-        <option value="0.7">70%</option>
-        <option value="0.6">60%</option>
-        <option value="0.5">50%</option>
-        <option value="0.4">40%</option>
-        <option value="0.3">30%</option>
-        <option value="0.2">20%</option>
-        <option value="0.1">10%</option>
-    </select>
- -->
+    <div class="scale"><span>80</span>%</div>
 </div>
 
 <style type="text/css" id="color"><?=$color?></style>
@@ -296,10 +280,8 @@ $nav = file_get_contents('../common/inc/nav.txt');
 </footer>
 </div><!-- body -->
 
-</div><!--- main-->
-<div id="footer">
-<?php include_once('./inc/footer.php')?>
 </div>
+</div><!--- main-->
 
 <div id="cssEditor">
 <span class="hadle"></span>
@@ -308,9 +290,9 @@ $nav = file_get_contents('../common/inc/nav.txt');
     <div id="savebtn">
         <input type="text" id="tname" value="<?= $default['tname'] ?>">
         <input type="checkbox" id="status" value="finish">
-        <button value="add">新規追加</button>
-        <button value="update">更新</button>
-        <button value="del">削除</button>
+        <button value="add"><?=$lang['add'][$lng]?></button>
+        <button value="update"><?=$lang['update'][$lng]?></button>
+        <button value="del"><?=$lang['del'][$lng]?></button>
     </div>
 </div>
 

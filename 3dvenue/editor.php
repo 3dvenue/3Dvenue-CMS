@@ -101,7 +101,6 @@ $ld = $row["ld"];
 $other = $row["other"];
 $sitename = $row["sitename"] ?? '';
 
-// mainの中身を取り出す
 $file_path = '../index.php'; 
 if (file_exists($file_path)) {
     $html = file_get_contents($file_path);
@@ -132,6 +131,8 @@ $root = file_get_contents('../common/inc/root.txt');
 
 $sns_img = '../common/img/snsimage'.$pid.'.webp';
 $sns_img = file_exists($sns_img) ? $sns_img : '';
+
+include_once('./lang.php');
 ?>
 <!DOCTYPE html>
 <html lang="jp">
@@ -212,7 +213,7 @@ $sns_img = file_exists($sns_img) ? $sns_img : '';
 <!----------- IMAGEUPLOAD MENEU ----------->
 <?php include_once('./inc/imageupload.php')?>
 
-<div id="mainsave" class="btn">変更を保存する</div>
+<div id="mainsave" class="btn"><?=$lang['update'][$lng]?></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
@@ -236,14 +237,12 @@ const sns_img = '<?=$sns_img?>';
     $('#view').on('click', function(){
         let page = $('#selectPage').val();
         $.post('editor.php', {
-            page: page,           // 送信したいデータのキー: 値
-            status: 'preview'   // 複数のデータもカンマ区切りで追加可能
+            page: page, 
+            status: 'preview'
         }, function(data) {
 
         const html = "<?=$root?>preview/";
         popup = window.open(html, "preview", "width=1000,height=800,top=100,left=100");
-        // popup.document.write(html);
-        // popup.document.close();
 
         });
     });
@@ -254,24 +253,13 @@ const sns_img = '<?=$sns_img?>';
         $('#body').css({'transform':'scale('+scale+')'});
     })
 
-    $('#topeditor #bgcolor input,#topeditor #bgcolor select').on('input',function(){
-        let color = "#FFFFFF";
-        let smode = $('.smode:checked').val();
-        let color1 = $('#c1').val();
-        let color2 = $('#c2').val();
-        let angle = $('#angle').val();
-        if(smode == "grad"){
-            $('#c2row').addClass('active');
-            $('#angleRow').addClass('active');
-            color = 'linear-gradient('+angle+','+color1+','+color2+')';
-        }else{
-            $('#c2row').removeClass('active');
-            $('#angleRow').removeClass('active');
-             color = color1;
-        }
-
-        console.log(color);
+    $('#topeditor #bgcolor input#c1').on('input',function(){
+        let color = $('#c1').val();
          $('main section.active').css({'background':color});
+    })
+
+    $('#topeditor #bgcolor #colorreset').on('click',function(){
+         $('main section.active').css({'background':''});
     })
 
     $('#html textarea').on('input',function(){
@@ -310,8 +298,8 @@ const sns_img = '<?=$sns_img?>';
             return;
          }
 
-        $('.active').removeClass('active'); // 全てを白紙に戻す
-        $(this).addClass('active'); // 「クリックされた本人」だけに付与
+        $('.active').removeClass('active');
+        $(this).addClass('active');
         let cla = $(this).attr('class');
         cla = cla.replace('active', '');
         let id = $(this).attr('id');
@@ -336,9 +324,6 @@ const sns_img = '<?=$sns_img?>';
             console.log(bgi);
             $('#tageditor').removeClass('text');
         }
-
-        //section以外を選択
-        // const $target = $(this); //DOM構造データを所得
 
         if ($(this).is('div, h1, h2, h3, h4')) {
             let tagname = $(this).prop("tagName").toLowerCase();
@@ -385,7 +370,7 @@ const sns_img = '<?=$sns_img?>';
         $clone.find('[contenteditable]').removeAttr('contenteditable');
         $clone.find('.active').removeClass('active');
 
-        const html = $clone.html().trim();  //前後の改行だけを削除する
+        const html = $clone.html().trim(); 
 
             $.post('sqlupdate.php', {
                 pid: '<?=$pid?>',
@@ -400,11 +385,10 @@ const sns_img = '<?=$sns_img?>';
 
 
     $('.codearea').on('keydown', function(e) {
-        const el = e.target; // jQueryのイベントオブジェクトから要素を引く
+        const el = e.target;
 
         if (e.key === 'Tab') {
             e.preventDefault();
-            // 選択範囲を "\t" で置き換える（バニラだけど最強に速い）
             el.setRangeText("\t", el.selectionStart, el.selectionEnd, 'end');
         } 
         else if (e.key === 'Enter') {
@@ -413,7 +397,6 @@ const sns_img = '<?=$sns_img?>';
 
             if (indent) {
                 e.preventDefault();
-                // 改行＋インデントを流し込む
                 el.setRangeText('\n' + indent[0], el.selectionStart, el.selectionStart, 'end');
             }
         }

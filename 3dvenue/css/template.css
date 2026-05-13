@@ -59,10 +59,12 @@ body{
 
 .scale span{
 	display: inline-block;
-	padding:3px 5px;
+	padding:5px 5px 4px;
 	border:1px solid #ccc;
 	width:40px;
 	line-height: 1.0;
+	background:#FFF;
+	font-size:12px;
 }
 
 /* templatebox

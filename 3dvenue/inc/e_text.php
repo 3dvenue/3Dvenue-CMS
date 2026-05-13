@@ -11,44 +11,35 @@ if (basename(__FILE__) === basename($_SERVER['SCRIPT_FILENAME'])) exit;
         </div>
 
         <div class="section">
-            <label for="f-family">フォントスタイル</label>
-            <select id="f-family">
-                <option value="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif">ゴシック</option>
-                <option value="'Yu Mincho', 'Hiragino Mincho ProN', 'MS PMincho', serif">明朝</option>
-                <option value="'SF Mono', 'Roboto Mono', 'Consolas', 'Menlo', monospace">等幅（Monospace）</option>
-            </select>
+            <label><select id="f-family">
+                <option value="sans-serif;">Sans-Selif(Gothic)</option>
+                <option value="serif">Serif(Mincho)</option>
+                <option value="monospace">Monospace</option>
+            </select>:Font Style</label>
         </div>
 
          <div class="section">
-              <label for="f-color">カラー1:</label>
-              <input type="color" id="f-color" value="#216AD2">
+              <label><input type="color" id="f-color" value="#216AD2">:Color</label>
           </div>
 
         <div class="section">
-            <label for="f-size">フォントサイズ</label>
-            <input type="number" id="f-size" min="0.5" max="3" step="0.1" value="1">em
+            <label><input type="range" id="f-size" min="10" max="90" step="1" value="16">:Size</label>
         </div>
 
         <div class="section">
-            <label for="f-weight">太さ</label>
-            <input type="number" id="f-weight" list="weights" min="100" max="900" step="100">
-            <datalist id="weights">
-              <option value="400">
-              <option value="600">
-              <option value="700">
-            </datalist>
+            <label><input type="checkbox" id="f-weight" value="bold">:Bold</label>
         </div>
 
         <div class="section selectText">
-            <button id="editStart" class="btn">編集を開始</button>
-            <button id="LinkStart" class="btn">リンク設定</button>
+            <button id="editStart" class="btn">Edit Start</button>
+            <button id="LinkStart" class="btn">Link Setup</button>
        </div>
 
         <div class="section LinkEditor">
-            <button id="clearLink" class="btn">Linkクリア</button>
+            <button id="clearLink" class="btn">Clear</button>
 
             <input type="text" id="link" name="link" placeholder="https://example.jp/">
-            <button id="linkSet" class="btn">設定</button>
+            <button id="linkSet" class="btn">Set</button>
        </div>
 
 	</div>

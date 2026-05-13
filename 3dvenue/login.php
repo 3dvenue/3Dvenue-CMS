@@ -2,16 +2,16 @@
 /* 3Dvenue-CMS Copyright (c) 2026 yoshihiro Licensed under MIT (https://opensource.org/licenses/MIT)*/
 session_start();
 
-$acount = "your-account";
-$password = "your-password";
+$account = "Your-Account";
+$password = "Your-Password";
 
 $title="3Dvenue-CMS";
 $message = "";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    if (isset($_POST['acount']) && isset($_POST['password'])) {
-        if($_POST['acount'] === $acount && $_POST['password'] === $password){
+    if (isset($_POST['account']) && isset($_POST['password'])) {
+        if($_POST['account'] === $account && $_POST['password'] === $password){
             $_SESSION['ADMIN_CHECK'] = "success";
             header("Location: index.php");
             exit;
@@ -102,8 +102,8 @@ form label input{
     <h2><?=$title?></h2>
     <div id="form">
         <form method="POST">
-            <div id="#message"><?=$message?></div>
-            <label><span>Account：</span><input type="text" name="acount" value="" placeholder="acount@example.com" required></label>
+            <div id="message"><?=$message?></div>
+            <label><span>Account：</span><input type="text" name="account" value="" placeholder="acount@example.com" required></label>
             <label><span>password：</span><input type="text" name="password" value="" placeholder="password" required></label>
             <div id="submitButton"><button type="submit" class="btn" name="submit" value="login">ログイン</button>
         </form>

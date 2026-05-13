@@ -1,10 +1,14 @@
 /* 3Dvenue-CMS Copyright (c) 2026 yoshihiro Murai Licensed under MIT (https://opensource.org/licenses/MIT)*/
 
     #body{
-        transform: scale(0.8);
+/*        transform: scale(0.8);
         transform-origin: top center;
+*/
+        border:1px solid #1A243477;
         background:#FFF;
-        box-shadow: 3px 3px 10px #0003;
+        box-shadow: 0 0 10px #0002;
+        border-radius: 10px;
+        overflow: hidden;
     }
 
     #main{
@@ -12,31 +16,53 @@
         padding:0;
     }
 
-    footer,
+    #main h2{
+        padding:40px 0;
+        color:#1A2434;
+    }
+
+/* content
+---------------------------------------------*/
+
     header{
-        border:1px solid #CCC;
         background:#f0f0f0;
         padding:20px 0;
+    }
+
+    div#headertext{
+        font-weight:600;
+        color:#1A2434;
+    }
+
+    footer{
+        background:#f0f0f0;
+        padding:10px 0;
+        border-top:1px solid #ccc;
     }
 
    footer .inner{
     text-align: center;
    }
 
+   footer *{
+        color:#999;
+   }
+
     main{
-        min-height:calc(100vh - 300px);
+        min-height:calc(100vh - 400px);
+        padding-bottom:40px;
         position:relative;
     }
 
-/*    main #navieditor{
-        position: absolute;
-        bottom:50px;
-        right:50px;
+    #body main h2{
+        padding:30px 0 20px;
+        color:#1A2434CC;        
     }
-*/
+
     nav{
-        background:#ccc;
+        background:#1A2434;
         user-select: none;
+        border-bottom:1px solid #ccc;
     }
 
     nav .inner{
@@ -75,6 +101,8 @@
         pointer-events: none;
         line-height: 1.0;
         font-size: 14px;
+        color:#EEF;
+        font-weight: 700;
     }
 
     nav ul li a:hover{
@@ -103,7 +131,7 @@
         position:absolute;
         top:100%;
         left:0;
-        background:#ccc;
+        background:#1A2434;
         width:100%;
         z-index: 1000;
     }
@@ -137,11 +165,11 @@
     }
 
     nav ul li.active{
-        background:#FFF5;
+        background:#FFF3;
     }
 
     nav ul.nav1 li.active{
-        background:#FFFc;
+        background:#FFF6;
     }
 
     nav ul.nav0 li.hidden,
@@ -170,7 +198,7 @@
     }
 
     ul#plus li{
-        background:#333;
+        background:#1A2434;
         color:#FFF;
         text-align: center;
         padding:10px 0;
@@ -236,7 +264,7 @@
 
     .handle {
         text-align: right;
-        background:#234C6A;
+        background:#1A2434;
         height:25px;
         cursor: move;
         width: 100%;
