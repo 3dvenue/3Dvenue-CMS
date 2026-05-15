@@ -84,3 +84,13 @@ Premi il pulsante Salva per registrare le modifiche.<br />
 Premi il pulsante Pubblica per aggiungere le modifiche alla pagina pubblica.","Adicione itens de navegação com o botão [+] e remova-os com a tecla [Del].<br>
 Pressione o botão Guardar para armazenar as alterações.<br />
 Pressione o botão Publicar para adicionar as alterações à página publicada."
+access,アクセス解析,Access Analytics,Analyse des accès,Zugriffsanalyse,Análisis de acceso,Analisi accessi,Análise de acesso
+daily_access,日別アクセス数,Daily Access,Accès quotidiens,Tägliche Zugriffe,Accesos diarios,Accessi giornalieri,Acessos diários
+daily_access_memo,日ごとのアクセスを確認,View daily access,Voir les accès quotidiens,Tägliche Zugriffe anzeigen,Ver accesos diarios,Visualizza accessi giornalieri,Ver acessos diários
+time-access,時間別アクセス数,Hourly Access,Accès horaires,Stündliche Zugriffe,Accesos por hora,Accessi orari,Acessos por hora
+time-access_memo,時間ごとのアクセスを確認,View hourly access,Voir les accès horaires,Stündliche Zugriffe anzeigen,Ver accesos por hora,Visualizza accessi orari,Ver acessos por hora
+page-access,ページ別アクセス数,Page Access,Accès par page,Seitenzugriffe,Accesos por página,Accessi per pagina,Acessos por página
+page-access_memo,ページごとのアクセスを確認,View page access,Voir les accès par page,Seitenzugriffe anzeigen,Ver accesos por página,Visualizza accessi per pagina,Ver acessos por página
+ip-access,IPアドレス別アクセス数一覧,Access by IP Address,Accès par adresse IP,Zugriffe nach IP-Adresse,Accesos por dirección IP,Accessi per indirizzo IP,Acessos por endereço IP
+ip-access_memo,IPアドレスごとのアクセスを確認,View access by IP address,Voir les accès par adresse IP,Zugriffe nach IP-Adresse anzeigen,Ver accesos por dirección IP,Visualizza accessi per indirizzo IP,Ver acessos por endereço IP
+other,その他の機能,Other Features,Autres fonctionnalités,Weitere Funktionen,Otras funciones,Altre funzioni,Outras funções

@@ -79,6 +79,18 @@ include_once('./lang.php');
             </li>
         </ul>
 
+
+        <h2><?=$lang['other'][$lng]?></h2>
+
+        <ul>
+            <li>
+                <a href="./report.php" target="content">
+                    <img src="./lib/template.svg"><?=$lang['access'][$lng]?>
+                </a>
+            </li>
+        </ul>
+
+
     <ul id="naviclose">
     <li>
         <span><img src="./lib/close.svg"><?=$lang['nav_close'][$lng]?></span>

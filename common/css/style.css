@@ -19,8 +19,10 @@ body *{
 ---------------------------------------------*/
 header{
 	padding:10px 40px;
-	border-radius: 0 0 40px 0;
+	border-radius: 0;
 	position:relative;
+	height:80px;
+	contain:layout;
 }
 
 header .inner{
@@ -58,6 +60,9 @@ header #headertext{
 }
 
 @media(max-width:880px){
+	header .inner{
+		padding-right:20px;
+	}
 	#hamburger{
 		display:block;
 	}
@@ -95,8 +100,9 @@ nav ul li a{
 	height:100%;
 	padding:0 20px;
 	justify-content: left;
-        text-decoration:none;
-        font-weight:700;
+	text-decoration:none;
+	font-weight:700;
+	transition-duration: .3s;
 }
 
 nav ul.nav0{
@@ -135,14 +141,58 @@ nav ul.nav1 > li > a{
 	overflow:hidden;
 }
 
+nav ul.nav0 > li:hover ul.nav1 > li > a{
+	height:50px;
+}
+
 nav ul.nav2{
 	display: none;
 }
 
 @media(max-width:880px){
-	nav ul.nav0{
- 	display:none;
+	nav{
+		position:relative;
 	}
+	nav ul.nav0{
+ 		display:none;
+	}
+
+	#menu:checked + ul{
+		list-style:none;
+		display:block;
+		width:100%;
+    	height: auto;
+	}
+
+	ul.nav0 > li{
+		border-top:1px solid #FFF3;
+	}
+
+	#menu:checked + ul.nav0{
+		position:absolute;
+		top:0;
+		left:0;
+		padding: 0;
+    	margin: 0;
+    	background: #4f64ab;
+		display:block;
+	}
+
+	#menu:checked + ul.nav0 ul.nav1{
+		position:static;
+		background:#FFF3;
+	}
+
+	#menu:checked + ul li{
+		height:auto;
+	}
+
+	#menu:checked + ul li a{
+		height:40px;
+		justify-content:left;
+	}
+
+
 }
 
 

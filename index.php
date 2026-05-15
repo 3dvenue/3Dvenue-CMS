@@ -73,6 +73,7 @@ $noindex = $row["noindex"] ?? '0';
 
 $main = str_replace('../common', $root . 'common', $main);
 $css = str_replace('../common', $root . 'common', $css);
+$other = str_replace('../common', $root . 'common', $other);
 
 $nav = str_replace('p="'.$pid.'"','p="'.$pid.'" class="active"', $nav);
 
@@ -136,3 +137,12 @@ $lng = trim(file_get_contents('./common/inc/lang.txt'));
 </footer>
 </body>
 </html>
+<?php
+$logfile = './common/log/'.date('Y-m',time()).'.txt';
+$ip = $_SERVER['REMOTE_ADDR'];
+$datetime = date('Y-m-d H:i:s',time());
+$log = $datetime.','.$url_slug.','.$ip."\n";
+$handle = fopen($logfile,'a');
+fwrite($handle,$log);
+fclose($handle);
+?>
