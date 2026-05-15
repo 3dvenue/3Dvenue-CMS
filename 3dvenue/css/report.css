@@ -1,0 +1,171 @@
+
+h1{
+    padding-bottom:20px;
+}
+
+section {
+    padding: 20px 0 0;
+}
+
+section section,
+section.pagetop{
+    position: relative;
+    width: 100%;
+    background: #FFF;
+    padding: 20px;
+    margin: 0;
+    border-radius: 10px;
+    display: flex;
+    /* justify-content: center; */
+    flex-direction: column;
+    box-shadow: 0 0 5px #0001;
+    margin-bottom:40px;
+    border-left:5px solid;
+}
+
+section.pagetop{
+    border:none;    
+}
+
+section.pagetop select{
+    padding:5px 30px 5px 30px;
+    border:1px solid #ccc;
+    margin-right:10px;
+    border-radius:5px;
+    background-image:url(../lib/calendar.svg);
+    background-size:18px 18px;
+    background-repeat: no-repeat;
+    background-position: left 5px center;
+}
+
+section.pagetop button{
+    padding:5px 20px 5px 30px;
+    background:#4764F9;
+    color:#FFF;
+    border:none;
+    border-radius:5px;
+    background-image:url(../lib/search.svg);
+    background-size:18px 18px;
+    background-repeat: no-repeat;
+    background-position: left 10px center;
+}
+
+section .card{
+    padding-top:20px;
+}
+
+section.pagetop .card{
+    padding:0;
+}
+
+section table{
+    border-collapse: collapse;
+    width:100%;
+}
+
+section table th,
+section table td{
+    margin:0;
+    padding:0 5px;
+    font-size:12px;
+    text-align: left;
+    border:1px solid #ddd;
+}
+
+section table th{
+    background:#f0f0f0;
+    font-weight: 500;
+}
+
+section table td.key{
+    width:100px;
+}
+
+section table td.count{
+    text-align: right;
+    width:50px;
+}
+
+section table td.graf{
+    width:calc(100% - 150px);
+    padding:0;
+}
+
+section table td.graf span{
+    display: inline-block;
+    height:8px;
+}
+
+summary{
+    list-style:none;
+    /*padding-left:100px;*/
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap:20px;
+    cursor: pointer;
+    outline:none;
+}
+
+summary::after{
+    content:"›";
+    font-size:1.7em;
+}
+
+summary figure{
+    width:50px;
+    height:50px;
+    background:#EEF3F8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    flex-shrink:0;
+}
+
+summary span{
+    display: inline-block;
+    padding:5px 10px;
+    flex-shrink: 0;
+    background:#eee;
+    line-height: 1.0;
+    letter-spacing: 0.1rem;
+    font-size:12px;
+    border-radius:7px;
+}
+
+#main details summary h2{
+    display: inline-block;
+    width:100%;
+    padding:5px 0 0;
+}
+
+#main details summary h2 p{
+    font-weight: 500;
+}
+
+section.daily-access{border-color:#2563EB;}
+section.time-access{border-color:#108981;}
+section.page-access{border-color:#8B5CFD;}
+section.ip-access{border-color:#F59E08;}
+
+section summary span{color:#35435D;background:#EEF2FF;}
+
+section.daily-access figure{background:#EEF2FF;}
+section.time-access figure{background:#F0F7F4;}
+section.page-access figure{background:#F3F0FA;}
+section.ip-access figure{background:#FFF4E6;}
+
+section.daily-access td span{background:linear-gradient(90deg,#2563EB 10px,#60A5FA);}
+section.time-access td span{background:linear-gradient(90deg,#108981 10px,#34D399);}
+section.page-access td span{background:linear-gradient(90deg,#8B5CFD 10px,#A788FA);}
+section.ip-access td span{background:linear-gradient(90deg,#F59E08 10px,#F59E08);}
+
+section.daily-access th{background:#EEF2FF;color:#3A4A5A;border-color:#DFDEE7;}
+section.time-access th{background:#F0F7F4;color:#2D4D3A;border-color:#D6E8DD;}
+section.page-access th{background:#F3F0FA;color:#4A3F6A;border-color:#E2DEF0;}
+section.ip-access th{background:#FFF4E6;color:#6B4A00;border-color:#F8F6FD;}
+section.daily-access td{border-color:#DFDEE7;}
+section.time-access td{border-color:#D6E8DD;}
+section.page-access td{border-color:#E2DEF0;}
+section.ip-access td{border-color:#F8F6FD;}

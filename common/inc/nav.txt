@@ -1,21 +1,10 @@
 
-            
-            
-            
-            
-            
-            
-            
             <ul class="nav0">
 <li p="1" style="position: relative; opacity: 1; left: 0px; top: 0px;"><a href="/" target="_self">HOME</a>
-
 </li>
-
 <li p="2"><a href="/project/" target="_self">PROJECT</a>
-
-<ul class="nav1"><li p="0"><a href="https://mit.e3dvenue.jp" target="_blank">3Dvenue</a></li></ul></li>
+<ul class="nav1"><li p="0"><a href="https://mit.3dvenue.jp" target="_blank">3Dvenue</a></li></ul></li>
 <li p="3" style="position: relative; opacity: 1; left: 0px; top: 0px;"><a href="/about/" target="_self">ABOUT</a></li>
-
 </ul>            
                     
                     
@@ -24,4 +13,5 @@
                     
                     
                     
+                    <!-- <div id="new">＋</div> -->
         

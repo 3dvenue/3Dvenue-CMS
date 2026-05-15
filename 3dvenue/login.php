@@ -4,7 +4,6 @@ session_start();
 
 $account = "Your-Account";
 $password = "Your-Password";
-
 $title="3Dvenue-CMS";
 $message = "";
 
