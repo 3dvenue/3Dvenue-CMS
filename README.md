@@ -5,6 +5,44 @@ I wanted to achieve perfect PageSpeed Insights scores, so I built my own CMS.
 PageSpeed Insightsで「ALL 100点」を狙いたくて、このCMSを開発しました。
 
 
+## バージョン履歴 / Version History
+
+### v0.9.6
+- 多言語機能を拡張  
+  Expanded multilingual features
+
+- アクセス解析ページを追加  
+  Added access analytics page
+
+- 管理画面UIを改善  
+  Improved admin UI
+
+
+### v0.9.5
+- 多言語対応機能を追加  
+  Added multilingual support
+
+- GUIデザインを改良  
+  Improved GUI design
+
+- 数か所のバグを修正  
+  Fixed several bugs
+
+
+### v0.9.0
+- 初回公開版リリース  
+  Initial public release
+
+- 軽量CMS構造を実装  
+  Implemented lightweight CMS structure
+
+- SQLite対応  
+  SQLite support
+
+- SEOツールを搭載  
+  Included SEO tools
+
+
 
 ## Lightweight Structure
 
