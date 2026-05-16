@@ -41,7 +41,7 @@ include_once('./lang.php');
         <h2>Site Information</h2>
         <table>
             <tr><th>CMS Root<th><td><a href="<?=$root?>" target="_blank"><?=$root?></a><td></tr>
-            <tr><th>CMS Version<th><td>0.9.5<td></tr>
+            <tr><th>CMS Version<th><td>0.9.6-beta<td></tr>
             <tr><th>PHP Version<th><td><?=phpversion()?><td></tr>
             
         </table>
