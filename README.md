@@ -17,6 +17,11 @@ Including the admin panel, SQLite database, SEO tools, and color mapping system.
 
 ## バージョン履歴 / Version History
 
+### v0.9.7
+
+- ヘッダー・フッター編集機能を追加
+  Added Header and Footer Editor
+
 ### v0.9.6
 - 多言語機能を拡張  
   Expanded multilingual features
