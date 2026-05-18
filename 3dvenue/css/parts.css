@@ -1,7 +1,7 @@
 /* 3Dvenue-CMS Copyright (c) 2026 yoshihiro Murai Licensed under MIT (https://opensource.org/licenses/MIT)*/
 
 #main{
-	min-height:calc(100vh - 180px);
+	min-height:calc(100vh - 50px);
 }
 
 
@@ -91,6 +91,7 @@ pages .flex .parts .image img{
 	opacity:0;
 	pointer-events: none;
 	transition-duration: .5s;
+	min-width:680px;
 }
 
 #headerandfooter.active,
@@ -136,7 +137,7 @@ pages .flex .parts .image img{
 	padding:0 2px 0;
 	background:#EDF2FA;
 	border:1px solid #D3E3FC;
-	height:200px;
+	height:400px;
 }
 
 #editor form span.hadle{
@@ -168,7 +169,7 @@ pages .flex .parts .image img{
 }
 
 #editor form #domarea{
-	height:calc(100% - 70px);
+	height:calc(100% - 75px);
 	padding:0;
 }
 
@@ -188,7 +189,7 @@ pages .flex .parts .image img{
 	justify-content: space-between;
 	align-items: center;
 	padding:0 20px;
-	height:40px;
+	height:50px;
 }
 
 #editor #input{
@@ -204,18 +205,28 @@ pages .flex .parts .image img{
 	align-items: center;
 }
 
+#editor #input div.memo{
+	display: none;
+}
+
+
 #editor #input div label{
 	display: flex;
+	align-items: center;
 	gap:5px;
 }
 
 #editor #input div label span{
-	width:60px;
+	/*width:60px;*/
 }
 
 #editor.new #edit,
 #editor.new #dell{
 	display:none;
+}
+
+#editor.edit #add{
+	display: none;
 }
 
 #editor select{
@@ -229,6 +240,7 @@ pages .flex .parts .image img{
 	border-radius: 5px;
 	border:1px solid #ccc;
 	box-sizing: border-box;
+	width:150px;
 }
 
 #editor #form form > label span,

@@ -174,7 +174,6 @@ include_once('./lang.php');
 <div id="body">
     <header>
         <div class="inner">
-            <div id="logo"><img src="../common/img/logo.webp"></div>
             <?=$header?>
             <div id="menubox"><label id="hamburger" for="menu"></label></div>
         </div>
@@ -246,6 +245,10 @@ const sns_img = '<?=$sns_img?>';
 
         });
     });
+
+    $('header,footer').on('click',function(){
+        window.open('block.php','content');
+    })
 
     $('#bodysize').on('input',function(){
         let scale = $(this).val();

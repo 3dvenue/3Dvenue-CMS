@@ -11,6 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $cname  = $_POST['cname'];
     $dom    = $_POST['dom'];
     $memo   = $_POST['memo'];
+    $publish   = $_POST['publish'];
     $cimage = $_POST['cimage'] ?? ''; // JSから届くBase64データ
 
     $saveImage = function($id, $base64Data) {
@@ -66,9 +67,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit;
 }
 
-$sql = "SELECT * FROM contents ORDER BY cname";
+$sql = "SELECT * FROM contents WHERE Type < 3 ORDER BY cname";
 $stmt = $conn->query($sql);
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 include_once('./lang.php');
 ?>
 <!DOCTYPE html>
@@ -91,8 +93,6 @@ include_once('./lang.php');
     <option data-cid="0" value="sections">Section Parts</option>
     <option data-cid="1" value="elements">Element Parts</option>
     <option data-cid="2" value="pages">Web Pagedesign</option>
-    <option data-cid="3" value="headers">Header Parts</option>
-    <option data-cid="4" value="footers">Footer Parts</option>
 </select>
 
 <div><button id="sampleaccet" class="btn">Assets</button></div>
@@ -148,39 +148,6 @@ include_once('./lang.php');
        </div>
 </section>
 
-<section id="headers" data-tid="3">
-    <h3>Header Parts（※次期バージョンで対応予定）</h3>
-    <div class="flex">
-        <?php foreach ($rows as $row): ?>
-            <?php if ($row['type'] == '3'): ?>
-                <div class="parts element" data-cid="<?= $row['cid'] ?>">
-                    <div class="image">
-                        <img src="./parts/<?= $row['cid'] ?>.webp?t=<?=time()?>">
-                    </div>
-                    <div class="name"><?= $row['cname'] ?></div>
-                </div>
-            <?php endif; ?>
-        <?php endforeach; ?>
-       </div>
-</section>
-
-<section id="footers" data-tid="4">
-    <h3>footer Parts（※次期バージョンで対応予定）</h3>
-    <div class="flex">
-        <?php foreach ($rows as $row): ?>
-            <?php if ($row['type'] == '4'): ?>
-                <div class="parts element" data-cid="<?= $row['cid'] ?>">
-                    <div class="image">
-                        <img src="./parts/<?= $row['cid'] ?>.webp?t=<?=time()?>">
-                    </div>
-                    <div class="name"><?= $row['cname'] ?></div>
-                </div>
-            <?php endif; ?>
-        <?php endforeach; ?>
-       </div>
-</section>
-
-
 </div>
 </div><!-- #main -->
 
@@ -205,13 +172,11 @@ include_once('./lang.php');
                         <select id="type" name="type">
                             <option value="0">Section</option>
                             <option value="1">Element</option>
-                            <option value="3">Header</option>
-                            <option value="4">Footer</option>
                         </select><span>：Type</span>
                     </label>
                 </div>
                 <div><label><input type="text" id="cname" name="cname" /><span>：Name</span></label></div>
-                <div><label><input type="text" name="memo" id="memo" value=""><span>：MEMO</span></label></div>
+                <div class="memo"><label><input type="text" name="memo" id="memo" value=""><span>：MEMO</span></label></div>
             </div><!-- input -->
 
             <div id="submit">
@@ -341,10 +306,6 @@ let sectiondom = `<section class="">
 let elemntdom = `<div class="">
 </div>`;
 
-let headerdom = `<div id="headertext">HEADER TEXT</div>`;
-
-let footerdom = `<div id="copyright">&copy;3Dvenue</div>`;
-
     $('#selectparts').on('change',function(){
         let id = $(this).val();
         $('section').removeClass();
@@ -378,16 +339,6 @@ let footerdom = `<div id="copyright">&copy;3Dvenue</div>`;
                     $('#dom').val(elemntdom);
                     hvewset(tid,elemntdom);
                 break;
-
-                case 3:
-                    $('#dom').val(headerdom); 
-                    hvewset(tid,headerdom);
-                break;
-
-                case 4:
-                    $('#dom').val(footerdom);           
-                    hvewset(tid,footerdom);
-                break;
     
                 default:
                     alert('miss');
@@ -407,14 +358,6 @@ let footerdom = `<div id="copyright">&copy;3Dvenue</div>`;
             case "1":
                 $('#dom').val(elemntdom);           
                 hvewset(option,elemntdom);
-                break;
-            case "3":
-                $('#dom').val(headerdom);
-                hvewset(option,headerdom);
-                break;
-            case "4":
-                $('#dom').val(footerdom);           
-                hvewset(option,footerdom);
                 break;
             default:
                 break;
@@ -458,21 +401,13 @@ let footerdom = `<div id="copyright">&copy;3Dvenue</div>`;
             case 1:
                 vewhtml = '<main>'+dom+'</main>';
             break;
-
-            case 3:
-                vewhtml = '<header><div class="inner"><div id="logo"><img src="../common/img/logo.webp"></div>'+dom+'</div></div>';
-            break;
-
-            case 4:
-                vewhtml = '<footer>'+dom+'</footer>';
-            break;
         }
         $('#view').html(vewhtml);
         makeHFimage();
     }
 
 
-    $('#elements div.parts,#sections div.parts,#headers div.parts,#footers div.parts').on('click', function(){
+    $('#elements div.parts,#sections div.parts').on('click', function(){
         const cid = $(this).data('cid');
         const tid = $('section.active').data('tid');
         const data = allParts.find(p => p.cid == cid);
