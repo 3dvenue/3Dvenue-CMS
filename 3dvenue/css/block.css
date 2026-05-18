@@ -1,0 +1,409 @@
+/* 3Dvenue-CMS Copyright (c) 2026 yoshihiro Murai Licensed under MIT (https://opensource.org/licenses/MIT)*/
+
+#main{
+	min-height:calc(100% - 50px);
+}
+
+
+#main .inner h2{
+	padding:40px 0;
+}
+
+#main .inner h2 span{
+	display: block;
+	font-weight:normal;
+	font-size:14px;
+}
+
+.btn{
+	background:#F4603D;
+	font-size:12px;
+}
+
+/* section
+---------------------------------------------*/
+section{
+	position: relative;
+    width: 100%;
+    background: #FFF;
+    padding: 20px;
+    margin: 0;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 5px #0001;
+    margin-bottom: 40px;
+}
+
+section summary{
+	display: block;
+	cursor: pointer;
+	user-select: none;
+	position: relative;
+	outline: none;
+}
+
+section summary:after{
+	content:"〉";
+	display:block;
+	font-weight: bold;
+	position: absolute;
+	top:4px;
+	right:7px;
+	width:7px;
+	transform: rotate(90deg);
+	transform-origin: center;
+	transition-duration: .3s;
+}
+
+section details[open] summary:after{
+	transform: rotate(-90deg);
+}
+
+section div.flex{
+	padding-top:20px;
+	flex-wrap: wrap;
+	display: grid;
+	gap:15px clamp(5px,10vw,40px);
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+}
+
+section div.flex div.parts{
+	width:100%;
+}
+
+section div.flex div.parts img{
+	border:1px solid #CCC;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+section div.flex div.parts img:hover{
+	outline:1px solid #333;
+	cursor: pointer;
+}
+
+section details{
+	position: relative;
+}
+
+section details .new{
+	position:absolute;
+	top:0;
+	right:30px;
+	width:30px;
+	height:30px;
+	font-size:20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	font-weight: bold;
+}
+
+section#aside{
+	display: none;
+}
+
+
+#pages .flex .parts .image{
+	aspect-ratio: 1/1;
+}
+
+pages .flex .parts .image img{
+	width:100%;
+	height:100%;
+	object-fit: contain;
+}
+
+
+/* main
+---------------------------------------------*/
+#main section h3 {
+    width: 100%;
+    margin-bottom:0;
+}
+
+/* editor
+---------------------------------------------*/
+#editor{
+	position: fixed;
+	top:0;
+	left:0;
+	width:100%;
+	height:100vh;
+	background:#000C;
+	display: flex;
+	justify-content: center;
+	align-items:baseline;
+	padding:40px 20px;
+	transform: scale(0.0);
+	opacity:0;
+	pointer-events: none;
+	transition-duration: .5s;
+	min-width:680px;
+}
+
+#editor.active{
+	transform: scale(1.0);
+	opacity:1.0;
+	pointer-events: auto;
+}
+
+#editor .close{
+	background:#3d5d99;
+	font-weight: 700;
+	z-index: 10;
+}
+
+#editor .close{
+	top:20px;
+	right:20px;
+}
+
+#editor #checkimage{
+	width: 100%;
+    height: auto;
+    display: none;
+/*    min-height: 50px;
+    background: #FFF3;
+    line-height: 1.0;
+    padding: 0;
+    margin: 0;
+*/}
+
+/*#editor #checkimage img{
+	display: block;
+    padding: 0;
+    margin: 0;
+    line-height: 1.0;
+}
+*/
+#editor #view{
+	width:100%;
+	height:auto;
+	min-height:60px;
+	border:1px solid #333;
+	transform-origin: top left;
+	background:#FFF;
+}
+
+#editor #form{
+	position:relative;
+	padding:40px 20px 120px;
+	width:1400px;
+	overflow:hidden;
+}
+
+#editor form{
+	position:fixed;
+	bottom:0;
+	left:0;
+	width:100%;
+	max-height:calc(100vh - 200px);
+	padding:0 2px 0;
+	background:#EDF2FA;
+	border:1px solid #D3E3FC;
+	height:400px;
+}
+
+#editor form span.hadle{
+    position: absolute;
+    top: -5px;
+    left: 0;
+    display: block;
+    height: 10px;
+    width: 100%;
+    cursor: ns-resize;
+    user-select: none;
+}
+
+#editor form h3 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    font-weight: 500;
+    height: 25px;
+    padding: 0px 10px 0;
+    cursor: pointer;
+    border-bottom: none;
+    font-weight: 500;
+    box-sizing: border-box;
+    margin: 0;
+    border: 1px solid;
+    border-color: #fff #ccc #ccc #eee;
+}
+
+#editor form #domarea{
+	height:calc(100% - 85px);
+	padding:0;
+}
+
+#editor #form textarea{
+	width:100%;
+	height:100%;
+	padding:3px 10px;
+	border:1px solid #ccc;
+    font-family: Consolas;
+    background: #303841;
+    color: #EEF;
+    tab-size: 4; /* 8から4へ（または2へ） */
+}
+
+#editor #form div.memo{
+	display: none;
+}
+
+#editor #inputarea{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding:0 10px;
+	gap:20px;
+	height:60px;
+}
+
+#editor #input{
+	display: flex;
+	justify-content: left;
+	align-items: center;
+	font-size:14px;
+	gap:10px;
+	font-size:12px;
+}
+
+#editor #input div{
+	display: flex;
+	align-items: center;
+}
+
+#editor #input div label{
+	display: flex;
+	align-items: center;
+	gap:5px;
+}
+
+#editor #input div label span{
+	width:auto;
+}
+
+#editor.new #edit,
+#editor.new #dell{
+	display:none;
+}
+
+#editor.edit #add{
+	display:none;
+}
+
+#editor select{
+	padding:3px 10px;
+	border-radius: 5px;
+	border:1px solid #ccc;
+}
+
+#editor input[type="text"]{
+	padding:3px 10px;
+	border-radius: 5px;
+	border:1px solid #ccc;
+	box-sizing: border-box;
+}
+
+#editor #form form > label span,
+#editor #form form > label{
+	display: block;
+}
+
+#editor #form form > label{
+	margin-bottom:10px;
+}
+
+#editor #submit{
+	display: flex;
+	justify-content: right;
+	gap:10px;
+}
+
+#editor #submit label{
+	display: flex;
+	align-items: center;
+	gap:5px;
+}
+
+#editor a.button1,
+#editor a.button2{
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	padding:0 20px;
+	height:40px;
+	text-decoration: none;
+	width:max-content;
+	border-radius: 20px;
+	margin: 0 auto;
+}
+
+/* wrapper
+---------------------------------------------*/
+
+#wrapper{
+}
+
+#view header{
+	padding:10px 0;
+}
+
+#view footer{
+	min-height:60px;
+	background:#666;
+}
+
+#view footer *{
+	color:#EEF;
+}
+
+#view header .inner{
+	max-width:1040px;
+	padding:0 20px;
+	margin:0 auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#view header .inner #logo{
+	height:50px;
+	width:50px;
+}
+
+#view header .inner #logo img{
+	height:100%;
+	width:100%;
+	object-fit: contain;
+}
+
+#view header .inner #headertext{
+	font-weight: 700;
+}
+
+#checkimage{
+	width:100%;
+	height:auto;
+	max-height:400px;
+}
+
+#checkimage img{
+	width:100%;
+	height:auto;
+	max-height:400px;
+	object-fit: contain;
+}
+
+/* footer
+---------------------------------------------*/
+
+#footer{
+	height:50px;
+}

@@ -19,6 +19,7 @@ $map = file_get_contents('./common/inc/map.txt');
 $header = file_get_contents('./common/inc/header.txt');
 $nav = file_get_contents('./common/inc/nav.txt');
 $footer = file_get_contents('./common/inc/footer.txt');
+$asidebase = @file_get_contents('./common/inc/aside-base.txt') ?: '';
 $sitename = file_get_contents('./common/inc/sitename.txt');
 $style = file_get_contents('./common/css/style.css');
 $color = file_get_contents('./common/css/color.css');
@@ -74,6 +75,9 @@ $noindex = $row["noindex"] ?? '0';
 $main = str_replace('../common', $root . 'common', $main);
 $css = str_replace('../common', $root . 'common', $css);
 $other = str_replace('../common', $root . 'common', $other);
+$footer = str_replace('../common', $root . 'common', $footer);
+$header = str_replace('../common', $root . 'common', $header);
+$asidebase = str_replace('../common', $root . 'common', $asidebase);
 
 $nav = str_replace('p="'.$pid.'"','p="'.$pid.'" class="active"', $nav);
 
@@ -117,10 +121,9 @@ $lng = trim(file_get_contents('./common/inc/lang.txt'));
 </head>
 <body>
 <header>
-<div class="inner">
-<div id="logo"><a href="<?=$root?>"><img src="<?=$root?>common/img/logo.webp" alt="logo"></a></div>
-<?=$header?>
-</div>
+    <div class="inner">
+        <?=$header?>
+    </div>
 <div id="menubox"><label id="hamburger" for="menu"></label></div>
 </header>
 <nav>
@@ -132,6 +135,9 @@ $lng = trim(file_get_contents('./common/inc/lang.txt'));
 <main>
 <?=$main?>
 </main>
+<aside>
+<?=$asidebase?>
+</aside>
 <footer>
 <?=$footer?>
 </footer>

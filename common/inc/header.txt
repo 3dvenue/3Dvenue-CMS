@@ -1,1 +1,4 @@
-<div id="headertext">Digital Dream Deliver</div>
+	<div id="logo">
+	<img src="../common/img/logo.webp">
+	</div>
+	<div id="headertext">HEADER TEXT</div>
