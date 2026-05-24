@@ -7,7 +7,7 @@ if (basename(__FILE__) === basename($_SERVER['SCRIPT_FILENAME'])) exit;
         <p>Javascript</p>
         <p class="close">✕</p>
     </h3>
-    <textarea class="codearea" name="jstextarea"><?=$css?></textarea>
+    <textarea class="codearea" name="jstextarea"><?=$js?></textarea>
     <div class="btn"><?=$lang['save'][$lng]?></div>
 </div>
 

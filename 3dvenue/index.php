@@ -53,15 +53,16 @@ include_once('./lang.php');
                 </a>
             </li>
             <li>
+                <a href="./pdf.php" target="content">
+                    <img src="./lib/pdf.svg"><?=$lang['pdf_edit'][$lng]?>
+                </a>
+            </li>
+            <li>
                 <a href="./navi.php" target="content">
                     <img src="./lib/navigation.svg"><?=$lang['navi_edit'][$lng]?>
                 </a>
             </li>
-            <li>
-                <a href="./color.php" target="content">
-                    <img src="./lib/color.svg"><?=$lang['color_edit'][$lng]?>
-                </a>
-            </li>
+
         </ul>
 
         <h2><?=$lang['nav_header2'][$lng]?></h2>
@@ -75,6 +76,11 @@ include_once('./lang.php');
             <li>
                 <a href="./parts.php" target="content">
                     <img src="./lib/parts.svg"><?=$lang['parts_edit'][$lng]?>
+                </a>
+            </li>
+            <li>
+                <a href="./color.php" target="content">
+                    <img src="./lib/color.svg"><?=$lang['color_edit'][$lng]?>
                 </a>
             </li>
         </ul>

@@ -261,7 +261,6 @@ include_once('./lang.php');
 <div id="body">
 <header>
     <div class="inner">
-        <div id="logo"><img src="../common/img/logo.webp"></div>
         <?=$header?>
     </div>
     <div id="menubox"><label id="hamburger" for="menu"><div id="menuicon"></div></label></div>

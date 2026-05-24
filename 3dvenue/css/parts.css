@@ -1,9 +1,13 @@
 /* 3Dvenue-CMS Copyright (c) 2026 yoshihiro Murai Licensed under MIT (https://opensource.org/licenses/MIT)*/
 
+
+body{
+	min-width:300px;
+}
+
 #main{
 	min-height:calc(100vh - 50px);
 }
-
 
 #main .inner h2{
 	display: flex;
@@ -11,6 +15,7 @@
 	position: relative;
 	padding-right:60px;
 	gap:40px;
+	height:65px;
 }
 
 #selectparts{
@@ -21,6 +26,15 @@
 	border-radius:10px;
 	height:40px;
 }
+
+@media(max-width:680px){
+	#main .inner h2 #new,
+	#main .inner h2 #sampleaccet,
+	#main .inner h2 #selectparts{
+		display: none;
+	}
+}
+
 
 .btn{
 	background:#F4603D;
@@ -91,7 +105,7 @@ pages .flex .parts .image img{
 	opacity:0;
 	pointer-events: none;
 	transition-duration: .5s;
-	min-width:680px;
+	min-width:300px;
 }
 
 #headerandfooter.active,
@@ -113,11 +127,12 @@ pages .flex .parts .image img{
 }
 
 #editor #view{
-	width:1260px;
+	width:100%;
+	/*max-width:1260px;*/
 	height:auto;
 	min-height:60px;
-	border:1px solid #333;
-	transform-origin: top left;
+	/*border:1px solid #333;*/
+	/*transform-origin: top left;*/
 	background:#FFF;
 }
 
@@ -289,7 +304,7 @@ pages .flex .parts .image img{
 	z-index:-1;
 }
 
-#wrapper:after{
+/*#wrapper:after{
 	position: absolute;
 	top:0;
 	left:0;
@@ -299,7 +314,7 @@ pages .flex .parts .image img{
 	height:100%;
 	background:#000;
 }
-
+*/
 #view header{
 	padding:10px 0;
 }
@@ -348,10 +363,12 @@ pages .flex .parts .image img{
 	border:1px solid #D3E3FC;
 }
 */
+
 #checkimage{
 	width:100%;
 	height:auto;
 	max-height:400px;
+	display: none;
 }
 
 #checkimage img{

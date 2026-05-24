@@ -232,3 +232,92 @@ input:focus {
 	object-fit:cover;
 	object-position: top;
 }
+
+/* pdfflex
+---------------------------------------------*/
+.pdfflex .pdftext,
+.pdfflex .pdftext .button{
+	pointer-events: none;
+}
+
+.pdfflex .pdftext h2,
+.pdfflex .pdftext p{
+	pointer-events: auto;
+}
+
+/* pdflist
+---------------------------------------------*/
+#pdflist{
+	position:fixed;
+	bottom:-200%;
+	left:0;
+	width:100%;
+	background: #303841;
+	transition-duration: .5s;
+	z-index: 10000;
+}
+
+#pdflist.active{
+	bottom:0;
+}
+
+#pdflist .close{
+	position:absolute;
+	top:5px;
+	right:10px;
+	background:#FFF;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width:30px;
+	height:30px;
+	font-weight:bold;
+}
+
+#pdflist #pdfs{
+	padding:40px;
+}
+
+#pdflist #pdfs ul{
+	display: grid;
+	gap: clamp(10px,10vw,20px);
+	grid-template-columns: repeat(auto-fill,minmax(190px,1fr));
+	list-style: none;
+	padding:0;
+	margin:0;
+	max-height:300px;
+	overflow-y:auto;
+}
+
+#pdflist #pdfs ul li{
+	width:100%;
+	background:#FFF;
+	border-radius: 10px;
+	box-shadow: 0 0 5px #0001;
+}
+
+#pdflist #pdfs ul li figure{
+	width:100%;
+	padding:10px 10px 20px;
+	margin:0;
+}
+
+#pdflist #pdfs ul li figure figcaption{
+	text-align: center;
+	font-size: 12px;
+}
+
+#pdflist #pdfs ul li figure img{
+	width:100%;
+	aspect-ratio: 1 / 1;
+	object-fit: contain;
+	cursor: pointer;
+}
+
+#pdflist #pdfs ul li figure img:hover{
+	outline:2px solid ;
+}
+
+#pdflist #pdfs ul li .btnbox{
+	display: none;
+}
