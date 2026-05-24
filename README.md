@@ -18,7 +18,7 @@ Including the admin panel, SQLite database, SEO tools, and color mapping system.
 ## バージョン履歴 / Version History
 
 ### v0.9.8
-- PDFのアップロード、確認、ダウンロード機能追加 
+- PDFのアップロード、確認、ダウンロード機能追加  
   Added PDF upload, preview and download support
 
 ### v0.9.7
