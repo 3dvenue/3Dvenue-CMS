@@ -1,4 +1,4 @@
-# 3Dvenue-CMS
+# 3Dvenue-CMS VHN(Visual HTML Noter)
 
 I wanted to achieve perfect PageSpeed Insights scores, so I built my own CMS.
 
@@ -16,6 +16,10 @@ Including the admin panel, SQLite database, SEO tools, and color mapping system.
 
 
 ## バージョン履歴 / Version History
+
+### v0.9.7
+- ヘッダー・フッター編集機能を追加  
+  Added Header and Footer Editor
 
 ### v0.9.6
 - 多言語機能を拡張  
