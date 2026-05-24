@@ -33,7 +33,7 @@ include_once('./lang.php');
                 <strong>Google PageSpeed Insights</strong>
                 <?=$lang['indextop'][$lng]?>
                 </p>
-                <a href="https://pagespeed.web.dev/analysis?url=<?=$url?>" target="insights" class="btn" id="toInsights">PageSpeed Insightsへ</a>
+                <a href="https://pagespeed.web.dev/" target="insights" class="btn" id="toInsights">PageSpeed Insightsへ</a>
             </div>
         </div>
     </div>
@@ -41,7 +41,7 @@ include_once('./lang.php');
         <h2>Site Information</h2>
         <table>
             <tr><th>CMS Root<th><td><a href="<?=$root?>" target="_blank"><?=$root?></a><td></tr>
-            <tr><th>CMS Version<th><td>0.9.6-beta<td></tr>
+            <tr><th>CMS Version<th><td>0.9.8-beta<td></tr>
             <tr><th>PHP Version<th><td><?=phpversion()?><td></tr>
             
         </table>
@@ -77,6 +77,17 @@ include_once('./lang.php');
     </div>
 
     <div class="content">
+            <figure class="pdf">
+            <img src="./lib/pdf.svg">
+        </figure>
+        <div class="text">
+            <h3><?=$lang['pdf_edit'][$lng]?></h3>
+            <p><?=$lang['navi_edit_memo'][$lng]?></p>
+        </div>
+        <a href="pdf.php"><?=$lang['open'][$lng]?> →</a>
+    </div>
+
+    <div class="content">
             <figure class="navi">
             <img src="./lib/navigation.svg">
         </figure>
@@ -85,17 +96,6 @@ include_once('./lang.php');
             <p><?=$lang['navi_edit_memo'][$lng]?></p>
         </div>
         <a href="navi.php"><?=$lang['open'][$lng]?> →</a>
-    </div>
-
-    <div class="content">
-            <figure class="color">
-            <img src="./lib/color.svg">
-        </figure>
-        <div class="text">
-            <h3><?=$lang['color_edit'][$lng]?></h3>
-            <p><?=$lang['color_edit_memo'][$lng]?></p>
-        </div>
-        <a href="color.php"><?=$lang['open'][$lng]?> →</a>
     </div>
 
 </div>
@@ -131,6 +131,20 @@ include_once('./lang.php');
         </div>
         <a href="parts.php"><?=$lang['open'][$lng]?> →</a>
     </div>
+
+    <div class="content">
+        <div class="flex">
+            <figure class="color">
+                <img src="./lib/color.svg">
+            </figure>
+         <h3><?=$lang['color_edit'][$lng]?></h3>
+        </div>
+        <div class="text">
+            <p><?=$lang['color_edit_memo'][$lng]?></p>
+        </div>
+        <a href="color.php"><?=$lang['open'][$lng]?> →</a>
+    </div>
+
 
 </div>
 </section>

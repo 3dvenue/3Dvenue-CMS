@@ -132,6 +132,26 @@ $root = file_get_contents('../common/inc/root.txt');
 $sns_img = '../common/img/snsimage'.$pid.'.webp';
 $sns_img = file_exists($sns_img) ? $sns_img : '';
 
+
+function domGet($url,$id){
+    ob_start();
+    include $url;
+    $html = ob_get_clean();
+
+    libxml_use_internal_errors(true);
+
+    $dom = new DOMDocument();
+    $dom->loadHTML($html);
+
+    libxml_clear_errors();
+
+    $x = new DOMXPath($dom);
+
+    return $dom->saveHTML(
+        $x->query("//*[@id='$id']")->item(0)
+    );
+}
+
 include_once('./lang.php');
 ?>
 <!DOCTYPE html>
@@ -344,6 +364,11 @@ const sns_img = '<?=$sns_img?>';
             $('.tagname').text(tagname);
             $('#f-class').val(classname);
             $('#figureeditor').addClass('active');
+        }
+
+        if ($(this).is('.pdf .pdfimage img')) {
+                $(this).closest('.pdfflex').addClass('active');
+                $('#pdflist').addClass('active');
         }
 
     });

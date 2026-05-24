@@ -51,7 +51,7 @@ include_once('./lang.php');
     </ul>
     </section>
     </div>
-</div>
+</div><!-- main -->
 <?php include_once('./inc/imageupload.php')?>
 <div id="footer">
 <?php include_once('./inc/footer.php')?>

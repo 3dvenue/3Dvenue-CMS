@@ -31,7 +31,20 @@ $('#css .btn').on('click',function(){
             column: 'css',
             data: css
         }, function(res){
-            console.log(res);
+            $('#css').removeClass('active');
+     });
+})
+
+
+$('#js .btn').on('click',function(){
+    let js = $('#js textarea').val();
+        $.post('sqlupdate.php', {
+            pid: '<?=$pid?>',
+            table: 'pages',
+            column: 'js',
+            data: js
+        }, function(res){
+            $('#js').removeClass('active');
      });
 })
 

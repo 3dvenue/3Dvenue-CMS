@@ -57,19 +57,23 @@ if (basename(__FILE__) === basename($_SERVER['SCRIPT_FILENAME'])) exit;
 		</div>
 	</div>
 
+	<div id="pageview">
+		<div id="pageaddbutton">
+		<div class="closeviw">✕</div>
+			<form method="post">
+				<input type="hidde" name="cid" id="tempid" value="">			
+				<input type="text" name="pagename" id="pagename" value="" placeholder="Enter page name..." required>
+				<button type="submit" name="submit" value="newpage">Add Page</button>
+			</form>
+		</div>
+		<div class="view">
+			<img src="">
+		</div>
+	</div>
 
-<div id="pageview">
-	<div id="pageaddbutton">
-	<div class="closeviw">✕</div>
-		<form method="post">
-			<input type="hidde" name="cid" id="tempid" value="">			
-			<input type="text" name="pagename" id="pagename" value="" placeholder="Enter page name..." required>
-			<button type="submit" name="submit" value="newpage">Add Page</button>
-		</form>
-	</div>
-	<div class="view">
-		<img src="">
-	</div>
 </div>
 
+<div id="pdflist">
+	<div class="close">×</div>
+<?=domGet('./pdf.php','pdfs')?>
 </div>

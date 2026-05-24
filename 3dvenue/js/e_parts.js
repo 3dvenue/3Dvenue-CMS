@@ -52,6 +52,16 @@ $('#parts .closeviw').on('click',function(){
     $('#pageview').removeClass('active');
 });
 
-/* ページ追加のプログラム
+/* PDFの差し替え
 ---------------------------------------------*/
 
+$('#pdflist #pdfs ul li').on('click',function(){
+    let pdf = $(this).attr('data-image');
+    let name = $(this).attr('data-name');
+    let pdfurl = '../common/pdf/'+pdf;
+    let imgurl = '../common/pdf/'+ name + '.webp';
+    $('.pdfflex.active .pdftext .button a').attr('href',pdfurl);
+    $('.pdfflex.active .pdfimage img').attr('src',imgurl);
+    $('#pdflist').removeClass('active');
+    $('#mainsave').addClass('click');
+});

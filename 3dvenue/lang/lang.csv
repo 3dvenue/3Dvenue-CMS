@@ -6,7 +6,8 @@ del,削除,delete,Supprimer,Löschen,Eliminar,Elimina,Excluir
 edit,編集,edit,Modifier,Bearbeiten,Editar,Modifica,Editar
 update,更新,update,Mettre à jour,Aktualisieren,Actualizar,Aggiorna,Atualizar
 setup,設定,set,Paramètres,Einstellungen,Ajustes,Impostazioni,Configurações
-select,画像選択,select image,Choisir une image,Bild auswählen,Seleccionar imagen,Seleziona immagine,Selecionar imagem
+check,確認,check,Vérifier,Prüfen,Verificar,Controlla,Verificar
+select,ファイルを選択,select file,Sélectionner un fichier,Datei auswählen,Seleccionar archivo,Seleziona file,Selecionar arquivo
 reset,リセット,reset,Réinitialiser,Zurücksetzen,Restablecer,Ripristina,Redefinir
 newpage,新しいページを追加,Add New Page,Ajouter une nouvelle page,Neue Seite hinzufügen,Añadir nueva página,Aggiungi nuova pagina,Adicionar nova página
 fullsize,全面表示,full width,Pleine largeur,Volle Breite,Ancho completo,Larghezza completa,Largura total
@@ -30,7 +31,8 @@ nav_close,メニューを閉じる,Close Menu,Fermer le menu,Menü schließen,Ce
 page_edit,ページ編集,Page Eitor,Éditeur de page,Seiteneditor,Editor de página,Editor pagina,Editor de página
 image_edit,画像編集,Image Editor,Éditeur d’image,Bildeditor,Editor de imágenes,Editor immagini,Editor de imagem
 navi_edit,ナビゲーションの編集,Navigation Eitor,Éditeur de navigation,Navigationseditor,Editor de navegación,Editor navigazione,Editor de navegação
-color_edit,ページカラー編集,Page Color Editor,Éditeur des couleurs de page,Editor für Seitenfarben,Editor de colores de página,Editor colori pagina,Editor de cores da página
+pdf_edit,PDF登録,PDF Settings,Paramètres PDF,PDF-Einstellungen,Configuración PDF,Impostazioni PDF,Configurações PDF
+color_edit,サイトカラー設定,Site Color Settings,Paramètres des couleurs du site,Website-Farbeinstellungen,Configuración de colores del sitio,Impostazioni colori sito,Configurações de cores do site
 template_edit,テンプレート開発,Template Manager,Développement de modèles,Template-Entwicklung,Desarrollo de plantillas,Sviluppo template,Desenvolvimento de templates
 parts_edit,パーツ制作,Parts Editor,Création de composants,Parts-Erstellung,Creación de componentes,Creazione componenti,Criação de componentes
 image_select,画像を選択,Choose Image,Choisir une image,Bild auswählen,Elegir imagen,Scegli immagine,Escolher imagem
