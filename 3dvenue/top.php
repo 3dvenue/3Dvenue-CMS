@@ -70,13 +70,13 @@ include_once('./lang.php');
             <img src="./lib/image.svg">
         </figure>
         <div class="text">
-            <h3><?=$lang['image_edit'][$lng]?></h3>
-            <p><?=$lang['image_edit_memo'][$lng]?></p>
+            <h3><?=$lang['file_edit'][$lng]?></h3>
+            <p><?=$lang['file_memo'][$lng]?></p>
         </div>
-        <a href="images.php"><?=$lang['open'][$lng]?> →</a>
+        <a href="file.php"><?=$lang['open'][$lng]?> →</a>
     </div>
 
-    <div class="content">
+<!--     <div class="content">
             <figure class="pdf">
             <img src="./lib/pdf.svg">
         </figure>
@@ -86,7 +86,7 @@ include_once('./lang.php');
         </div>
         <a href="pdf.php"><?=$lang['open'][$lng]?> →</a>
     </div>
-
+ -->
     <div class="content">
             <figure class="navi">
             <img src="./lib/navigation.svg">

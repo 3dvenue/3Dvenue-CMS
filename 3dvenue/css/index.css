@@ -42,10 +42,48 @@ p {
     width:240px;
     flex-shrink:0;
     height:100%;
-    overflow: hidden;
     transition-duration: .3s;
+	padding-bottom:50px;	
 }
 
+#indexwrap #contents{
+	height:calc(100vh - 120px);
+    overflow-y:auto;
+}
+
+
+/*#indexwrap #contents::-webkit-scrollbar {
+  width: 7px;
+}
+
+#indexwrap #contents::-webkit-scrollbar-thumb {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #1bb4d3), to(#1bd8d3));
+  background: linear-gradient(to bottom, #1bb4d3 50%, #1bd8d3);
+  border-radius: 5px;
+}
+
+#indexwrap #contents::-webkit-scrollbar-track {
+  background: #dcdcdc;
+}
+*/
+
+#indexwrap #contents::-webkit-scrollbar{
+    width:10px;
+}
+
+#indexwrap #contents::-webkit-scrollbar-track{
+    background:#1A2535;
+}
+
+#indexwrap #contents::-webkit-scrollbar-thumb{
+    background:#8A8F98;
+    border-radius:10px;
+    border:2px solid #1A2535;
+}
+
+#indexwrap #contents::-webkit-scrollbar-thumb:hover{
+    background:#B0B4BC;
+}
 
 #index_mein{
 	flex:1;

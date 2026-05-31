@@ -101,16 +101,6 @@ $ld = $row["ld"];
 $other = $row["other"];
 $sitename = $row["sitename"] ?? '';
 
-$file_path = '../index.php'; 
-if (file_exists($file_path)) {
-    $html = file_get_contents($file_path);
-    preg_match('/<main[^>]*>(.*?)<\/main>/s', $html, $matches);
-    if (isset($matches[1])) {
-        $main_content = trim($matches[1]);
-        $mainHTML = htmlspecialchars($main_content);
-    }
-}
-
 $pages = [];
 $sql = "SELECT * FROM pages";
 $stmt = $conn->query($sql);
@@ -132,6 +122,12 @@ $root = file_get_contents('../common/inc/root.txt');
 $sns_img = '../common/img/snsimage'.$pid.'.webp';
 $sns_img = file_exists($sns_img) ? $sns_img : '';
 
+$body_before_main = '';
+$html = file_get_contents(''.$root.'');
+preg_match('/<body[^>]*>(.*?)<main[^>]*>/is', $html, $matches);
+if (isset($matches[1])) {
+    $body_before_main = trim($matches[1]);
+}
 
 function domGet($url,$id){
     ob_start();
@@ -192,18 +188,7 @@ include_once('./lang.php');
 </head>
 <body>
 <div id="body">
-    <header>
-        <div class="inner">
-            <?=$header?>
-            <div id="menubox"><label id="hamburger" for="menu"></label></div>
-        </div>
-    </header>
-    <nav>
-        <div class="inner">
-        <input type="checkbox" name="menu" id="menu">
-            <?=$nav?>
-        </div>
-    </nav>
+    <?=$body_before_main?>
     <main>
     <?=$main?>
     </main>
@@ -234,6 +219,50 @@ include_once('./lang.php');
 
 <div id="mainsave" class="btn"><?=$lang['update'][$lng]?></div>
 
+<div id="audioeditor">
+    <div class="close">✕</div>
+    <div id="audiobox">
+    <h3>サウンド設定</h3>
+    <div id="mp3s">
+        <ul>
+            <?php
+                $directory = '../common/mp3/';
+                $files = glob($directory . "*.mp3");
+                foreach ($files as $file) {
+                $filename = explode('.',basename($file))[0];
+            ?>
+                <li data-name="<?=basename($file)?>">
+                    <span>♪</span><span><?=basename($file)?></span>
+                </li>
+                <?php } ?>
+            </select>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div id="glbeditor">
+    <div class="close">✕</div>
+    <div id="glbbox">
+    <h3>3D Model </h3>
+    <div id="glbs">
+        <ul>
+            <?php
+                $directory = '../common/glb/';
+                $files = glob($directory . "*.webp");
+                foreach ($files as $file) {
+                $filename = explode('.',basename($file))[0];
+            ?>
+            <li data-name="<?=basename($file)?>">
+                <figure><img src="../common/glb/<?=basename($file)?>"></figure>
+            </li>
+            <?php } ?>
+            </select>
+        </ul>
+    </div>
+    </div>
+</div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
 <script type="text/javascript">
@@ -251,7 +280,6 @@ const sns_img = '<?=$sns_img?>';
         let html = $('main section.active').html()
         $('#html textarea').val(html);
     })
-
 
     $('#view').on('click', function(){
         let page = $('#selectPage').val();
@@ -303,6 +331,7 @@ const sns_img = '<?=$sns_img?>';
         $('body').removeClass('topeditor');
         $('.bottompopup').removeClass('active');
         $('.active').removeClass('active');
+        $('#audioeditor').removeClass();
     })
 
     function cleanUp(){
@@ -328,10 +357,9 @@ const sns_img = '<?=$sns_img?>';
         let id = $(this).attr('id');
         var tag = this.tagName.toLowerCase();
 
-       $('#tag').text(tag);
-       $('#idname').val(id);
-       $('#classname').val(cla);
-
+        $('#tag').text(tag);
+        $('#idname').val(id);
+        $('#classname').val(cla);
 
         if (!$(this).is('section, figure, .inner, .content')) {
             $(this).attr('contenteditable', 'true').focus();
@@ -354,6 +382,14 @@ const sns_img = '<?=$sns_img?>';
             $('#tagname').text(tagname);
             $('#t-class').val(classname);
             $('#tageditor').addClass('active');
+        }
+
+        if($(this).is('.glb figure')){
+            e.stopPropagation();
+            $('#tageditor,#texteditor').removeClass();
+            $('#glbeditor').addClass('active');
+            console.log('glb');
+            return;
         }
 
         if ($(this).is('figure')) {
@@ -411,7 +447,6 @@ const sns_img = '<?=$sns_img?>';
         $(this).removeClass('click');
     })
 
-
     $('.codearea').on('keydown', function(e) {
         const el = e.target;
 
@@ -429,6 +464,22 @@ const sns_img = '<?=$sns_img?>';
             }
         }
     });
+
+    $('#audioeditor #audiobox').on('click',' ul li',function(){
+        let name = $(this).attr('data-name');
+        $('.audio .player span.active').text('play').attr('data-name',name).removeClass();
+        $('#audioeditor').removeClass();
+        console.log($('.player'));
+    })
+
+    $('#glbeditor #glbbox').on('click',' ul li',function(){
+        let name = $(this).attr('data-name');
+        let data_name = name.replace(/\.webp$/i, '');
+        let src = '../common/glb/' + name;
+        $('.glbbox figure.active').attr('data-name',data_name);
+        $('.glbbox figure.active img').attr('src',src).removeClass();
+        $('#glbeditor').removeClass();
+    })
 
     $(window).on('keydown', e => {
       const s = $('main section.active');

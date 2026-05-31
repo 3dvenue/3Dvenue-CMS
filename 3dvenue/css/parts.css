@@ -153,6 +153,7 @@ pages .flex .parts .image img{
 	background:#EDF2FA;
 	border:1px solid #D3E3FC;
 	height:400px;
+	z-index: 100;
 }
 
 #editor form span.hadle{
@@ -301,7 +302,7 @@ pages .flex .parts .image img{
 	left:0;
 	width:100%;
 	height:100%;
-	z-index:-1;
+	z-index:10;
 }
 
 /*#wrapper:after{

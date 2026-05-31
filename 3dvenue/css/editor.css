@@ -288,6 +288,11 @@ main section:hover:not(:has(*:hover)) {
     cursor: pointer;
 }
 
+/*main section div.mp3box .right .player{
+	pointer-events: none;
+	user-select:none;
+}
+*/
 main section.active:has(.active) {
     outline: none; /* 親の枠線を「引き算」して譲る */
 }
@@ -694,7 +699,138 @@ body.topeditor #topeditor{
 	transform: scale(1.0);
 }
 
+/* audioeditor
+----------------------------------------*/
+#glbeditor,
+#audioeditor{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000C;
+    transform: scale(0.0);
+    opacity: 0;
+    transition-duration: .5s;
+    z-index: 2501;
+}
 
+#glbeditor.active,
+#audioeditor.active{
+    transform: scale(1.0);
+    opacity: 1;
+}
+
+#glbeditor .close,
+#audioeditor .close{
+	position:absolute;
+	top:0;
+	right:20px;
+	color:#FFF;
+	border:1px solid #fff9;
+}
+
+#glbeditor #glbbox,
+#audioeditor #audiobox{
+	background:#FFF;
+	padding:20px;
+    display: flex;
+    gap:10px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius:10px;
+    box-shadow: 0 0 5px #000;
+    width:100%;
+    max-width:480px;
+}
+
+#audioeditor h3{
+	margin:0;
+	padding:0;
+}
+
+#glbeditor #glbs,
+#audioeditor #mp3s{
+	width:100%;
+	background:#ccc;
+	padding:2px;
+}
+
+#audioeditor ul{
+	width:100%;
+	padding:5px 4px 1px 5px;
+	margin:0;
+	list-style: none;
+	background: #303841;
+	max-height:150px;
+	overflow-y:auto;
+}
+
+#glbeditor #glbbox{
+    max-width:880px;
+    margin:20px;
+}
+
+#glbeditor ul{
+	width:100%;
+	padding:20px;
+	margin:0;
+	list-style: none;
+	background: #303841;
+	max-height:60vh;
+	overflow-y:auto;
+	display: grid;
+    gap: clamp(10px, 10vw, 20px);
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));	
+}
+
+#audioeditor ul li{
+	font-size:14px;
+	padding:5px;
+	color: #333;
+	background:#FFF;
+	border-bottom:2px solid #000;
+	border-right:1px solid #000;
+	margin-bottom:3px;
+	cursor: pointer;
+}
+
+#glbeditor ul li{
+	width:100%;
+	padding:0;
+	margin:0;
+	cursor: pointer;
+}
+
+#glbeditor ul li:hover{
+	outline:4px solid #1C6AD6;
+}
+
+#glbeditor ul li figure{
+	width:100%;
+	margin:0;
+}
+
+#glbeditor ul li figure img{
+	width:100%;
+	height:100%;
+	object-fit:contain;
+	display: block;
+}
+
+
+#audioeditor ul li:hover{
+	background:#F0F0F0;
+}
+
+#audioeditor ul li:active{
+	background:#333;
+	color:#FFF;
+}
 
 /* footer
 ----------------------------------------*/
