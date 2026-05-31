@@ -14,7 +14,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     $pdf_dir = '../common/pdf/';
-    // $img_dir = '../common/img/';
     $pdf_name = $name . '.pdf';
     $img_name = $name . '.webp';
 
@@ -143,7 +142,7 @@ let canvas;
        if(!canvas) return;
        let name = $('#imgname').val();
        if(name == ''){
-        alert('Name id Empty!');
+        alert('Name is Empty!');
         return;
         }
 
@@ -186,7 +185,7 @@ let canvas;
     });
 
 
-    $('.del').on('click',function(){
+    $(document).on('click','.del',function(){
         let name = $(this).closest('li').data('name');
         $.post('pdf.php',{
             submit:'del',

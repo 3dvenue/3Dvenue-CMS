@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-if(!empty($_POST['css'])){
+if(isset($_POST['css'])){
     $css = $_POST['css'];
     $submit = $_POST['submit'];
 
@@ -33,6 +33,12 @@ if(!empty($_POST['css'])){
         file_put_contents('./common/css/color.css', $css);
         file_put_contents('../common/css/color.css', $css);
     }
+
+    if ($submit === "update") {
+        file_put_contents('../common/css/color.css', $css);
+        exit('ok');
+    }
+
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -83,6 +89,16 @@ $sql = "SELECT * FROM colors ORDER BY heart DESC";
 $stmt = $conn->query($sql);
 $colors = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+$stylesheet = file_get_contents('../common/css/color.css');
+$root = file_get_contents('../common/inc/root.txt');
+
+$body_before_main = '';
+$html = file_get_contents(''.$root.'');
+preg_match('/<body[^>]*>(.*?)<main[^>]*>/is', $html, $matches);
+if (isset($matches[1])) {
+    $body_before_main = trim($matches[1]);
+}
+
 include_once('./lang.php');
 ?>
 <!DOCTYPE html>
@@ -94,12 +110,13 @@ include_once('./lang.php');
     <link rel="icon" href="/favicon.ico">
     <title>3DVenue: Open Source CMS (MIT Licensed)</title>
     <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="../common/css/style.css">
     <link rel="stylesheet" type="text/css" href="./css/colors.css?t=<?=time()?>">
 </head>
 <body>
 <div id="main">
 <div class="inner">
-    <h2><?=$lang['color_edit'][$lng]?><div id="new">＋</div></h2>
+    <h2><?=$lang['color_edit'][$lng]?> <button id="direct" class="btn">直接編集</button> <div id="new">＋</div></h2>
     <div id="heaercheck"><input type="checkbox" id="checkedheart" value="1"><label for="checkedheart"><span>❤</span></label></div>
     <div id="flex">
          <section id="colors">
@@ -121,15 +138,7 @@ include_once('./lang.php');
         </section>
 
         <section id="body">
-            <header>
-                <div class="inner">
-                    <div id="logo"><img src="../common/img/logo.webp"></div>
-                    <h1 style="color:#444444cc">3dvenue-CMS</h1>
-                </div>
-            </header>
-            <nav>
-                <div class="inner"><ul><li><a href="#">HOME</a></li><li><a href="#">Product</a></li><li><a href="#">Company</a></li><li><a href="#">Contact</a></li></ul></div>
-            </nav>
+            <?=$body_before_main?>
             <main>
                 <section class="eyecatch">
                     <div class="inner">
@@ -157,11 +166,13 @@ include_once('./lang.php');
                         </div>
                     </div>
                 </section>
+
                 <section>
                     <div class="inner">
-                        <h1>Design with Color & Structure</h1>
-                        <h2>Layouts That Don’t Break</h2>
-                        <h3>Smart Color Rules</h3>
+                        <h1>Design with Color & Structure h1</h1>
+                        <h2>Layouts That Don’t Break h2</h2>
+                        <h3>Smart Color Rules h3</h3>
+                        <h4>Simple Rules for Better Harmony h4</h4>
                         <div class="text radius"><p>Even when colors change, the <a href="#">design stays beautifully balanced</a>. Designed to keep the entire page visually consistent and easy for anyone to use.</p></div>
                     </div>
                 </section>
@@ -262,6 +273,15 @@ include_once('./lang.php');
 </div>
 
 
+<div id="directedit">
+    <div class="close">✕</div>
+    <div id="editbox">
+        <h3>直接編集</h3>
+        <textarea id="colortext"></textarea>
+        <button class="btn" id="directsave">修正</button>
+    </div>
+</div>
+
 <div id="footer">
 <?php include_once('./inc/footer.php')?>
 </div>
@@ -310,7 +330,7 @@ $(function() {
     })
 
     $('.close').on('click',function(){
-        $('#coloreditor').removeClass('active');
+        $('#coloreditor,#directedit').removeClass('active');
     })
 
     // 配色パレットの選択
@@ -657,6 +677,25 @@ $(function() {
         $('#colors').removeClass('heart');
       }
     })
+
+    $('#direct').on('click',function(){
+
+        $.get('../common/css/color.css?t=<?=time()?>', function(data){
+            $('#directedit textarea').val(data);
+        });
+
+        $('#directedit').addClass('active');
+    })
+
+    $('#directsave').on('click',function(){
+        let css = $('#directedit textarea').val();
+        $.post('color.php',{
+            css:css,
+            submit:'update'
+        },function(){
+            $('#directedit').removeClass('active');
+        });
+    });
 
 });
 </script>

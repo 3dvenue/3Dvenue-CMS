@@ -95,8 +95,16 @@ $(document).on('keyup mouseup','main section *', function(e) {
         $('#tageditor').addClass('text');
         $('#texteditor').addClass('text');
     }else{
-        // console.log(tagname);
-            $('main section *.active').removeClass('active');
+
+          $('main section *.active').removeClass('active');
+
+        if($(this).is('.audio .player span')){
+            $('#tageditor,#texteditor').removeClass();
+            $('#audioeditor').addClass('active');
+            console.log('mp3');
+            return;
+        }
+
         if(tagname == "SPAN"){
             $('#tageditor').addClass('text');
             $('#texteditor').removeClass().addClass('text');

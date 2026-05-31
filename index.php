@@ -83,6 +83,14 @@ $nav = str_replace('p="'.$pid.'"','p="'.$pid.'" class="active"', $nav);
 
 $meta_image = 'common/img/snsimage'.$pid.'.webp';
 $meta_image = file_exists($meta_image) ? $meta_image : '';
+
+$mp3 = '';
+
+if(strpos($main, 'class="audio"') !== false){
+    $mp3 = file_get_contents('./common/inc/mp3.txt');
+    $mp3 = str_replace('./common', $root . 'common', $mp3);
+}
+
 $lng = trim(file_get_contents('./common/inc/lang.txt'));
 ?>
 <!DOCTYPE html>
@@ -90,6 +98,7 @@ $lng = trim(file_get_contents('./common/inc/lang.txt'));
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="3Dvenue-CMS">
 <?php if ($noindex == "1") { ?>
 <meta name="robots" content="noindex,nofollow">
 <?php } ?>
@@ -141,6 +150,26 @@ $lng = trim(file_get_contents('./common/inc/lang.txt'));
 <footer>
 <?=$footer?>
 </footer>
+<?=$mp3?>
+
+<?php 
+if(strpos($main, 'class="glb"') !== false){
+?>
+<script>
+document.querySelectorAll('.glbbox figure').forEach(function(el){
+    el.addEventListener('click', function(){
+        let name = this.dataset.name;
+        let model = '<?=$root?>common/glb/' + name + '.glb';
+        let win = window.open('<?=$root?>view/', 'glb', 'width=900,height=700');
+
+        setTimeout(function(){
+                win.loadGLTFModel(model);
+        },500);
+    });
+});
+</script>
+<?php } ?>
+
 </body>
 </html>
 <?php

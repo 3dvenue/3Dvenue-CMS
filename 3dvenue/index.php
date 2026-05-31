@@ -26,13 +26,13 @@ include_once('./lang.php');
 <body>
 <div id="indexwrap">
     <div id="nav">
-
         <div id="logo">
-            <a href="./" target="content">
+            <a href="./top.php" target="content">
                 <img src="../common/img/logo.webp" alt="logo">
             </a>
             <h1>3Dvenue</h1>
         </div>
+        <div id="contents">
         <ul>
             <li id="dashbord">
                 <a href="./top.php" target="content"><img src="./lib/home.svg"><?=$lang['dash'][$lng]?></a>
@@ -55,6 +55,16 @@ include_once('./lang.php');
             <li>
                 <a href="./pdf.php" target="content">
                     <img src="./lib/pdf.svg"><?=$lang['pdf_edit'][$lng]?>
+                </a>
+            </li>
+            <li>
+                <a href="./mp3.php" target="content">
+                    <img src="./lib/mp3.svg"><?=$lang['audio_edit'][$lng]?>
+                </a>
+            </li>
+            <li>
+                <a href="./glb.php" target="content">
+                    <img src="./lib/glb.svg"><?=$lang['glb_edit'][$lng]?>
                 </a>
             </li>
             <li>
@@ -95,8 +105,7 @@ include_once('./lang.php');
                 </a>
             </li>
         </ul>
-
-
+    </div>
     <ul id="naviclose">
     <li>
         <span><img src="./lib/close.svg"><?=$lang['nav_close'][$lng]?></span>

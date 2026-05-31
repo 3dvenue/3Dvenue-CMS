@@ -101,6 +101,14 @@ $header = file_get_contents('../common/inc/header.txt');
 $color = file_get_contents('./common/css/color.css');
 $footer = file_get_contents('../common/inc/footer.txt');
 $nav = file_get_contents('../common/inc/nav.txt');
+$root = file_get_contents('../common/inc/root.txt');
+
+$body_before_main = '';
+$html = file_get_contents(''.$root.'');
+preg_match('/<body[^>]*>(.*?)<main[^>]*>/is', $html, $matches);
+if (isset($matches[1])) {
+    $body_before_main = trim($matches[1]);
+}
 
 include_once('./lang.php');
 
@@ -257,20 +265,8 @@ include_once('./lang.php');
 <style type="text/css" id="color"><?=$color?></style>
 <style type="text/css" id="pagestyle"><?=$css?></style>
 <style type="text/css" id="template"><?= $default['css'] ?></style>
-
 <div id="body">
-<header>
-    <div class="inner">
-        <?=$header?>
-    </div>
-    <div id="menubox"><label id="hamburger" for="menu"><div id="menuicon"></div></label></div>
-</header>
-<nav>
-    <div class="inner">
-        <input type="checkbox" name="menu" id="menu">
-            <?=$nav?>
-    </div>
-</nav>
+<?=$body_before_main?>
 <main>
 <?=$main?>
 </main>
