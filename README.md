@@ -354,3 +354,12 @@ https://opensource.org/licenses/MIT
 
 - Tabler Icons (MIT License)
   https://tabler.io/icons
+
+- Three.js (MIT License)
+　https://threejs.org
+
+- PDF.js (Apache License 2.0)
+　https://mozilla.github.io/pdf.js/
+
+- WaveSurfer.js (BSD-3-Clause License)
+　https://wavesurfer.xyz
