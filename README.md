@@ -17,6 +17,14 @@ Including the admin panel, SQLite database, SEO tools, and color mapping system.
 
 ## バージョン履歴 / Version History
 
+### v0.9.9
+- Added MP3 playback support
+  mp3 再生機能を追加
+- Added 3D model (GLB) viewer support
+  3D Model(GLB)表示機能を追加  
+- Improved editor functionality
+  エディター機能の一部改善
+  
 ### v0.9.8
 - PDFのアップロード、確認、ダウンロード機能追加  
   Added PDF upload, preview and download support
