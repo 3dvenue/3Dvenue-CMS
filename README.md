@@ -278,7 +278,12 @@ While developing it, I kept adding new ideas and improvements, and before I real
 ### mp3 Player  
   
 <img src="img/sound.webp" width="800">  
+
+
+### 3D Model viewer  
   
+<img src="img/3dmodel.webp" width="800">  
+
 
 
 ## Demo / How to Build
