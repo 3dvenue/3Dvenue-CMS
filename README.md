@@ -275,9 +275,9 @@ While developing it, I kept adding new ideas and improvements, and before I real
 
 
   
-### SEO Settings  
+### mp3 Player  
   
-<img src="img/seo.webp" width="800">  
+<img src="img/sound.webp" width="800">  
   
 
 
