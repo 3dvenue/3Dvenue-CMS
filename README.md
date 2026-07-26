@@ -65,7 +65,7 @@ Upload the following files and directories to any directory on your web server.
 `├─ favicon.ico`  
 `├─ 3d_venue_data.qox`  
 `├─ /common`  
-`├─ /3dvenue`
+`├─ /3dvenue`  
 `└─ /view`  
 
 /3dvenue is the admin directory.
@@ -73,10 +73,8 @@ Upload the following files and directories to any directory on your web server.
 The default directory name is `/3dvenue`, however, you may freely rename it to `/admin`, `/tanaka`, or any other name, and it will continue to work normally.
 
 Next, open `login.php` inside the administration directory and configure the following settings.
-```
-$acount = "your-account";  
-$password = "your-password";
-```
+`$acount = "your-account";`  
+`$password = "your-password";`  
 
 ※Please change these values before uploading to a public server.
 
