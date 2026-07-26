@@ -6,7 +6,7 @@
 ### **Freedom adapts to you, becoming a CMS that is yours alone.**
 **You’ll understand what it truly means once you start using it.**
 
-<img src="img/hero.webp" alt="3Dvenue CMS Hero Image" width="100%" />
+<img src="img/hero.webp" alt="3Dvenue CMS Hero Image" width="600" />
 
 ## Features
 
