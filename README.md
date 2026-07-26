@@ -18,10 +18,10 @@
 - **No Select Boxes. Direct Input.**
   Type CSS values directly.
 
-- **No Database Setup.**
+- **No Database Setup.**  
   SQLite works automatically.
 
-- **Install Anywhere.**
+- **Install Anywhere.**  
   No configuration after moving your site.
 
 - **Three Ways to Edit.**  
