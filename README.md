@@ -59,7 +59,7 @@
 ## Installation
 
 Upload the following files and directories to any directory on your web server.
-```text
+`
 /
 ├─ index.php  
 ├─ .htaccess  
@@ -68,7 +68,7 @@ Upload the following files and directories to any directory on your web server.
 ├─ /common  
 ├─ /3dvenue
 └─ /view  
-```
+`
 
 /3dvenue is the admin directory.
 
