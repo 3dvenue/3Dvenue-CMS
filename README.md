@@ -20,11 +20,9 @@
   Type CSS values directly.
 
 - **No Database Setup.**
-  
-　SQLite works automatically.
+  SQLite works automatically.
 
-- **Install Anywhere.**  
-
+- **Install Anywhere.**
   No configuration after moving your site.
 
 - **Three Ways to Edit.**  
