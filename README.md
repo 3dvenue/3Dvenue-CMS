@@ -58,7 +58,7 @@
   You're in control.
 ## Installation
 
-Upload the following files and directories to any directory on your web server.
+Upload the following files and directories to any directory on your web server.  
 `/`
 `├─ index.php`  
 `├─ .htaccess`  
@@ -72,7 +72,7 @@ Upload the following files and directories to any directory on your web server.
 
 The default directory name is `/3dvenue`, however, you may freely rename it to `/admin`, `/tanaka`, or any other name, and it will continue to work normally.
 
-Next, open `login.php` inside the administration directory and configure the following settings.
+Next, open `login.php` inside the administration directory and configure the following settings.  
 `$acount = "your-account";`  
 `$password = "your-password";`  
 
