@@ -1,6 +1,6 @@
 
 # 3Dvenue‑CMS  
-[https://www.3dvenue.jp](https://www.3dvenue.jp/)
+[Official Website](https://www.3dvenue.jp/)
 
 ## **A CMS for those who want to build in their own style.**
 ### **Freedom adapts to you, becoming a CMS that is yours alone.**
