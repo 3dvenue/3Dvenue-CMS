@@ -59,7 +59,7 @@
 ## Installation
 
 Upload the following files and directories to any directory on your web server.
-```bash
+```text
 /
 ├─ index.php  
 ├─ .htaccess  
