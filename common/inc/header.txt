@@ -1,2 +1,0 @@
-	<div id="logo"><a href="/"><img src="../common/img/logo.webp" alt="logo"></a></div>
-	<div id="headertext">HEADER TEXT</div>
