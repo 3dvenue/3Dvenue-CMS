@@ -5,9 +5,10 @@
 ## **A CMS for those who want to build in their own style.**
 ### **Freedom adapts to you, becoming a CMS that is yours alone.**
 **You’ll understand what it truly means once you start using it.**
-
+<p align="center">
 <img src="img/hero.webp" alt="3Dvenue CMS Hero Image" width="600" />
-
+</p>
+  
 ## Features
 
 - **Not for everyone. For professionals.**  
