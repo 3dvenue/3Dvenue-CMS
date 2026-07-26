@@ -15,7 +15,7 @@
 - **Rules exist. But breaking them won't break your site.**  
   Freedom comes first.
 
-- **No Select Boxes. Direct Input.**
+- **No Select Boxes. Direct Input.**  
   Type CSS values directly.
 
 - **No Database Setup.**  
