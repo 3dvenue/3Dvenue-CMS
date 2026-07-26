@@ -67,12 +67,13 @@ Upload the following files and directories to any directory on your web server.
 `├─ /common`  
 `├─ /3dvenue`  
 `└─ /view`  
-
-/3dvenue is the admin directory.
+  
+`/3dvenue` is the admin directory.
 
 The default directory name is `/3dvenue`, however, you may freely rename it to `/admin`, `/tanaka`, or any other name, and it will continue to work normally.
 
 Next, open `login.php` inside the administration directory and configure the following settings.  
+  
 `$acount = "your-account";`  
 `$password = "your-password";`  
 
