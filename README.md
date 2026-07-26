@@ -16,7 +16,6 @@
   Freedom comes first.
 
 - **No Select Boxes. Direct Input.**
-
   Type CSS values directly.
 
 - **No Database Setup.**
