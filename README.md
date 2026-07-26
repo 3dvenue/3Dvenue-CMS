@@ -59,14 +59,14 @@
 ## Installation
 
 Upload the following files and directories to any directory on your web server.
-```
+```bash
 /
 ├─ index.php  
 ├─ .htaccess  
 ├─ favicon.ico  
 ├─ 3d_venue_data.qox  
 ├─ /common  
-└─ /3dvenue
+├─ /3dvenue
 └─ /view  
 ```
 
