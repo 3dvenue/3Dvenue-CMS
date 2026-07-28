@@ -123,6 +123,9 @@ _The entire system is approximately 780KB in size._
   
 ## Version History
 
+### v1.0.1 release  
+Fixed a minor bug.
+
 ### v1.0.0 release
 
 - Initial public release – 2026-07-26
