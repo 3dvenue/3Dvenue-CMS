@@ -2,6 +2,8 @@
 # 3Dvenue‑CMS  
 [Official Website](https://www.3dvenue.jp/)
 
+⚠️ I’m sorry. It seems I forgot to include the .htaccess file. The CMS will not work without it.
+
 ## **A CMS for those who want to build in their own style.**
 ### **Freedom adapts to you, becoming a CMS that is yours alone.**
 **You’ll understand what it truly means once you start using it.**
