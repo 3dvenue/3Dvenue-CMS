@@ -1,5 +1,4 @@
 <?php
-/* 3Dvenue-CMS Copyright (c) 2026 yoshihiro Murai Licensed under MIT (https://opensource.org/licenses/MIT)*/
 session_start();
 $url_slug = $_GET['slug'] ?? '/'; 
 if($url_slug == '/'){
@@ -144,7 +143,7 @@ document.querySelectorAll('.glbbox figure').forEach(function(el){
 });
 </script>
 <?php } ?>
-
+<?=$js?>
 </body>
 </html>
 <?php
