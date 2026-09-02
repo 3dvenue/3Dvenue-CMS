@@ -1,8 +1,5 @@
-
 # 3Dvenue‑CMS  
 [Official Website](https://www.3dvenue.jp/)
-
-⚠️ I’m sorry. It seems I forgot to include the `.htaccess` file. The CMS will not work without it.
 
 ## **A CMS for those who want to build in their own style.**
 ### **Freedom adapts to you, becoming a CMS that is yours alone.**
@@ -60,6 +57,9 @@
 
 - **Use What You Want. Ignore the Rest.**  
   You're in control.
+
+- **Import HTML, Start Editing Instantly.**  
+  Upload an HTML file created by browsing AI, and start editing it in the CMS editor right away.
 ## Installation
 
 Upload the following files and directories to any directory on your web server.  
@@ -72,11 +72,11 @@ Upload the following files and directories to any directory on your web server.
 `├─ /3dvenue`  
 `└─ /view`  
   
-`/3dvenue` is the admin directory.
+`/3dvenue` is the admin directory.
 
-The default directory name is `/3dvenue`, however, you may freely rename it to `/admin`, `/tanaka`, or any other name, and it will continue to work normally.
+The default directory name is `/3dvenue`, however, you may freely rename it to `/admin`, `/tanaka`, or any other name, and it will continue to work normally.
 
-Next, open `login.php` inside the administration directory and configure the following settings.  
+Next, open `login.php` inside the administration directory and configure the following settings.  
   
 `$acount = "your-account";`  
 `$password = "your-password";`  
@@ -85,7 +85,7 @@ Next, open `login.php` inside the administration directory and configure the f
 
 **This is all you need to get started.**
 
-_The entire system is approximately 780KB in size._
+_The entire system is approximately 285KB in size (zipped)._
 ## Screenshots
 
 # Dashboard
@@ -124,6 +124,12 @@ _The entire system is approximately 780KB in size._
 - Apache or Nginx
   
 ## Version History
+
+### v1.2.0
+- Added the ability to import an HTML file (e.g. one created by browsing AI) directly from the CMS editor screen, allowing immediate editing without manual setup.
+  ブラウジングAIなどで作成したHTMLファイルを、CMSのエディター画面から直接アップロードし、そのまま編集を開始できる機能を追加
+- Replaced image-dependent parts with pure HTML rendering, significantly reducing overall file size (423KB → 285KB zipped).
+  画像ファイルに依存していたパーツ部分をHTMLのみの表示に変更し、全体を大幅に軽量化(zip時423KB→285KB)
 
 ### v1.0.1  
 - Fixed a minor bug.
@@ -205,7 +211,7 @@ _The entire system is approximately 780KB in size._
 3DVenue-CMS is a lightweight and high-performance CMS focused on simplicity, speed, and flexible deployment.
 ### License
 
-Copyright (c) 2026 Yoshihiro Murai Released under the MIT License. [https://opensource.org/licenses/MIT](https://opensource.org/licenses/MIT)
+Copyright (c) 2026 Yoshihiro Murai Released under the MIT License. [https://opensource.org/licenses/MIT](https://opensource.org/licenses/MIT)
 
 ## Third-Party Libraries
 
@@ -214,5 +220,3 @@ Copyright (c) 2026 Yoshihiro Murai Released under the MIT License. [https://ope
 - Tabler Icons (MIT License) [https://tabler.io/icons](https://tabler.io/icons)
 - Three.js (MIT License) [https://threejs.org](https://threejs.org/)
 - PDF.js (Apache License 2.0) [https://mozilla.github.io/pdf.js/](https://mozilla.github.io/pdf.js/)
-  
-  
