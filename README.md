@@ -128,8 +128,11 @@ _The entire system is approximately 285KB in size (zipped)._
 ### v1.2.0
 - Added the ability to import an HTML file (e.g. one created by browsing AI) directly from the CMS editor screen, allowing immediate editing without manual setup.
   ブラウジングAIなどで作成したHTMLファイルを、CMSのエディター画面から直接アップロードし、そのまま編集を開始できる機能を追加
+- Added Asset functionality for both Section Parts and full Page information, directly from the editor screen.
+  エディター画面から、SectionパーツおよびPage情報の両方をAssetとして保存できる機能を追加
 - Replaced image-dependent parts with pure HTML rendering, significantly reducing overall file size (423KB → 285KB zipped).
   画像ファイルに依存していたパーツ部分をHTMLのみの表示に変更し、全体を大幅に軽量化(zip時423KB→285KB)
+
 
 ### v1.0.1  
 - Fixed a minor bug.
