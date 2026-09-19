@@ -374,22 +374,32 @@ include_once('./lang.php');
 </div><!-- indexwrap -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script type="text/javascript">
-    $(function(){
+$(function(){
 
-        $('#contents ul li,#menu,#naviclose').on('click',function(){
-            $('#indexwrap').toggleClass('wide');
-        })
+    const content = sessionStorage.getItem('content');
 
-        $('#language').on('change',function(){
-            const lng = $(this).val();
-            $.post('lang.php',{
-                language:lng
-            },function(){
-                location.reload();
-            });
-        });
+    if(content){
+        $('#content').attr('src', content);
+    }
 
+    $('a[target="content"]').on('click', function(){
+        sessionStorage.setItem('content', $(this).attr('href'));
     });
+
+    $('#contents ul li,#menu,#naviclose').on('click',function(){
+        $('#indexwrap').toggleClass('wide');
+    })
+
+    $('#language').on('change',function(){
+        const lng = $(this).val();
+        $.post('lang.php',{
+            language:lng
+        },function(){
+            location.reload();
+        });
+    });
+
+});
 </script>
 </body>
 </html>

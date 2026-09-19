@@ -2,8 +2,11 @@
 /* 3Dvenue-CMS Copyright (c) 2026 yoshihiro Licensed under MIT (https://opensource.org/licenses/MIT)*/
 session_start();
 
-$account = "Your-Account";
-$password = "Your-Password";
+// $account = "Your-Account";
+// $password = "Your-Password";
+$account = "REMOVED";
+$password = "REMOVED";
+
 $title="3Dvenue-CMS";
 $message = "";
 

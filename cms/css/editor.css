@@ -769,11 +769,16 @@ main section:hover:not(:has(*:hover)) {
     cursor: pointer;
 }
 
-main section div.mp3box .right .player{
+main section .player audio{
 	pointer-events: none;
 	user-select:none;
 }
 
+/*main section div.mp3box .right .player{
+	pointer-events: none;
+	user-select:none;
+}
+*/
 main section.active:has(.active) {
     outline: none;
 }
@@ -1113,6 +1118,7 @@ main section div.map iframe{
     z-index: 2501;
 }
 
+#audioeditor.player,
 .objectbox.active{
     transform: scale(1.0);
     opacity: 1;
